@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* WowLifeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* WowLifeAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
+		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
+		F314A9941277336E00E6C4BA /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F314A9921277336E00E6C4BA /* AccountViewController.xib */; };
+		F314A9B21277344500E6C4BA /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F314A9B01277344500E6C4BA /* SettingViewController.m */; };
+		F314A9B31277344500E6C4BA /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F314A9B11277344500E6C4BA /* SettingViewController.xib */; };
+		F314A9B71277345400E6C4BA /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F314A9B51277345400E6C4BA /* ScheduleViewController.m */; };
+		F314A9B81277345400E6C4BA /* ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F314A9B61277345400E6C4BA /* ScheduleViewController.xib */; };
+		F314A9BC1277345F00E6C4BA /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F314A9BA1277345F00E6C4BA /* HistoryViewController.m */; };
+		F314A9BD1277345F00E6C4BA /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F314A9BB1277345F00E6C4BA /* HistoryViewController.xib */; };
+		F314A9D712774AC200E6C4BA /* AccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F314A9D512774AC200E6C4BA /* AccountTableViewController.m */; };
+		F314AA1E12774FCA00E6C4BA /* AddAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F314AA1C12774FCA00E6C4BA /* AddAccountViewController.m */; };
+		F314AA1F12774FCA00E6C4BA /* AddAccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F314AA1D12774FCA00E6C4BA /* AddAccountView.xib */; };
+		F314AA3F1277542900E6C4BA /* AccountDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F314AA3D1277542900E6C4BA /* AccountDetailViewController.m */; };
+		F314AA401277542900E6C4BA /* AccountDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F314AA3E1277542900E6C4BA /* AccountDetailView.xib */; };
+		F37CCE6612A56838005495E5 /* ClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F37CCE6512A56838005495E5 /* ClassCell.m */; };
+		F37CCE6812A56857005495E5 /* ClassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE6712A56857005495E5 /* ClassCell.xib */; };
+		F37CCE9B12A56A86005495E5 /* race_bloodelf_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE7812A56A86005495E5 /* race_bloodelf_female.jpg */; };
+		F37CCE9C12A56A86005495E5 /* race_bloodelf_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE7912A56A86005495E5 /* race_bloodelf_male.jpg */; };
+		F37CCE9D12A56A86005495E5 /* race_draenei_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE7A12A56A86005495E5 /* race_draenei_female.jpg */; };
+		F37CCE9E12A56A86005495E5 /* race_draenei_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE7B12A56A86005495E5 /* race_draenei_male.jpg */; };
+		F37CCE9F12A56A86005495E5 /* race_dwarf_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE7C12A56A86005495E5 /* race_dwarf_female.jpg */; };
+		F37CCEA012A56A86005495E5 /* race_dwarf_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE7D12A56A86005495E5 /* race_dwarf_male.jpg */; };
+		F37CCEA112A56A86005495E5 /* race_gnome_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE7E12A56A86005495E5 /* race_gnome_female.jpg */; };
+		F37CCEA212A56A86005495E5 /* race_gnome_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE7F12A56A86005495E5 /* race_gnome_male.jpg */; };
+		F37CCEA312A56A86005495E5 /* race_goblin_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8012A56A86005495E5 /* race_goblin_female.jpg */; };
+		F37CCEA412A56A86005495E5 /* race_goblin_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8112A56A86005495E5 /* race_goblin_male.jpg */; };
+		F37CCEA512A56A86005495E5 /* race_human_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8212A56A86005495E5 /* race_human_female.jpg */; };
+		F37CCEA612A56A86005495E5 /* race_human_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8312A56A86005495E5 /* race_human_male.jpg */; };
+		F37CCEA712A56A86005495E5 /* race_nightelf_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8412A56A86005495E5 /* race_nightelf_female.jpg */; };
+		F37CCEA812A56A86005495E5 /* race_nightelf_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8512A56A86005495E5 /* race_nightelf_male.jpg */; };
+		F37CCEA912A56A86005495E5 /* race_orc_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8612A56A86005495E5 /* race_orc_female.jpg */; };
+		F37CCEAA12A56A86005495E5 /* race_orc_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8712A56A86005495E5 /* race_orc_male.jpg */; };
+		F37CCEAB12A56A86005495E5 /* race_scourge_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8812A56A86005495E5 /* race_scourge_female.jpg */; };
+		F37CCEAC12A56A86005495E5 /* race_scourge_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8912A56A86005495E5 /* race_scourge_male.jpg */; };
+		F37CCEAD12A56A86005495E5 /* race_tauren_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8A12A56A86005495E5 /* race_tauren_female.jpg */; };
+		F37CCEAE12A56A86005495E5 /* race_tauren_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8B12A56A86005495E5 /* race_tauren_male.jpg */; };
+		F37CCEAF12A56A86005495E5 /* race_troll_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8C12A56A86005495E5 /* race_troll_female.jpg */; };
+		F37CCEB012A56A86005495E5 /* race_troll_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8D12A56A86005495E5 /* race_troll_male.jpg */; };
+		F37CCEB112A56A86005495E5 /* race_worgen_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8E12A56A86005495E5 /* race_worgen_female.jpg */; };
+		F37CCEB212A56A86005495E5 /* race_worgen_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8F12A56A86005495E5 /* race_worgen_male.jpg */; };
+		F37CCEB312A56A86005495E5 /* wow_url.txt in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE9012A56A86005495E5 /* wow_url.txt */; };
+		F37CCF5212A5789A005495E5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37CCF5112A5789A005495E5 /* CoreData.framework */; };
+		F37CCF5612A578E7005495E5 /* Wowlife.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = F37CCF5512A578E7005495E5 /* Wowlife.xcdatamodel */; };
+		F3C359211297E12D00774E71 /* computers.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3C359201297E12D00774E71 /* computers.plist */; };
+		F3EC66001297D47000E51AB9 /* AccountTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3EC65FF1297D47000E51AB9 /* AccountTableView.xib */; };
+		F3EC663C1297D9A000E51AB9 /* class-deathknight.png in Resources */ = {isa = PBXBuildFile; fileRef = F3EC66321297D9A000E51AB9 /* class-deathknight.png */; };
+		F3EC663D1297D9A000E51AB9 /* class-druid.png in Resources */ = {isa = PBXBuildFile; fileRef = F3EC66331297D9A000E51AB9 /* class-druid.png */; };
+		F3EC663E1297D9A000E51AB9 /* class-hunter.png in Resources */ = {isa = PBXBuildFile; fileRef = F3EC66341297D9A000E51AB9 /* class-hunter.png */; };
+		F3EC663F1297D9A000E51AB9 /* class-mage.png in Resources */ = {isa = PBXBuildFile; fileRef = F3EC66351297D9A000E51AB9 /* class-mage.png */; };
+		F3EC66401297D9A000E51AB9 /* class-paladin.png in Resources */ = {isa = PBXBuildFile; fileRef = F3EC66361297D9A000E51AB9 /* class-paladin.png */; };
+		F3EC66411297D9A000E51AB9 /* class-priest.png in Resources */ = {isa = PBXBuildFile; fileRef = F3EC66371297D9A000E51AB9 /* class-priest.png */; };
+		F3EC66421297D9A000E51AB9 /* class-rogue.png in Resources */ = {isa = PBXBuildFile; fileRef = F3EC66381297D9A000E51AB9 /* class-rogue.png */; };
+		F3EC66431297D9A000E51AB9 /* class-shaman.png in Resources */ = {isa = PBXBuildFile; fileRef = F3EC66391297D9A000E51AB9 /* class-shaman.png */; };
+		F3EC66441297D9A000E51AB9 /* class-warlock.png in Resources */ = {isa = PBXBuildFile; fileRef = F3EC663A1297D9A000E51AB9 /* class-warlock.png */; };
+		F3EC66451297D9A000E51AB9 /* class-warrior.png in Resources */ = {isa = PBXBuildFile; fileRef = F3EC663B1297D9A000E51AB9 /* class-warrior.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* WowLifeAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WowLifeAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* WowLifeAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WowLifeAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* WowLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WowLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		288765070DF74369002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28A0AB4B0D9B1048005BE974 /* WowLife_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WowLife_Prefix.pch; sourceTree = "<group>"; };
+		28AD73870D9D96C1002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* WowLife-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WowLife-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		F314A9921277336E00E6C4BA /* AccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
+		F314A9AF1277344500E6C4BA /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		F314A9B01277344500E6C4BA /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		F314A9B11277344500E6C4BA /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingViewController.xib; path = Classes/SettingViewController.xib; sourceTree = "<group>"; };
+		F314A9B41277345400E6C4BA /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScheduleViewController.h; path = ../ScheduleViewController.h; sourceTree = "<group>"; };
+		F314A9B51277345400E6C4BA /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleViewController.m; path = ../ScheduleViewController.m; sourceTree = "<group>"; };
+		F314A9B61277345400E6C4BA /* ScheduleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleViewController.xib; sourceTree = "<group>"; };
+		F314A9B91277345F00E6C4BA /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		F314A9BA1277345F00E6C4BA /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		F314A9BB1277345F00E6C4BA /* HistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HistoryViewController.xib; path = Classes/HistoryViewController.xib; sourceTree = "<group>"; };
+		F314A9D412774AC200E6C4BA /* AccountTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTableViewController.h; sourceTree = "<group>"; };
+		F314A9D512774AC200E6C4BA /* AccountTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTableViewController.m; sourceTree = "<group>"; };
+		F314AA1B12774FCA00E6C4BA /* AddAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAccountViewController.h; sourceTree = "<group>"; };
+		F314AA1C12774FCA00E6C4BA /* AddAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAccountViewController.m; sourceTree = "<group>"; };
+		F314AA1D12774FCA00E6C4BA /* AddAccountView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AddAccountView.xib; path = Classes/AddAccountView.xib; sourceTree = "<group>"; };
+		F314AA3C1277542900E6C4BA /* AccountDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDetailViewController.h; sourceTree = "<group>"; };
+		F314AA3D1277542900E6C4BA /* AccountDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDetailViewController.m; sourceTree = "<group>"; };
+		F314AA3E1277542900E6C4BA /* AccountDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AccountDetailView.xib; path = Classes/AccountDetailView.xib; sourceTree = "<group>"; };
+		F37CCE6412A56838005495E5 /* ClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassCell.h; sourceTree = "<group>"; };
+		F37CCE6512A56838005495E5 /* ClassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassCell.m; sourceTree = "<group>"; };
+		F37CCE6712A56857005495E5 /* ClassCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassCell.xib; sourceTree = "<group>"; };
+		F37CCE7812A56A86005495E5 /* race_bloodelf_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_bloodelf_female.jpg; sourceTree = "<group>"; };
+		F37CCE7912A56A86005495E5 /* race_bloodelf_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_bloodelf_male.jpg; sourceTree = "<group>"; };
+		F37CCE7A12A56A86005495E5 /* race_draenei_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_draenei_female.jpg; sourceTree = "<group>"; };
+		F37CCE7B12A56A86005495E5 /* race_draenei_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_draenei_male.jpg; sourceTree = "<group>"; };
+		F37CCE7C12A56A86005495E5 /* race_dwarf_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_dwarf_female.jpg; sourceTree = "<group>"; };
+		F37CCE7D12A56A86005495E5 /* race_dwarf_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_dwarf_male.jpg; sourceTree = "<group>"; };
+		F37CCE7E12A56A86005495E5 /* race_gnome_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_gnome_female.jpg; sourceTree = "<group>"; };
+		F37CCE7F12A56A86005495E5 /* race_gnome_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_gnome_male.jpg; sourceTree = "<group>"; };
+		F37CCE8012A56A86005495E5 /* race_goblin_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_goblin_female.jpg; sourceTree = "<group>"; };
+		F37CCE8112A56A86005495E5 /* race_goblin_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_goblin_male.jpg; sourceTree = "<group>"; };
+		F37CCE8212A56A86005495E5 /* race_human_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_human_female.jpg; sourceTree = "<group>"; };
+		F37CCE8312A56A86005495E5 /* race_human_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_human_male.jpg; sourceTree = "<group>"; };
+		F37CCE8412A56A86005495E5 /* race_nightelf_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_nightelf_female.jpg; sourceTree = "<group>"; };
+		F37CCE8512A56A86005495E5 /* race_nightelf_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_nightelf_male.jpg; sourceTree = "<group>"; };
+		F37CCE8612A56A86005495E5 /* race_orc_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_orc_female.jpg; sourceTree = "<group>"; };
+		F37CCE8712A56A86005495E5 /* race_orc_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_orc_male.jpg; sourceTree = "<group>"; };
+		F37CCE8812A56A86005495E5 /* race_scourge_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_scourge_female.jpg; sourceTree = "<group>"; };
+		F37CCE8912A56A86005495E5 /* race_scourge_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_scourge_male.jpg; sourceTree = "<group>"; };
+		F37CCE8A12A56A86005495E5 /* race_tauren_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_tauren_female.jpg; sourceTree = "<group>"; };
+		F37CCE8B12A56A86005495E5 /* race_tauren_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_tauren_male.jpg; sourceTree = "<group>"; };
+		F37CCE8C12A56A86005495E5 /* race_troll_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_troll_female.jpg; sourceTree = "<group>"; };
+		F37CCE8D12A56A86005495E5 /* race_troll_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_troll_male.jpg; sourceTree = "<group>"; };
+		F37CCE8E12A56A86005495E5 /* race_worgen_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_worgen_female.jpg; sourceTree = "<group>"; };
+		F37CCE8F12A56A86005495E5 /* race_worgen_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_worgen_male.jpg; sourceTree = "<group>"; };
+		F37CCE9012A56A86005495E5 /* wow_url.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wow_url.txt; sourceTree = "<group>"; };
+		F37CCF5112A5789A005495E5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F37CCF5512A578E7005495E5 /* Wowlife.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Wowlife.xcdatamodel; sourceTree = "<group>"; };
+		F3C359201297E12D00774E71 /* computers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = computers.plist; sourceTree = "<group>"; };
+		F3EC65FF1297D47000E51AB9 /* AccountTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountTableView.xib; sourceTree = "<group>"; };
+		F3EC66321297D9A000E51AB9 /* class-deathknight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-deathknight.png"; sourceTree = "<group>"; };
+		F3EC66331297D9A000E51AB9 /* class-druid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-druid.png"; sourceTree = "<group>"; };
+		F3EC66341297D9A000E51AB9 /* class-hunter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-hunter.png"; sourceTree = "<group>"; };
+		F3EC66351297D9A000E51AB9 /* class-mage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-mage.png"; sourceTree = "<group>"; };
+		F3EC66361297D9A000E51AB9 /* class-paladin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-paladin.png"; sourceTree = "<group>"; };
+		F3EC66371297D9A000E51AB9 /* class-priest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-priest.png"; sourceTree = "<group>"; };
+		F3EC66381297D9A000E51AB9 /* class-rogue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-rogue.png"; sourceTree = "<group>"; };
+		F3EC66391297D9A000E51AB9 /* class-shaman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-shaman.png"; sourceTree = "<group>"; };
+		F3EC663A1297D9A000E51AB9 /* class-warlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-warlock.png"; sourceTree = "<group>"; };
+		F3EC663B1297D9A000E51AB9 /* class-warrior.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-warrior.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */,
+				F37CCF5212A5789A005495E5 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F37CCE6312A56632005495E5 /* Custom */,
+				F314A9D312774AA100E6C4BA /* Account */,
+				F314A9C41277495D00E6C4BA /* System */,
+				F314A9B41277345400E6C4BA /* ScheduleViewController.h */,
+				F314A9B51277345400E6C4BA /* ScheduleViewController.m */,
+				F314A9AF1277344500E6C4BA /* SettingViewController.h */,
+				F314A9B01277344500E6C4BA /* SettingViewController.m */,
+				F314A9B91277345F00E6C4BA /* HistoryViewController.h */,
+				F314A9BA1277345F00E6C4BA /* HistoryViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* WowLife.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* WowLife */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = WowLife;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				28A0AB4B0D9B1048005BE974 /* WowLife_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F37CCE7612A56A86005495E5 /* race */,
+				F3C359201297E12D00774E71 /* computers.plist */,
+				F3EC66461297D9A300E51AB9 /* ClassIcon */,
+				F3EC65FF1297D47000E51AB9 /* AccountTableView.xib */,
+				F314AA3E1277542900E6C4BA /* AccountDetailView.xib */,
+				F314AA1D12774FCA00E6C4BA /* AddAccountView.xib */,
+				F314A9BB1277345F00E6C4BA /* HistoryViewController.xib */,
+				F314A9B61277345400E6C4BA /* ScheduleViewController.xib */,
+				F314A9B11277344500E6C4BA /* SettingViewController.xib */,
+				F314A9921277336E00E6C4BA /* AccountViewController.xib */,
+				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
+				8D1107310486CEB800E47090 /* WowLife-Info.plist */,
+				F37CCF5512A578E7005495E5 /* Wowlife.xcdatamodel */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765070DF74369002DB57D /* CoreGraphics.framework */,
+				F37CCF5112A5789A005495E5 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F314A9C41277495D00E6C4BA /* System */ = {
+			isa = PBXGroup;
+			children = (
+				1D3623240D0F684500981E51 /* WowLifeAppDelegate.h */,
+				1D3623250D0F684500981E51 /* WowLifeAppDelegate.m */,
+			);
+			name = System;
+			sourceTree = "<group>";
+		};
+		F314A9D312774AA100E6C4BA /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				F314A9D412774AC200E6C4BA /* AccountTableViewController.h */,
+				F314A9D512774AC200E6C4BA /* AccountTableViewController.m */,
+				F314AA1B12774FCA00E6C4BA /* AddAccountViewController.h */,
+				F314AA1C12774FCA00E6C4BA /* AddAccountViewController.m */,
+				F314AA3C1277542900E6C4BA /* AccountDetailViewController.h */,
+				F314AA3D1277542900E6C4BA /* AccountDetailViewController.m */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
+		F37CCE6312A56632005495E5 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				F37CCE6412A56838005495E5 /* ClassCell.h */,
+				F37CCE6512A56838005495E5 /* ClassCell.m */,
+				F37CCE6712A56857005495E5 /* ClassCell.xib */,
+			);
+			name = Custom;
+			sourceTree = "<group>";
+		};
+		F37CCE7612A56A86005495E5 /* race */ = {
+			isa = PBXGroup;
+			children = (
+				F37CCE7712A56A86005495E5 /* 56x56 */,
+			);
+			path = race;
+			sourceTree = "<group>";
+		};
+		F37CCE7712A56A86005495E5 /* 56x56 */ = {
+			isa = PBXGroup;
+			children = (
+				F37CCE7812A56A86005495E5 /* race_bloodelf_female.jpg */,
+				F37CCE7912A56A86005495E5 /* race_bloodelf_male.jpg */,
+				F37CCE7A12A56A86005495E5 /* race_draenei_female.jpg */,
+				F37CCE7B12A56A86005495E5 /* race_draenei_male.jpg */,
+				F37CCE7C12A56A86005495E5 /* race_dwarf_female.jpg */,
+				F37CCE7D12A56A86005495E5 /* race_dwarf_male.jpg */,
+				F37CCE7E12A56A86005495E5 /* race_gnome_female.jpg */,
+				F37CCE7F12A56A86005495E5 /* race_gnome_male.jpg */,
+				F37CCE8012A56A86005495E5 /* race_goblin_female.jpg */,
+				F37CCE8112A56A86005495E5 /* race_goblin_male.jpg */,
+				F37CCE8212A56A86005495E5 /* race_human_female.jpg */,
+				F37CCE8312A56A86005495E5 /* race_human_male.jpg */,
+				F37CCE8412A56A86005495E5 /* race_nightelf_female.jpg */,
+				F37CCE8512A56A86005495E5 /* race_nightelf_male.jpg */,
+				F37CCE8612A56A86005495E5 /* race_orc_female.jpg */,
+				F37CCE8712A56A86005495E5 /* race_orc_male.jpg */,
+				F37CCE8812A56A86005495E5 /* race_scourge_female.jpg */,
+				F37CCE8912A56A86005495E5 /* race_scourge_male.jpg */,
+				F37CCE8A12A56A86005495E5 /* race_tauren_female.jpg */,
+				F37CCE8B12A56A86005495E5 /* race_tauren_male.jpg */,
+				F37CCE8C12A56A86005495E5 /* race_troll_female.jpg */,
+				F37CCE8D12A56A86005495E5 /* race_troll_male.jpg */,
+				F37CCE8E12A56A86005495E5 /* race_worgen_female.jpg */,
+				F37CCE8F12A56A86005495E5 /* race_worgen_male.jpg */,
+				F37CCE9012A56A86005495E5 /* wow_url.txt */,
+			);
+			path = 56x56;
+			sourceTree = "<group>";
+		};
+		F3EC66461297D9A300E51AB9 /* ClassIcon */ = {
+			isa = PBXGroup;
+			children = (
+				F3EC66321297D9A000E51AB9 /* class-deathknight.png */,
+				F3EC66331297D9A000E51AB9 /* class-druid.png */,
+				F3EC66341297D9A000E51AB9 /* class-hunter.png */,
+				F3EC66351297D9A000E51AB9 /* class-mage.png */,
+				F3EC66361297D9A000E51AB9 /* class-paladin.png */,
+				F3EC66371297D9A000E51AB9 /* class-priest.png */,
+				F3EC66381297D9A000E51AB9 /* class-rogue.png */,
+				F3EC66391297D9A000E51AB9 /* class-shaman.png */,
+				F3EC663A1297D9A000E51AB9 /* class-warlock.png */,
+				F3EC663B1297D9A000E51AB9 /* class-warrior.png */,
+			);
+			name = ClassIcon;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* WowLife */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "WowLife" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WowLife;
+			productName = WowLife;
+			productReference = 1D6058910D05DD3D006BFB54 /* WowLife.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "WowLife" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* WowLife */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* WowLife */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */,
+				F314A9941277336E00E6C4BA /* AccountViewController.xib in Resources */,
+				F314A9B31277344500E6C4BA /* SettingViewController.xib in Resources */,
+				F314A9B81277345400E6C4BA /* ScheduleViewController.xib in Resources */,
+				F314A9BD1277345F00E6C4BA /* HistoryViewController.xib in Resources */,
+				F314AA1F12774FCA00E6C4BA /* AddAccountView.xib in Resources */,
+				F314AA401277542900E6C4BA /* AccountDetailView.xib in Resources */,
+				F3EC66001297D47000E51AB9 /* AccountTableView.xib in Resources */,
+				F3EC663C1297D9A000E51AB9 /* class-deathknight.png in Resources */,
+				F3EC663D1297D9A000E51AB9 /* class-druid.png in Resources */,
+				F3EC663E1297D9A000E51AB9 /* class-hunter.png in Resources */,
+				F3EC663F1297D9A000E51AB9 /* class-mage.png in Resources */,
+				F3EC66401297D9A000E51AB9 /* class-paladin.png in Resources */,
+				F3EC66411297D9A000E51AB9 /* class-priest.png in Resources */,
+				F3EC66421297D9A000E51AB9 /* class-rogue.png in Resources */,
+				F3EC66431297D9A000E51AB9 /* class-shaman.png in Resources */,
+				F3EC66441297D9A000E51AB9 /* class-warlock.png in Resources */,
+				F3EC66451297D9A000E51AB9 /* class-warrior.png in Resources */,
+				F3C359211297E12D00774E71 /* computers.plist in Resources */,
+				F37CCE6812A56857005495E5 /* ClassCell.xib in Resources */,
+				F37CCE9B12A56A86005495E5 /* race_bloodelf_female.jpg in Resources */,
+				F37CCE9C12A56A86005495E5 /* race_bloodelf_male.jpg in Resources */,
+				F37CCE9D12A56A86005495E5 /* race_draenei_female.jpg in Resources */,
+				F37CCE9E12A56A86005495E5 /* race_draenei_male.jpg in Resources */,
+				F37CCE9F12A56A86005495E5 /* race_dwarf_female.jpg in Resources */,
+				F37CCEA012A56A86005495E5 /* race_dwarf_male.jpg in Resources */,
+				F37CCEA112A56A86005495E5 /* race_gnome_female.jpg in Resources */,
+				F37CCEA212A56A86005495E5 /* race_gnome_male.jpg in Resources */,
+				F37CCEA312A56A86005495E5 /* race_goblin_female.jpg in Resources */,
+				F37CCEA412A56A86005495E5 /* race_goblin_male.jpg in Resources */,
+				F37CCEA512A56A86005495E5 /* race_human_female.jpg in Resources */,
+				F37CCEA612A56A86005495E5 /* race_human_male.jpg in Resources */,
+				F37CCEA712A56A86005495E5 /* race_nightelf_female.jpg in Resources */,
+				F37CCEA812A56A86005495E5 /* race_nightelf_male.jpg in Resources */,
+				F37CCEA912A56A86005495E5 /* race_orc_female.jpg in Resources */,
+				F37CCEAA12A56A86005495E5 /* race_orc_male.jpg in Resources */,
+				F37CCEAB12A56A86005495E5 /* race_scourge_female.jpg in Resources */,
+				F37CCEAC12A56A86005495E5 /* race_scourge_male.jpg in Resources */,
+				F37CCEAD12A56A86005495E5 /* race_tauren_female.jpg in Resources */,
+				F37CCEAE12A56A86005495E5 /* race_tauren_male.jpg in Resources */,
+				F37CCEAF12A56A86005495E5 /* race_troll_female.jpg in Resources */,
+				F37CCEB012A56A86005495E5 /* race_troll_male.jpg in Resources */,
+				F37CCEB112A56A86005495E5 /* race_worgen_female.jpg in Resources */,
+				F37CCEB212A56A86005495E5 /* race_worgen_male.jpg in Resources */,
+				F37CCEB312A56A86005495E5 /* wow_url.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* WowLifeAppDelegate.m in Sources */,
+				F314A9B21277344500E6C4BA /* SettingViewController.m in Sources */,
+				F314A9B71277345400E6C4BA /* ScheduleViewController.m in Sources */,
+				F314A9BC1277345F00E6C4BA /* HistoryViewController.m in Sources */,
+				F314A9D712774AC200E6C4BA /* AccountTableViewController.m in Sources */,
+				F314AA1E12774FCA00E6C4BA /* AddAccountViewController.m in Sources */,
+				F314AA3F1277542900E6C4BA /* AccountDetailViewController.m in Sources */,
+				F37CCE6612A56838005495E5 /* ClassCell.m in Sources */,
+				F37CCF5612A578E7005495E5 /* Wowlife.xcdatamodel in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WowLife_Prefix.pch;
+				INFOPLIST_FILE = "WowLife-Info.plist";
+				PRODUCT_NAME = WowLife;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WowLife_Prefix.pch;
+				INFOPLIST_FILE = "WowLife-Info.plist";
+				PRODUCT_NAME = WowLife;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos4.1;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				SDKROOT = iphoneos4.1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "WowLife" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "WowLife" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

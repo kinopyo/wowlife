@@ -1,0 +1,800 @@
+// !$*UTF8*$!
+{
+	1D3623240D0F684500981E51 /* WowLifeAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1080, 557}}";
+			sepNavSelRange = "{141, 0}";
+			sepNavVisRange = "{0, 1097}";
+		};
+	};
+	1D3623250D0F684500981E51 /* WowLifeAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {2371, 2158}}";
+			sepNavSelRange = "{2964, 0}";
+			sepNavVisRange = "{741, 2218}";
+			sepNavWindowFrame = "{{15, 56}, {883, 817}}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* WowLife */ = {
+		activeExec = 0;
+		executables = (
+			F314A9811277303800E6C4BA /* WowLife */,
+		);
+	};
+	28A0AB4B0D9B1048005BE974 /* WowLife_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1080, 567}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 214}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = F314A9811277303800E6C4BA /* WowLife */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* WowLife */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* WowLife */,
+		);
+		breakpoints = (
+			F3EC66861297DE3A00E51AB9 /* AccountTableViewController.m:179 */,
+			F3EC668E1297DE8900E51AB9 /* AccountTableViewController.m:180 */,
+		);
+		codeSenseManager = F314A98C1277305700E6C4BA /* Code sense */;
+		executables = (
+			F314A9811277303800E6C4BA /* WowLife */,
+		);
+		expressions = (
+			self.tabBarController,
+			self,
+		);
+		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					198,
+					20,
+					99,
+					99,
+					29,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_IgnoreCountID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					902,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 312999096;
+			PBXWorkspaceStateSaveDate = 312999096;
+		};
+		perUserProjectItems = {
+			F314A9C61277498A00E6C4BA = F314A9C61277498A00E6C4BA /* PBXTextBookmark */;
+			F314A9C71277498A00E6C4BA = F314A9C71277498A00E6C4BA /* PBXTextBookmark */;
+			F314AA411277544300E6C4BA = F314AA411277544300E6C4BA /* PBXTextBookmark */;
+			F334A83D12A7FCA50034D449 = F334A83D12A7FCA50034D449 /* PBXTextBookmark */;
+			F334A83E12A7FCA50034D449 = F334A83E12A7FCA50034D449 /* XDModelBookmark */;
+			F37CCEFD12A56E1C005495E5 = F37CCEFD12A56E1C005495E5 /* PBXTextBookmark */;
+			F37CCEFE12A56E1C005495E5 = F37CCEFE12A56E1C005495E5 /* PBXTextBookmark */;
+			F37CCF1A12A5707A005495E5 = F37CCF1A12A5707A005495E5 /* PBXTextBookmark */;
+			F37CCF3B12A57267005495E5 = F37CCF3B12A57267005495E5 /* PBXTextBookmark */;
+			F37CCF4012A57287005495E5 = F37CCF4012A57287005495E5 /* PBXTextBookmark */;
+			F37CCF5E12A57A75005495E5 = F37CCF5E12A57A75005495E5 /* PBXBookmark */;
+			F37CCF5F12A57A75005495E5 = F37CCF5F12A57A75005495E5 /* XDModelBookmark */;
+			F37CCF6012A57A75005495E5 = F37CCF6012A57A75005495E5 /* PBXTextBookmark */;
+			F37CCF6112A57A75005495E5 = F37CCF6112A57A75005495E5 /* PBXTextBookmark */;
+			F37CCF6212A57A75005495E5 = F37CCF6212A57A75005495E5 /* PBXTextBookmark */;
+			F37CCF6312A57A75005495E5 = F37CCF6312A57A75005495E5 /* PBXTextBookmark */;
+			F37CCF7912A7FB0E005495E5 = F37CCF7912A7FB0E005495E5 /* PBXTextBookmark */;
+			F37CCF7B12A7FB0E005495E5 = F37CCF7B12A7FB0E005495E5 /* XDModelBookmark */;
+			F3EA83D312A807210099329F /* PBXTextBookmark */ = F3EA83D312A807210099329F /* PBXTextBookmark */;
+			F3EA83D412A807210099329F /* PBXTextBookmark */ = F3EA83D412A807210099329F /* PBXTextBookmark */;
+			F3EA83D512A807210099329F /* PBXTextBookmark */ = F3EA83D512A807210099329F /* PBXTextBookmark */;
+			F3EA83D612A807210099329F /* PBXTextBookmark */ = F3EA83D612A807210099329F /* PBXTextBookmark */;
+			F3EA83D712A807210099329F /* PBXTextBookmark */ = F3EA83D712A807210099329F /* PBXTextBookmark */;
+			F3EA83D812A807210099329F /* PBXTextBookmark */ = F3EA83D812A807210099329F /* PBXTextBookmark */;
+			F3EA83D912A807210099329F /* PBXTextBookmark */ = F3EA83D912A807210099329F /* PBXTextBookmark */;
+			F3EA83EA12A807770099329F /* PBXTextBookmark */ = F3EA83EA12A807770099329F /* PBXTextBookmark */;
+			F3EA83ED12A808180099329F /* PBXTextBookmark */ = F3EA83ED12A808180099329F /* PBXTextBookmark */;
+			F3EC658C1297C79300E51AB9 = F3EC658C1297C79300E51AB9 /* PBXTextBookmark */;
+			F3EC66101297D5AA00E51AB9 = F3EC66101297D5AA00E51AB9 /* PBXTextBookmark */;
+			F3EC66491297D9BE00E51AB9 = F3EC66491297D9BE00E51AB9 /* PBXBookmark */;
+			F3F7D79712A0D53B0095C492 = F3F7D79712A0D53B0095C492 /* PBXTextBookmark */;
+			F3F7D7C312A0D62E0095C492 = F3F7D7C312A0D62E0095C492 /* PBXTextBookmark */;
+		};
+		sourceControlManager = F314A98B1277305700E6C4BA /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1015, 295}}";
+			sepNavSelRange = "{253, 0}";
+			sepNavVisRange = "{0, 353}";
+		};
+	};
+	F314A9811277303800E6C4BA /* WowLife */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = WowLife;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+			$cs = 1;
+			$ds = 1;
+			$eax = 1;
+			$ebp = 1;
+			$ebx = 1;
+			$ecx = 1;
+			$edi = 1;
+			$edx = 1;
+			$eflags = 1;
+			$eip = 1;
+			$es = 1;
+			$esi = 1;
+			$esp = 1;
+			$fs = 1;
+			$gs = 1;
+			$mxcsr = 1;
+			$ss = 1;
+		};
+	};
+	F314A98B1277305700E6C4BA /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	F314A98C1277305700E6C4BA /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	F314A9AF1277344500E6C4BA /* SettingViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1080, 567}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 234}";
+		};
+	};
+	F314A9B01277344500E6C4BA /* SettingViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1146, 767}}";
+			sepNavSelRange = "{81, 0}";
+			sepNavVisRange = "{0, 1255}";
+		};
+	};
+	F314A9B41277345400E6C4BA /* ScheduleViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 560}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 236}";
+		};
+	};
+	F314A9B91277345F00E6C4BA /* HistoryViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1114, 560}}";
+			sepNavSelRange = "{81, 0}";
+			sepNavVisRange = "{0, 234}";
+		};
+	};
+	F314A9C61277498A00E6C4BA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F314A9B41277345400E6C4BA /* ScheduleViewController.h */;
+		name = "ScheduleViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 236;
+		vrLoc = 0;
+	};
+	F314A9C71277498A00E6C4BA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F314A9B91277345F00E6C4BA /* HistoryViewController.h */;
+		name = "HistoryViewController.h: 5";
+		rLen = 0;
+		rLoc = 81;
+		rType = 0;
+		vrLen = 234;
+		vrLoc = 0;
+	};
+	F314A9D412774AC200E6C4BA /* AccountTableViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1160, 741}}";
+			sepNavSelRange = "{406, 0}";
+			sepNavVisRange = "{0, 1161}";
+		};
+	};
+	F314A9D512774AC200E6C4BA /* AccountTableViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1080, 4615}}";
+			sepNavSelRange = "{389, 0}";
+			sepNavVisRange = "{146, 1995}";
+			sepNavWindowFrame = "{{38, 35}, {883, 817}}";
+		};
+	};
+	F314AA1B12774FCA00E6C4BA /* AddAccountViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1080, 550}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 240}";
+		};
+	};
+	F314AA1C12774FCA00E6C4BA /* AddAccountViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1146, 702}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1262}";
+		};
+	};
+	F314AA3C1277542900E6C4BA /* AccountDetailViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1080, 557}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 246}";
+		};
+	};
+	F314AA3D1277542900E6C4BA /* AccountDetailViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1146, 767}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{193, 1266}";
+		};
+	};
+	F314AA411277544300E6C4BA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F314A9B01277344500E6C4BA /* SettingViewController.m */;
+		name = "SettingViewController.m: 5";
+		rLen = 0;
+		rLoc = 81;
+		rType = 0;
+		vrLen = 1255;
+		vrLoc = 0;
+	};
+	F334A83D12A7FCA50034D449 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F314A9D512774AC200E6C4BA /* AccountTableViewController.m */;
+		name = "AccountTableViewController.m: 110";
+		rLen = 0;
+		rLoc = 5605;
+		rType = 0;
+		vrLen = 1643;
+		vrLoc = 2782;
+	};
+	F334A83E12A7FCA50034D449 /* XDModelBookmark */ = {
+		isa = XDModelBookmark;
+		fRef = F37CCF5512A578E7005495E5 /* Wowlife.xcdatamodel */;
+		fallbackIsa = PBXBookmark;
+	};
+	F37CCE6412A56838005495E5 /* ClassCell.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1080, 567}}";
+			sepNavSelRange = "{627, 0}";
+			sepNavVisRange = "{0, 634}";
+		};
+	};
+	F37CCE6512A56838005495E5 /* ClassCell.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1080, 598}}";
+			sepNavSelRange = "{824, 0}";
+			sepNavVisRange = "{3, 852}";
+		};
+	};
+	F37CCEFD12A56E1C005495E5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F314AA3D1277542900E6C4BA /* AccountDetailViewController.m */;
+		name = "AccountDetailViewController.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1266;
+		vrLoc = 193;
+	};
+	F37CCEFE12A56E1C005495E5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F314AA1C12774FCA00E6C4BA /* AddAccountViewController.m */;
+		name = "AddAccountViewController.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1264;
+		vrLoc = 0;
+	};
+	F37CCF1A12A5707A005495E5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F314A9D412774AC200E6C4BA /* AccountTableViewController.h */;
+		name = "AccountTableViewController.h: 8";
+		rLen = 0;
+		rLoc = 149;
+		rType = 0;
+		vrLen = 823;
+		vrLoc = 0;
+	};
+	F37CCF3B12A57267005495E5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F37CCE6412A56838005495E5 /* ClassCell.h */;
+		name = "ClassCell.h: 24";
+		rLen = 0;
+		rLoc = 627;
+		rType = 0;
+		vrLen = 634;
+		vrLoc = 0;
+	};
+	F37CCF4012A57287005495E5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F37CCE6512A56838005495E5 /* ClassCell.m */;
+		name = "ClassCell.m: 40";
+		rLen = 0;
+		rLoc = 824;
+		rType = 0;
+		vrLen = 852;
+		vrLoc = 3;
+	};
+	F37CCF5512A578E7005495E5 /* Wowlife.xcdatamodel */ = {
+		uiCtxt = {
+			"Xdesign Model Editor Bookmark Key" = {
+				UIContextForDetailArea = {
+					_indexOfSelectedPane = 0;
+					_indexOfSelectedView = 1;
+				};
+				UIContextForEntityArea = {
+					_indexOfSelectedView = 0;
+					chosenTableColumnns = (
+						"ET Entity",
+						"ET Abstract",
+						"ET Class",
+					);
+					chosenTableColumnns_sortDirections = (
+						YES,
+					);
+					chosenTableColumnns_sortKeys = (
+						name,
+					);
+					chosenTableColumnns_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableWidths = (
+						103.000000,
+						45.000000,
+						108.080078,
+					);
+				};
+				UIContextForLayoutManager = {
+					detailSplitGeometry = {
+						_collapsingFrameDimension = 0;
+						_indexOfCollapsedView = 0;
+						_percentageOfCollapsedView = 0;
+						isCollapsed = yes;
+						sizes = (
+							"{{0, 0}, {785, 220}}",
+							"{{790, 0}, {413, 220}}",
+						);
+					};
+					diagramSplitGeometry = {
+						_collapsingFrameDimension = 0;
+						_indexOfCollapsedView = 0;
+						_percentageOfCollapsedView = 0;
+						isCollapsed = yes;
+						sizes = (
+							"{{0, 0}, {1203, 220}}",
+							"{{0, 225}, {1203, 531}}",
+						);
+					};
+					tableSplitGeometry = {
+						_collapsingFrameDimension = 0;
+						_indexOfCollapsedView = 0;
+						_percentageOfCollapsedView = 0;
+						isCollapsed = yes;
+						sizes = (
+							"{{0, 0}, {281, 220}}",
+							"{{286, 0}, {499, 220}}",
+						);
+					};
+				};
+				UIContextForPropertyArea = {
+					_indexOfSelectedView = 0;
+					chosenTableColumnnFRTs = (
+						"FT Fetch Request",
+						"FT Predicate",
+					);
+					chosenTableColumnnFRTs_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnFRTs_sortKeys = (
+						name,
+					);
+					chosenTableColumnnFRTs_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableColumnnsAT = (
+						"AT Attribute",
+						"AT Type",
+					);
+					chosenTableColumnnsAT_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnsAT_sortKeys = (
+						name,
+					);
+					chosenTableColumnnsAT_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableColumnnsFPT = (
+						"FP FetchedProperty",
+						"FP Destination",
+						"FP Predicate",
+					);
+					chosenTableColumnnsFPT_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnsFPT_sortKeys = (
+						name,
+					);
+					chosenTableColumnnsFPT_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableColumnnsPT = (
+						"PT Property",
+						"PT Kind",
+						"PT SharedKeyOne",
+					);
+					chosenTableColumnnsPT_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnsPT_sortKeys = (
+						name,
+					);
+					chosenTableColumnnsPT_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableColumnnsRT = (
+						"RT Relationship",
+						"RT Destination",
+					);
+					chosenTableColumnnsRT_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnsRT_sortKeys = (
+						name,
+					);
+					chosenTableColumnnsRT_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableWidthsAT = (
+						128.000000,
+						64.000000,
+					);
+					chosenTableWidthsFPT = (
+						128.000000,
+						64.000000,
+						144.764160,
+					);
+					chosenTableWidthsFRT = (
+						128.000000,
+						249.764160,
+					);
+					chosenTableWidthsPT = (
+						128.000000,
+						108.110840,
+						236.570801,
+					);
+					chosenTableWidthsRT = (
+						128.000000,
+						64.000000,
+					);
+				};
+				"xdesign model browser state key - shown/hidden" = 1;
+				"xdesign model diagram view visible rect key" = "{{-245, -51}, {1188, 516}}";
+			};
+			sepNavWindowFrame = "{{61, 9}, {1203, 869}}";
+		};
+	};
+	F37CCF5E12A57A75005495E5 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = F3EC66381297D9A000E51AB9 /* class-rogue.png */;
+	};
+	F37CCF5F12A57A75005495E5 /* XDModelBookmark */ = {
+		isa = XDModelBookmark;
+		fRef = F37CCF5512A578E7005495E5 /* Wowlife.xcdatamodel */;
+		fallbackIsa = PBXBookmark;
+	};
+	F37CCF6012A57A75005495E5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F314A9AF1277344500E6C4BA /* SettingViewController.h */;
+		name = "SettingViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 234;
+		vrLoc = 0;
+	};
+	F37CCF6112A57A75005495E5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28A0AB4B0D9B1048005BE974 /* WowLife_Prefix.pch */;
+		name = "WowLife_Prefix.pch: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 214;
+		vrLoc = 0;
+	};
+	F37CCF6212A57A75005495E5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* WowLifeAppDelegate.h */;
+		name = "WowLifeAppDelegate.h: 8";
+		rLen = 0;
+		rLoc = 141;
+		rType = 0;
+		vrLen = 1097;
+		vrLoc = 0;
+	};
+	F37CCF6312A57A75005495E5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* WowLifeAppDelegate.m */;
+		name = "WowLifeAppDelegate.m: 9";
+		rLen = 0;
+		rLoc = 172;
+		rType = 0;
+		vrLen = 1631;
+		vrLoc = 0;
+	};
+	F37CCF7912A7FB0E005495E5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F314A9D512774AC200E6C4BA /* AccountTableViewController.m */;
+		name = "AccountTableViewController.m: 110";
+		rLen = 0;
+		rLoc = 5605;
+		rType = 0;
+		vrLen = 1643;
+		vrLoc = 2782;
+	};
+	F37CCF7B12A7FB0E005495E5 /* XDModelBookmark */ = {
+		isa = XDModelBookmark;
+		fRef = F37CCF5512A578E7005495E5 /* Wowlife.xcdatamodel */;
+		fallbackIsa = PBXBookmark;
+	};
+	F3C359201297E12D00774E71 /* computers.plist */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{38, 35}, {883, 817}}";
+		};
+	};
+	F3C359381297E2EF00774E71 /* UITableViewCell.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = UITableViewCell.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableViewCell.h;
+		sourceTree = "<absolute>";
+	};
+	F3EA83D312A807210099329F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F314AA1C12774FCA00E6C4BA /* AddAccountViewController.m */;
+		name = "AddAccountViewController.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1262;
+		vrLoc = 0;
+	};
+	F3EA83D412A807210099329F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* WowLifeAppDelegate.h */;
+		name = "WowLifeAppDelegate.h: 8";
+		rLen = 0;
+		rLoc = 141;
+		rType = 0;
+		vrLen = 1097;
+		vrLoc = 0;
+	};
+	F3EA83D512A807210099329F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* WowLifeAppDelegate.m */;
+		name = "WowLifeAppDelegate.m: 77";
+		rLen = 0;
+		rLoc = 2964;
+		rType = 0;
+		vrLen = 2218;
+		vrLoc = 741;
+	};
+	F3EA83D612A807210099329F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F314AA3C1277542900E6C4BA /* AccountDetailViewController.h */;
+		name = "AccountDetailViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 246;
+		vrLoc = 0;
+	};
+	F3EA83D712A807210099329F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F314A9D412774AC200E6C4BA /* AccountTableViewController.h */;
+		name = "AccountTableViewController.h: 13";
+		rLen = 0;
+		rLoc = 406;
+		rType = 0;
+		vrLen = 1161;
+		vrLoc = 0;
+	};
+	F3EA83D812A807210099329F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F314A9D512774AC200E6C4BA /* AccountTableViewController.m */;
+		name = "AccountTableViewController.m: 67";
+		rLen = 0;
+		rLoc = 3258;
+		rType = 0;
+		vrLen = 1692;
+		vrLoc = 1022;
+	};
+	F3EA83D912A807210099329F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F314A9D512774AC200E6C4BA /* AccountTableViewController.m */;
+		name = "AccountTableViewController.m: 142";
+		rLen = 2;
+		rLoc = 5395;
+		rType = 0;
+		vrLen = 2036;
+		vrLoc = 3369;
+	};
+	F3EA83EA12A807770099329F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F314A9D512774AC200E6C4BA /* AccountTableViewController.m */;
+		name = "AccountTableViewController.m: 274";
+		rLen = 0;
+		rLoc = 10843;
+		rType = 0;
+		vrLen = 2698;
+		vrLoc = 8254;
+	};
+	F3EA83ED12A808180099329F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F314A9D512774AC200E6C4BA /* AccountTableViewController.m */;
+		name = "AccountTableViewController.m: 17";
+		rLen = 0;
+		rLoc = 389;
+		rType = 0;
+		vrLen = 1995;
+		vrLoc = 146;
+	};
+	F3EC658C1297C79300E51AB9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F314AA3C1277542900E6C4BA /* AccountDetailViewController.h */;
+		name = "AccountDetailViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 246;
+		vrLoc = 0;
+	};
+	F3EC66101297D5AA00E51AB9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F314AA1B12774FCA00E6C4BA /* AddAccountViewController.h */;
+		name = "AddAccountViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 240;
+		vrLoc = 0;
+	};
+	F3EC66491297D9BE00E51AB9 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = F3EC66321297D9A000E51AB9 /* class-deathknight.png */;
+	};
+	F3EC66861297DE3A00E51AB9 /* AccountTableViewController.m:179 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F314A9D512774AC200E6C4BA /* AccountTableViewController.m */;
+		functionName = "-tableView:commitEditingStyle:forRowAtIndexPath:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 179;
+		location = WowLife;
+		modificationTime = 313001848.111682;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	F3EC668E1297DE8900E51AB9 /* AccountTableViewController.m:180 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F314A9D512774AC200E6C4BA /* AccountTableViewController.m */;
+		functionName = "-tableView:commitEditingStyle:forRowAtIndexPath:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 180;
+		location = WowLife;
+		modificationTime = 313001848.111881;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	F3F7D79712A0D53B0095C492 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F3F7D79812A0D53B0095C492 /* UIBarButtonItem.h */;
+		name = "UIBarButtonItem.h: 15";
+		rLen = 34;
+		rLoc = 306;
+		rType = 0;
+		vrLen = 1355;
+		vrLoc = 0;
+	};
+	F3F7D79812A0D53B0095C492 /* UIBarButtonItem.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = UIBarButtonItem.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIBarButtonItem.h;
+		sourceTree = "<absolute>";
+	};
+	F3F7D7C312A0D62E0095C492 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F3C359381297E2EF00774E71 /* UITableViewCell.h */;
+		name = "UITableViewCell.h: 165";
+		rLen = 149;
+		rLoc = 8617;
+		rType = 0;
+		vrLen = 5247;
+		vrLoc = 7142;
+	};
+}

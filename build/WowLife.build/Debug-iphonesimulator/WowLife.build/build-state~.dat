@@ -1,0 +1,275 @@
+TWowLife
+v7
+r0
+t309801409.571979
+cCheck dependencies
+cProcessInfoPlistFile /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/Info.plist WowLife-Info.plist
+cCompileXIB /Users/zolo/Projects/iPhone/WowLife/MainWindow.xib
+cCompileXIB /Users/zolo/Projects/iPhone/WowLife/SecondView.xib
+cCompileXIB /Users/zolo/Projects/iPhone/WowLife/FirstView.xib
+cProcessPCH /var/folders/C6/C65Tk4iAHkmWsJm5lMpc1U+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/WowLife_Prefix-cqpkwnxfadjapdavuoaeldhugwny/WowLife_Prefix.pch.gch WowLife_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/WowLife.build/Debug-iphonesimulator/WowLife.build/Objects-normal/i386/main.o /Users/zolo/Projects/iPhone/WowLife/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/WowLife.build/Debug-iphonesimulator/WowLife.build/Objects-normal/i386/WowLifeAppDelegate.o /Users/zolo/Projects/iPhone/WowLife/Classes/WowLifeAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/WowLife.build/Debug-iphonesimulator/WowLife.build/Objects-normal/i386/FirstViewController.o /Users/zolo/Projects/iPhone/WowLife/Classes/FirstViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cLd /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/WowLife normal i386
+cGenerateDSYMFile /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app.dSYM /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/WowLife
+cTouch /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk
+c000000004C6C30170000000000000110
+t1282158615
+s272
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004C5A4DB60000000000295900
+t1280986550
+s2709760
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004C5A4DB0000000000029D580
+t1280986544
+s2741632
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004C5A4DA10000000000001466
+t1280986529
+s5222
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004C6241ED00000000000009CD
+t1281507821
+s2509
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004C6242840000000001E228C0
+t1281507972
+s31598784
+
+N/Users/zolo/Projects/iPhone/WowLife/Classes/FirstViewController.h
+c000000004CC6F8B800000000000000E6
+t1288108216
+s230
+i<UIKit/UIKit.h>
+
+N/Users/zolo/Projects/iPhone/WowLife/Classes/FirstViewController.m
+c000000004CC6F8B800000000000005AD
+t1288108216
+s1453
+i"FirstViewController.h"
+
+N/Users/zolo/Projects/iPhone/WowLife/Classes/WowLifeAppDelegate.h
+c000000004CC6F8B800000000000001D5
+t1288108216
+s469
+i<UIKit/UIKit.h>
+
+N/Users/zolo/Projects/iPhone/WowLife/Classes/WowLifeAppDelegate.m
+c000000004CC6F8B80000000000000C31
+t1288108216
+s3121
+i"WowLifeAppDelegate.h"
+
+N/Users/zolo/Projects/iPhone/WowLife/FirstView.xib
+c000000004CC6F8B800000000000049D1
+t1288108216
+s18897
+
+N/Users/zolo/Projects/iPhone/WowLife/MainWindow.xib
+c000000004CC6F8B8000000000000642E
+t1288108216
+s25646
+
+N/Users/zolo/Projects/iPhone/WowLife/SecondView.xib
+c000000004CC6F8B800000000000049CF
+t1288108216
+s18895
+
+N/Users/zolo/Projects/iPhone/WowLife/WowLife_Prefix.pch
+c000000004CC6F8B800000000000000B7
+t1288108216
+s183
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app
+t1288108609
+s272
+
+N/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app.dSYM
+t1288108609
+s102
+
+N/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/FirstView.nib
+t1288108607
+s2879
+
+N/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/Info.plist
+t1288108605
+s591
+
+N/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/MainWindow.nib
+t1288108606
+s3053
+
+N/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/PkgInfo
+t1288108605
+s8
+
+N/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/SecondView.nib
+t1288108607
+s2876
+
+N/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/WowLife
+t1288108609
+s17036
+
+N/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/Objects-normal/i386/FirstViewController.o
+t1288108608
+s34404
+
+N/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/Objects-normal/i386/WowLife.LinkFileList
+c000000004CC6FA3D0000000000000182
+t1288108605
+s386
+
+N/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/Objects-normal/i386/WowLifeAppDelegate.o
+t1288108608
+s51200
+
+N/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/Objects-normal/i386/main.o
+t1288108608
+s6296
+
+N/Users/zolo/Projects/iPhone/WowLife/main.m
+c000000004CC6F8B80000000000000161
+t1288108216
+s353
+i<UIKit/UIKit.h>
+
+N/var/folders/C6/C65Tk4iAHkmWsJm5lMpc1U+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/WowLife_Prefix-cqpkwnxfadjapdavuoaeldhugwny/WowLife_Prefix.pch.gch
+t1288108608
+s15211536
+
+NWowLife-Info.plist
+c000000004CC6F8B8000000000000038D
+t1288108216
+s909
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies309801405#309801405#0(0"0(0#1#0"3343187568374212096#0"0#
+
+CCompileC build/WowLife.build/Debug-iphonesimulator/WowLife.build/Objects-normal/i386/FirstViewController.o /Users/zolo/Projects/iPhone/WowLife/Classes/FirstViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s309801408.813170
+e309801408.875632
+r1
+xCompileC
+xbuild/WowLife.build/Debug-iphonesimulator/WowLife.build/Objects-normal/i386/FirstViewController.o
+x/Users/zolo/Projects/iPhone/WowLife/Classes/FirstViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@73"Compile /Users/zolo/Projects/iPhone/WowLife/Classes/FirstViewController.m309801408#309801408#0(0"0(0#0#65"/Users/zolo/Projects/iPhone/WowLife/Classes/FirstViewController.m8603219360#1981"    cd /Users/zolo/Projects/iPhone/WowLife    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote /Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/WowLife-generated-files.hmap -I/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/WowLife-own-target-headers.hmap -I/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/WowLife-all-target-headers.hmap -iquote /Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/WowLife-project-headers.hmap -F/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator -I/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/include -I/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/DerivedSources/i386 -I/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/DerivedSources -include /var/folders/C6/C65Tk4iAHkmWsJm5lMpc1U+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/WowLife_Prefix-cqpkwnxfadjapdavuoaeldhugwny/WowLife_Prefix.pch -c /Users/zolo/Projects/iPhone/WowLife/Classes/FirstViewController.m -o /Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/Objects-normal/i386/FirstViewController.o0#
+
+CCompileC build/WowLife.build/Debug-iphonesimulator/WowLife.build/Objects-normal/i386/WowLifeAppDelegate.o /Users/zolo/Projects/iPhone/WowLife/Classes/WowLifeAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s309801408.588282
+e309801408.835078
+r1
+xCompileC
+xbuild/WowLife.build/Debug-iphonesimulator/WowLife.build/Objects-normal/i386/WowLifeAppDelegate.o
+x/Users/zolo/Projects/iPhone/WowLife/Classes/WowLifeAppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@72"Compile /Users/zolo/Projects/iPhone/WowLife/Classes/WowLifeAppDelegate.m309801408#309801408#0(0"0(0#0#64"/Users/zolo/Projects/iPhone/WowLife/Classes/WowLifeAppDelegate.m8604161888#1979"    cd /Users/zolo/Projects/iPhone/WowLife    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote /Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/WowLife-generated-files.hmap -I/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/WowLife-own-target-headers.hmap -I/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/WowLife-all-target-headers.hmap -iquote /Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/WowLife-project-headers.hmap -F/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator -I/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/include -I/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/DerivedSources/i386 -I/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/DerivedSources -include /var/folders/C6/C65Tk4iAHkmWsJm5lMpc1U+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/WowLife_Prefix-cqpkwnxfadjapdavuoaeldhugwny/WowLife_Prefix.pch -c /Users/zolo/Projects/iPhone/WowLife/Classes/WowLifeAppDelegate.m -o /Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/Objects-normal/i386/WowLifeAppDelegate.o0#
+
+CCompileC build/WowLife.build/Debug-iphonesimulator/WowLife.build/Objects-normal/i386/main.o /Users/zolo/Projects/iPhone/WowLife/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s309801408.587307
+e309801408.813069
+r1
+xCompileC
+xbuild/WowLife.build/Debug-iphonesimulator/WowLife.build/Objects-normal/i386/main.o
+x/Users/zolo/Projects/iPhone/WowLife/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@50"Compile /Users/zolo/Projects/iPhone/WowLife/main.m309801408#309801408#0(0"0(0#0#42"/Users/zolo/Projects/iPhone/WowLife/main.m8604335040#1943"    cd /Users/zolo/Projects/iPhone/WowLife    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote /Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/WowLife-generated-files.hmap -I/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/WowLife-own-target-headers.hmap -I/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/WowLife-all-target-headers.hmap -iquote /Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/WowLife-project-headers.hmap -F/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator -I/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/include -I/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/DerivedSources/i386 -I/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/DerivedSources -include /var/folders/C6/C65Tk4iAHkmWsJm5lMpc1U+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/WowLife_Prefix-cqpkwnxfadjapdavuoaeldhugwny/WowLife_Prefix.pch -c /Users/zolo/Projects/iPhone/WowLife/main.m -o /Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/Objects-normal/i386/main.o0#
+
+CCompileXIB /Users/zolo/Projects/iPhone/WowLife/FirstView.xib
+s309801406.769454
+e309801407.325594
+r1
+xCompileXIB
+x/Users/zolo/Projects/iPhone/WowLife/FirstView.xib
+oCouldn't open shared capabilities memory GSCapabilities (No such file or directory)
+lSLF07#2@24"CompileXIB FirstView.xib309801406#309801407#0(84"Couldn't open shared capabilities memory GSCapabilities (No such file or directory)0(0#0#49"/Users/zolo/Projects/iPhone/WowLife/FirstView.xib8602979552#621"    cd /Users/zolo/Projects/iPhone/WowLife    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/FirstView.nib /Users/zolo/Projects/iPhone/WowLife/FirstView.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk0#
+
+CCompileXIB /Users/zolo/Projects/iPhone/WowLife/MainWindow.xib
+s309801405.864816
+e309801406.769372
+r1
+xCompileXIB
+x/Users/zolo/Projects/iPhone/WowLife/MainWindow.xib
+lSLF07#2@25"CompileXIB MainWindow.xib309801405#309801406#0(0"0(0#0#50"/Users/zolo/Projects/iPhone/WowLife/MainWindow.xib8603842048#623"    cd /Users/zolo/Projects/iPhone/WowLife    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/MainWindow.nib /Users/zolo/Projects/iPhone/WowLife/MainWindow.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk0#
+
+CCompileXIB /Users/zolo/Projects/iPhone/WowLife/SecondView.xib
+s309801405.885981
+e309801407.329102
+r1
+xCompileXIB
+x/Users/zolo/Projects/iPhone/WowLife/SecondView.xib
+oCouldn't open shared capabilities memory GSCapabilities (No such file or directory)
+lSLF07#2@25"CompileXIB SecondView.xib309801405#309801407#0(84"Couldn't open shared capabilities memory GSCapabilities (No such file or directory)0(0#0#50"/Users/zolo/Projects/iPhone/WowLife/SecondView.xib8600174496#623"    cd /Users/zolo/Projects/iPhone/WowLife    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/SecondView.nib /Users/zolo/Projects/iPhone/WowLife/SecondView.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk0#
+
+CGenerateDSYMFile /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app.dSYM /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/WowLife
+s309801409.462331
+e309801409.543971
+r1
+xGenerateDSYMFile
+x/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app.dSYM
+x/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/WowLife
+lSLF07#2@109"GenerateDSYMFile build/Debug-iphonesimulator/WowLife.app.dSYM build/Debug-iphonesimulator/WowLife.app/WowLife309801409#309801409#0(0"0(0#0#83"/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/WowLife8604225952#436"    cd /Users/zolo/Projects/iPhone/WowLife    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/usr/bin/dsymutil /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/WowLife -o /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app.dSYM0#
+
+CLd /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/WowLife normal i386
+s309801408.875732
+e309801409.462242
+r1
+xLd
+x/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/WowLife
+xnormal
+xi386
+lSLF07#2@88"Link /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/WowLife309801408#309801409#0(0"0(0#0#0"8599365216#947"    cd /Users/zolo/Projects/iPhone/WowLife    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -L/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator -F/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator -filelist /Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/Objects-normal/i386/WowLife.LinkFileList -mmacosx-version-min=10.6 -Xlinker -objc_abi_version -Xlinker 2 -framework Foundation -framework UIKit -framework CoreGraphics -o /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/WowLife0#
+
+CProcessInfoPlistFile /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/Info.plist WowLife-Info.plist
+s309801405.819416
+e309801405.864700
+r1
+xProcessInfoPlistFile
+x/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/Info.plist
+xWowLife-Info.plist
+lSLF07#2@26"Process WowLife-Info.plist309801405#309801405#0(0"0(0#0#54"/Users/zolo/Projects/iPhone/WowLife/WowLife-Info.plist32370056120631408#532"    cd /Users/zolo/Projects/iPhone/WowLife    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    builtin-infoPlistUtility WowLife-Info.plist -genpkginfo /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app/Info.plist0#
+
+CProcessPCH /var/folders/C6/C65Tk4iAHkmWsJm5lMpc1U+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/WowLife_Prefix-cqpkwnxfadjapdavuoaeldhugwny/WowLife_Prefix.pch.gch WowLife_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+s309801407.329239
+e309801408.587213
+r1
+xProcessPCH
+x/var/folders/C6/C65Tk4iAHkmWsJm5lMpc1U+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/WowLife_Prefix-cqpkwnxfadjapdavuoaeldhugwny/WowLife_Prefix.pch.gch
+xWowLife_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@29"Precompile WowLife_Prefix.pch309801407#309801408#0(0"0(0#0#54"/Users/zolo/Projects/iPhone/WowLife/WowLife_Prefix.pch8603792544#1838"    cd /Users/zolo/Projects/iPhone/WowLife    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote /Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/WowLife-generated-files.hmap -I/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/WowLife-own-target-headers.hmap -I/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/WowLife-all-target-headers.hmap -iquote /Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/WowLife-project-headers.hmap -F/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator -I/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/include -I/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/DerivedSources/i386 -I/Users/zolo/Projects/iPhone/WowLife/build/WowLife.build/Debug-iphonesimulator/WowLife.build/DerivedSources -c /Users/zolo/Projects/iPhone/WowLife/WowLife_Prefix.pch -o /var/folders/C6/C65Tk4iAHkmWsJm5lMpc1U+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/WowLife_Prefix-cqpkwnxfadjapdavuoaeldhugwny/WowLife_Prefix.pch.gch0#
+
+CTouch /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app
+s309801409.544063
+e309801409.571921
+r1
+xTouch
+x/Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app
+lSLF07#2@81"Touch /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app309801409#309801409#0(0"0(0#0#0"8604028160#334"    cd /Users/zolo/Projects/iPhone/WowLife    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /usr/bin/touch -c /Users/zolo/Projects/iPhone/WowLife/build/Debug-iphonesimulator/WowLife.app0#
+
