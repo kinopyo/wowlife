@@ -272,9 +272,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>4</integer>
-									<integer>3</integer>
-									<integer>1</integer>
+									<integer>27</integer>
+									<integer>16</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -328,29 +327,27 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F3EA83ED12A808180099329F</string>
+										<string>F3EA843712A810300099329F</string>
 										<key>history</key>
 										<array>
 											<string>F314A9C61277498A00E6C4BA</string>
 											<string>F314A9C71277498A00E6C4BA</string>
 											<string>F314AA411277544300E6C4BA</string>
-											<string>F3EC66101297D5AA00E51AB9</string>
 											<string>F3EC66491297D9BE00E51AB9</string>
 											<string>F3F7D79712A0D53B0095C492</string>
 											<string>F3F7D7C312A0D62E0095C492</string>
-											<string>F37CCEFD12A56E1C005495E5</string>
 											<string>F37CCF3B12A57267005495E5</string>
 											<string>F37CCF4012A57287005495E5</string>
 											<string>F37CCF5E12A57A75005495E5</string>
 											<string>F37CCF5F12A57A75005495E5</string>
 											<string>F37CCF6012A57A75005495E5</string>
 											<string>F37CCF6112A57A75005495E5</string>
-											<string>F3EA83D312A807210099329F</string>
 											<string>F3EA83D412A807210099329F</string>
 											<string>F3EA83D512A807210099329F</string>
-											<string>F3EA83D612A807210099329F</string>
-											<string>F3EA83D712A807210099329F</string>
-											<string>F3EA83D812A807210099329F</string>
+											<string>F3EA840112A80C1C0099329F</string>
+											<string>F3EA840A12A80C4D0099329F</string>
+											<string>F3EA843512A810300099329F</string>
+											<string>F3EA843612A810300099329F</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -548,6 +545,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>F3EA843812A810300099329F</string>
 		<string>F3EA83EC12A807770099329F</string>
 		<string>F3EA83E512A807210099329F</string>
 		<string>1C78EAAD065D492600B07095</string>

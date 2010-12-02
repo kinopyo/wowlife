@@ -2,7 +2,7 @@
 //  AccountDetailViewController.m
 //  WowLife
 //
-//  Created by Wowzolo on 10-10-27.
+//  Created by Wowzolo on 10-12-3.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
@@ -11,48 +11,172 @@
 
 @implementation AccountDetailViewController
 
+@synthesize account;
+
+
+
+#pragma mark -
+#pragma mark Initialization
+
 /*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
+- (id)initWithStyle:(UITableViewStyle)style {
+    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
+    if ((self = [super initWithStyle:style])) {
     }
     return self;
 }
 */
 
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+
+#pragma mark -
+#pragma mark View lifecycle
+
+- (void)viewWillAppear:(BOOL)animated {	
+    [self.tableView reloadData];
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidLoad {
+    sectionNames = [[NSArray alloc] initWithObjects:
+                    [NSNull null],
+                    NSLocalizedString(@"General", @"General"),
+                    nil];
+    rowLabels = [[NSArray alloc] initWithObjects:
+				 
+                 // Section 1
+                 [NSArray arrayWithObjects:NSLocalizedString(@"Name", @"Name"), nil],
+				 
+                 // Section 2
+                 [NSArray arrayWithObjects:NSLocalizedString(@"Race", @"Race"),
+                  NSLocalizedString(@"Class", @"Class"),
+                  NSLocalizedString(@"Level", @"Level"),
+                  nil],
+                 				 
+                 // Sentinel
+                 nil];
+	
+    rowKeys = [[NSArray alloc] initWithObjects:
+               
+               // Section 1
+               [NSArray arrayWithObjects:@"name", nil],
+			   
+               // Section 2
+               [NSArray arrayWithObjects:@"race", @"klass", @"level", nil],
+               
+               // Sentinel
+               nil];
+    
+	rowControllers = [[NSArray alloc] initWithObjects:
+					  
+                      // Section 1
+                      [NSArray arrayWithObject:@"ManagedObjectStringEditor"],
+					  
+                      // Section 2
+                      [NSArray arrayWithObjects:@"ManagedObjectStringEditor", 
+                       @"ManagedObjectDateEditor",
+                       @"ManagedObjectSingleSelectionListEditor", nil],
+					  
+                      // Sentinel
+                      nil];
+    rowArguments = [[NSArray alloc] initWithObjects:
+                    
+                    // Section 1
+                    [NSArray arrayWithObject:[NSNull null]],
+                    
+                    // Section 2,
+                    [NSArray arrayWithObjects:[NSNull null], 
+                     [NSNull null], 
+                     [NSDictionary dictionaryWithObject:[NSArray 
+                                                         arrayWithObjects:@"Male", @"Female", nil] 
+                                                 forKey:@"list"], 
+                     nil],
+                    
+                    // Sentinel
+                    nil];
+    
+    
+	
     [super viewDidLoad];
 }
-*/
 
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+
+#pragma mark -
+#pragma mark Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return [sectionNames count];
 }
-*/
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    id theTitle = [sectionNames objectAtIndex:section];
+    if ([theTitle isKindOfClass:[NSNull class]])
+        return nil;
+	
+    return theTitle;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return 1;
+}
+
+// Customize the appearance of table view cells.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+    
+    // Configure the cell...
+    
+    return cell;
+}
+
+
+#pragma mark -
+#pragma mark Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Navigation logic may go here. Create and push another view controller.
+	/*
+	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+	 [self.navigationController pushViewController:detailViewController animated:YES];
+	 [detailViewController release];
+	 */
+}
+
+
+#pragma mark -
+#pragma mark Memory management
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
     
-    // Release any cached data, images, etc that aren't in use.
+    // Relinquish ownership any cached data, images, etc that aren't in use.
 }
 
 - (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
+    // For example: self.myOutlet = nil;
 }
 
 
 - (void)dealloc {
+	[account release];
+    [sectionNames release];
+    [rowLabels release];
+    [rowKeys release];
+    [rowControllers release];
     [super dealloc];
 }
 
 
 @end
+

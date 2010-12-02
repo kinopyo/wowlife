@@ -7,14 +7,14 @@
 //
 
 #import "AccountTableViewController.h"
-#import "AddAccountViewController.h"
+
 #import "AccountDetailViewController.h"
 #import "ClassCell.h"
 #import "WowLifeAppDelegate.h"
 
 @implementation AccountTableViewController
 @synthesize accountArray;
-@synthesize addAccountViewController;
+
 @synthesize accountDetailViewController;
 @synthesize fetchedResultsController = _fetchedResultsController;
 //, managedObjectContext;
@@ -23,25 +23,16 @@
 #pragma mark View lifecycle
 
 -(IBAction)addAccount{
-//	NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-//	NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-//	NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-//    
-//    NSError *error;
-//    if (![context save:&error])
-//        NSLog(@"Error saving entity: %@", [error localizedDescription]);
-//    
-//    detailController.account = newManagedObject;
-//    [self.navigationController pushViewController:detailController animated:YES];
-	
-	
-	if (self.addAccountViewController == nil) {
-		AddAccountViewController *childController = [[AddAccountViewController alloc] initWithNibName:@"AddAccountView" bundle:nil];
-		self.addAccountViewController = childController;
-		[childController release];
-	}
-	addAccountViewController.title = @"Add Account";
-	[self.navigationController pushViewController:addAccountViewController animated:YES];
+	NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+	NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+	NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    
+    NSError *error;
+    if (![context save:&error])
+        NSLog(@"Error saving entity: %@", [error localizedDescription]);
+    
+    accountDetailViewController.account = newManagedObject;
+    [self.navigationController pushViewController:accountDetailViewController animated:YES];
 }
 
 -(IBAction)toggleEdit{
@@ -54,22 +45,6 @@
 }
 
 - (void)viewDidLoad {
-
-/*	
-	self.title = NSLocalizedString(@"Accounts", @"tooltip?");
-	
-	// TODO get from persistent
-	if (accountArray == nil){
-		//NSMutableArray *array = [[NSArray alloc] initWithObjects:@"ming", @"Unmercey", @"Feng7", nil];
-		NSString *path = [[NSBundle mainBundle] pathForResource:@"computers" 
-                                                         ofType:@"plist"];
-        NSMutableArray *array = [[NSMutableArray alloc] 
-                                 initWithContentsOfFile:path];
-		
-		self.accountArray = array;
-		[array release];	
-	}
-*/	
 	
 	[super viewDidLoad];
 	NSError *error = nil;
@@ -243,44 +218,7 @@ UITableViewCellEditingStyleInsert
     NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
 	
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:managedObjectContext];
-    
-/*    
-    NSUInteger tab = [tabBar.items indexOfObject:tabBar.selectedItem];
-    if (tab == NSNotFound) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        tab = [defaults integerForKey:kSelectedTabDefaultsKey];
-    }
-    
-    NSString *sectionKey = nil;
-    switch (tab) {
-            // Notice that the kByName and kBySecretIdentity Code are nearly identical - refactoring opportunity?
-        case kByName: {
-            NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-            NSSortDescriptor *sortDescriptor2 = [[NSSortDescriptor alloc] initWithKey:@"secretIdentity" ascending:YES];
-            NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor1, sortDescriptor2, nil];
-            [fetchRequest setSortDescriptors:sortDescriptors];
-            [sortDescriptor1 release];
-            [sortDescriptor2 release];
-            [sortDescriptors release];
-            sectionKey = @"name";
-            break;
-        }
-        case kBySecretIdentity:{
-            NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"secretIdentity" ascending:YES];
-            NSSortDescriptor *sortDescriptor2 = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-            NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor1, sortDescriptor2, nil];
-            [fetchRequest setSortDescriptors:sortDescriptors];
-            [sortDescriptor1 release];
-            [sortDescriptor2 release];
-            [sortDescriptors release];
-            sectionKey = @"secretIdentity";
-            break;
-        }
-        default:
-            break;
-            
-    }
-*/ 
+
 	NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor1, nil];
 	[fetchRequest setSortDescriptors:sortDescriptors];
@@ -291,7 +229,7 @@ UITableViewCellEditingStyleInsert
 	NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest    
                                                                           managedObjectContext:managedObjectContext 
                                                                             sectionNameKeyPath:nil 
-                                                                                     cacheName:@"Account"];
+                                                                                     cacheName:nil];
     frc.delegate = self;
     _fetchedResultsController = frc;
     
@@ -299,6 +237,114 @@ UITableViewCellEditingStyleInsert
     
 	return _fetchedResultsController;
 }    
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    sectionInsertCount = 0;
+    [self.tableView beginUpdates];
+}
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
+}
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+	switch(type) {
+		case NSFetchedResultsChangeInsert:
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+			break;
+		case NSFetchedResultsChangeDelete:
+			[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+			break;
+        case NSFetchedResultsChangeUpdate: {
+            NSString *sectionKeyPath = [controller sectionNameKeyPath];
+            if (sectionKeyPath == nil)
+                break;
+            NSManagedObject *changedObject = [controller objectAtIndexPath:indexPath];
+            NSArray *keyParts = [sectionKeyPath componentsSeparatedByString:@"."];
+            id currentKeyValue = [changedObject valueForKeyPath:sectionKeyPath];
+            for (int i = 0; i < [keyParts count] - 1; i++) {
+                NSString *onePart = [keyParts objectAtIndex:i];
+                changedObject = [changedObject valueForKey:onePart];
+            }
+            sectionKeyPath = [keyParts lastObject];
+            NSDictionary *committedValues = [changedObject committedValuesForKeys:nil];
+            
+            if ([[committedValues valueForKeyPath:sectionKeyPath] isEqual:currentKeyValue])
+                break;
+            
+            NSUInteger tableSectionCount = [self.tableView numberOfSections];
+            NSUInteger frcSectionCount = [[controller sections] count];
+            if (tableSectionCount + sectionInsertCount != frcSectionCount) {
+                // Need to insert a section
+                NSArray *sections = controller.sections;
+                NSInteger newSectionLocation = -1;
+                for (id oneSection in sections) {
+                    NSString *sectionName = [oneSection name];
+                    if ([currentKeyValue isEqual:sectionName]) {
+                        newSectionLocation = [sections indexOfObject:oneSection];
+                        break;
+                    }
+                }
+                if (newSectionLocation == -1)
+                    return; // uh oh
+                
+                if (!((newSectionLocation == 0) && (tableSectionCount == 1) && ([self.tableView numberOfRowsInSection:0] == 0))) {
+					[self.tableView insertSections:[NSIndexSet indexSetWithIndex:newSectionLocation] withRowAnimation:UITableViewRowAnimationFade];
+                    sectionInsertCount++;
+                }
+				
+                NSUInteger indices[2] = {newSectionLocation, 0};
+                newIndexPath = [[[NSIndexPath alloc] initWithIndexes:indices length:2] autorelease];
+            }
+        }
+		case NSFetchedResultsChangeMove:
+            if (newIndexPath != nil) {
+                
+                NSUInteger tableSectionCount = [self.tableView numberOfSections];
+                NSUInteger frcSectionCount = [[controller sections] count];
+                if (frcSectionCount != tableSectionCount + sectionInsertCount)  {
+                    [self.tableView insertSections:[NSIndexSet indexSetWithIndex:[newIndexPath section]] withRowAnimation:UITableViewRowAnimationNone];
+                    sectionInsertCount++;
+                }
+				
+                
+                [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                [self.tableView insertRowsAtIndexPaths: [NSArray arrayWithObject:newIndexPath]
+                                      withRowAnimation: UITableViewRowAnimationRight];
+                
+            }
+            else {
+                [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:[indexPath section]] withRowAnimation:UITableViewRowAnimationFade];
+            }
+			break;
+        default:
+			break;
+	}
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+	switch(type) {
+			
+		case NSFetchedResultsChangeInsert:
+            if (!((sectionIndex == 0) && ([self.tableView numberOfSections] == 1))) {
+                [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+                sectionInsertCount++;
+            }
+			
+			break;
+		case NSFetchedResultsChangeDelete:
+            if (!((sectionIndex == 0) && ([self.tableView numberOfSections] == 1) )) {
+				[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+                sectionInsertCount--;
+            }
+			
+			break;
+        case NSFetchedResultsChangeMove:
+            break;
+        case NSFetchedResultsChangeUpdate: 
+            break;
+        default:
+            break;
+	}
+}
 
 #pragma mark -
 #pragma mark UIAlertView Delegate
@@ -321,7 +367,6 @@ UITableViewCellEditingStyleInsert
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
 	self.accountArray = nil;
-	self.addAccountViewController = nil;
 	self.accountDetailViewController = nil;
 }
 
@@ -329,7 +374,6 @@ UITableViewCellEditingStyleInsert
 - (void)dealloc {
 	// release created property
 	[accountArray release];
-	[addAccountViewController release];
 	[accountDetailViewController release];
     [super dealloc];
 }

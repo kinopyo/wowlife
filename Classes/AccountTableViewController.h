@@ -7,26 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-@class AddAccountViewController;
 @class AccountDetailViewController;
 
 @interface AccountTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UIAlertViewDelegate>{
-//	IBOutlet UITableView *accountTableView;
 	NSMutableArray *accountArray;
-	AddAccountViewController *addAccountViewController;
 	AccountDetailViewController *accountDetailViewController;
 @private	
 	NSFetchedResultsController *_fetchedResultsController;
-//	NSManagedObjectContext *managedObjectContext;
-
+    NSUInteger                  sectionInsertCount;	
 }
 
 @property (retain, nonatomic) NSMutableArray *accountArray;
-@property (retain, nonatomic) AddAccountViewController *addAccountViewController;
-@property (retain, nonatomic) AccountDetailViewController *accountDetailViewController;
+@property (retain, nonatomic) IBOutlet AccountDetailViewController *accountDetailViewController;
 
 @property (nonatomic, readonly) NSFetchedResultsController *fetchedResultsController;
-//@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 -(IBAction)addAccount;
 -(IBAction)toggleEdit;
