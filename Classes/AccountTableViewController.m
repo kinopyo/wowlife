@@ -150,10 +150,26 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle 
 	forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSUInteger row = [indexPath row];
-    [self.accountArray removeObjectAtIndex:row];
-    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
-					withRowAnimation:UITableViewRowAnimationFade];
+    //NSUInteger row = [indexPath row];
+//    [self.accountArray removeObjectAtIndex:row];
+//    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
+//					withRowAnimation:UITableViewRowAnimationFade];
+	if (editingStyle == UITableViewCellEditingStyleDelete) {
+		NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+		[context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        
+		NSError *error;
+		if (![context save:&error]) {
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error saving after delete", @"Error saving after delete.") 
+                                                            message:[NSString stringWithFormat:@"Error was: %@, quitting.", [error localizedDescription]]
+                                                           delegate:self 
+                                                  cancelButtonTitle:NSLocalizedString(@"Aw, Nuts", @"Aw, Nuts")
+                                                  otherButtonTitles:nil];
+            [alert show];
+			exit(-1);
+		}
+	}
 }
 
 #pragma mark -
