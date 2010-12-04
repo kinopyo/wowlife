@@ -13,11 +13,9 @@
 #import "WowLifeAppDelegate.h"
 
 @implementation AccountTableViewController
-@synthesize accountArray;
 
 @synthesize accountDetailViewController;
 @synthesize fetchedResultsController = _fetchedResultsController;
-//, managedObjectContext;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -110,7 +108,6 @@
     
     ClassCell *cell = (ClassCell *)[tableView dequeueReusableCellWithIdentifier:ClassCellIdentifier];
     if (cell == nil) {
-//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ClassCellIdentifier] autorelease];
 		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ClassCell"
 													 owner:self options:nil];
 		for (id oneObject in nib)
@@ -124,9 +121,8 @@
 	
 	
     // Configure the cell...
-//	cell.textLabel.text = [self.accountArray objectAtIndex:row];
-//	cell.name.text = [self.accountArray objectAtIndex:row];
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	//TODO set the image based on player data.
 	cell.classImageView.image = [UIImage imageNamed:@"class-rogue.png"];
 	cell.raceImageView.image = [UIImage imageNamed:@"race_bloodelf_female.jpg"];
 	cell.showsReorderControl = YES;
@@ -150,10 +146,6 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle 
 	forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    //NSUInteger row = [indexPath row];
-//    [self.accountArray removeObjectAtIndex:row];
-//    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
-//					withRowAnimation:UITableViewRowAnimationFade];
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
 		NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
 		[context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
@@ -177,13 +169,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
-	NSInteger row = [indexPath row];
-	if (self.accountDetailViewController == nil) {
-		AccountDetailViewController *detailViewController = [[AccountDetailViewController alloc] initWithNibName:@"AccountDetailView" bundle:nil];
-		self.accountDetailViewController = detailViewController;
-		[detailViewController release];
-	}
-	accountDetailViewController.title = [NSString stringWithFormat:@"%@'s Progress", [accountArray objectAtIndex:row]];
 	[self.navigationController pushViewController:accountDetailViewController animated:YES];
 	
 	
@@ -202,13 +187,10 @@ UITableViewCellEditingStyleInsert
 
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-	NSUInteger fromRow = [fromIndexPath row];
-    NSUInteger toRow = [toIndexPath row];
+//	NSUInteger fromRow = [fromIndexPath row];
+//    NSUInteger toRow = [toIndexPath row];
     
-    id object = [[accountArray objectAtIndex:fromRow] retain];
-    [accountArray removeObjectAtIndex:fromRow];
-    [accountArray insertObject:object atIndex:toRow];
-    [object release];
+	// TODO implement
 }
 
 // Override to support conditional rearranging of the table view.
@@ -382,14 +364,12 @@ UITableViewCellEditingStyleInsert
 - (void)viewDidUnload {
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
-	self.accountArray = nil;
 	self.accountDetailViewController = nil;
 }
 
 
 - (void)dealloc {
 	// release created property
-	[accountArray release];
 	[accountDetailViewController release];
     [super dealloc];
 }

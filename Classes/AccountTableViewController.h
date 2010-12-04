@@ -10,16 +10,13 @@
 @class AccountDetailViewController;
 
 @interface AccountTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UIAlertViewDelegate>{
-	NSMutableArray *accountArray;
 	AccountDetailViewController *accountDetailViewController;
 @private	
 	NSFetchedResultsController *_fetchedResultsController;
     NSUInteger                  sectionInsertCount;	
 }
 
-@property (retain, nonatomic) NSMutableArray *accountArray;
 @property (retain, nonatomic) IBOutlet AccountDetailViewController *accountDetailViewController;
-
 @property (nonatomic, readonly) NSFetchedResultsController *fetchedResultsController;
 
 -(IBAction)addAccount;
