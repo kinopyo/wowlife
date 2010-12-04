@@ -7,25 +7,10 @@
 //
 
 #import "AccountDetailViewController.h"
-
-
+#import "NSArray-NestedArrays.h"
+#import "GenericValueDisplay.h"
 @implementation AccountDetailViewController
-
 @synthesize account;
-
-
-
-#pragma mark -
-#pragma mark Initialization
-
-/*
-- (id)initWithStyle:(UITableViewStyle)style {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    if ((self = [super initWithStyle:style])) {
-    }
-    return self;
-}
-*/
 
 
 #pragma mark -
@@ -118,21 +103,28 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 1;
+    return [rowLabels countOfNestedArray:section];
 }
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"Account Detail Cell Identifier";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [theTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 
+                                       reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
+    NSString *rowKey = [rowKeys nestedObjectAtIndexPath:indexPath];
+    NSString *rowLabel = [rowLabels nestedObjectAtIndexPath:indexPath];
     
+    id <GenericValueDisplay> rowValue = [account valueForKey:rowKey];
+    
+    cell.detailTextLabel.text = [rowValue genericValueDisplay];
+    cell.textLabel.text = rowLabel;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
