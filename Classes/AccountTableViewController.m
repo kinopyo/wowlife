@@ -168,8 +168,11 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	
+	accountDetailViewController.account = [self.fetchedResultsController 
+										   objectAtIndexPath:indexPath];	
 	[self.navigationController pushViewController:accountDetailViewController animated:YES];
+
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	
 }

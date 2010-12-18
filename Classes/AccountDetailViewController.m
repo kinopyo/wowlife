@@ -9,6 +9,7 @@
 #import "AccountDetailViewController.h"
 #import "NSArray-NestedArrays.h"
 #import "GenericValueDisplay.h"
+#import "ManagedObjectAttributeEditor.h"
 @implementation AccountDetailViewController
 @synthesize account;
 
@@ -57,9 +58,9 @@
                       [NSArray arrayWithObject:@"ManagedObjectStringEditor"],
 					  
                       // Section 2
-                      [NSArray arrayWithObjects:@"ManagedObjectStringEditor", 
-                       @"ManagedObjectDateEditor",
-                       @"ManagedObjectSingleSelectionListEditor", nil],
+                      [NSArray arrayWithObjects:@"ManagedObjectSingleSelectionListEditor", 
+                       @"ManagedObjectSingleSelectionListEditor",
+                       @"ManagedObjectStringEditor", nil],
 					  
                       // Sentinel
                       nil];
@@ -69,11 +70,17 @@
                     [NSArray arrayWithObject:[NSNull null]],
                     
                     // Section 2,
-                    [NSArray arrayWithObjects:[NSNull null], 
+                    [NSArray arrayWithObjects:
+					 // race lists
+					 [NSDictionary dictionaryWithObject:[NSArray 
+														 arrayWithObjects:@"Undead", @"Orc", @"Troll", @"Blood Elf", @"Tauren", nil]
+												 forKey:@"list"],
+					 // class
+					 [NSDictionary dictionaryWithObject:[NSArray 
+														  arrayWithObjects:@"Death Knight", @"Druid", @"Rogue", @"Mage", @"Warlock", @"Warrior", nil]
+												  forKey:@"list"],
+					 // level  
                      [NSNull null], 
-                     [NSDictionary dictionaryWithObject:[NSArray 
-                                                         arrayWithObjects:@"Male", @"Female", nil] 
-                                                 forKey:@"list"], 
                      nil],
                     
                     // Sentinel
@@ -133,14 +140,32 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
+    NSString *controllerClassName = [rowControllers 
+                                     nestedObjectAtIndexPath:indexPath];
+    NSString *rowLabel = [rowLabels nestedObjectAtIndexPath:indexPath];
+    NSString *rowKey = [rowKeys nestedObjectAtIndexPath:indexPath];
+    Class controllerClass = NSClassFromString(controllerClassName);
+    ManagedObjectAttributeEditor *controller = 
+    [controllerClass alloc];
+    controller = [controller initWithStyle:UITableViewStyleGrouped];
+    controller.keypath = rowKey;
+    controller.managedObject = account;
+    controller.labelString = rowLabel;
+    controller.title = rowLabel;
+	NSLog(@"account name %@", [account valueForKey:@"name"]);    
+    NSDictionary *args = [rowArguments nestedObjectAtIndexPath:indexPath];
+    if ([args isKindOfClass:[NSDictionary class]]) {
+        if (args != nil) {
+            for (NSString *oneKey in args) {
+                id oneArg = [args objectForKey:oneKey];
+                [controller setValue:oneArg forKey:oneKey];
+            }
+        }
+    }    
+    
+    [self.navigationController pushViewController:controller animated:YES];
+    [controller release];
+
 }
 
 
