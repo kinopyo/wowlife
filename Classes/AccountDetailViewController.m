@@ -10,6 +10,8 @@
 #import "NSArray-NestedArrays.h"
 #import "GenericValueDisplay.h"
 #import "ManagedObjectAttributeEditor.h"
+#import "RaceSingleSelectionListEditor.h"
+#import "Convertor.h"
 @implementation AccountDetailViewController
 @synthesize account;
 
@@ -58,7 +60,7 @@
                       [NSArray arrayWithObject:@"ManagedObjectStringEditor"],
 					  
                       // Section 2
-                      [NSArray arrayWithObjects:@"ManagedObjectSingleSelectionListEditor", 
+                      [NSArray arrayWithObjects:@"RaceSingleSelectionListEditor", 
                        @"ManagedObjectSingleSelectionListEditor",
                        @"ManagedObjectStringEditor", nil],
 					  
@@ -128,8 +130,16 @@
     NSString *rowLabel = [rowLabels nestedObjectAtIndexPath:indexPath];
     
     id <GenericValueDisplay> rowValue = [account valueForKey:rowKey];
+	
+	NSUInteger row = [indexPath row];
+	NSUInteger section = [indexPath section];
+	if (section == 1 && row == 0){
+		cell.detailTextLabel.text = [Convertor raceText:rowValue];
+	} else {
+		cell.detailTextLabel.text = [rowValue genericValueDisplay];
+	}
     
-    cell.detailTextLabel.text = [rowValue genericValueDisplay];
+    
     cell.textLabel.text = rowLabel;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;

@@ -4,7 +4,7 @@
 @interface ManagedObjectSingleSelectionListEditor : ManagedObjectAttributeEditor {
     NSArray            *list;
     
-@private
+//@private
     NSIndexPath        *lastIndexPath;
 }
 @property (nonatomic, retain) NSArray *list;

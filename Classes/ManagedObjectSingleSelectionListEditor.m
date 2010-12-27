@@ -2,10 +2,12 @@
 
 @implementation ManagedObjectSingleSelectionListEditor
 @synthesize list;
+
 -(IBAction)save {
     UITableViewCell *selectedCell = [self.tableView 
                                      cellForRowAtIndexPath:lastIndexPath];
     NSString *newValue = selectedCell.textLabel.text;
+	NSLog(@"new value  %@", newValue);	
     [self.managedObject setValue:newValue forKey:self.keypath];
     NSError *error;
     if (![self.managedObject.managedObjectContext save:&error])
@@ -13,6 +15,7 @@
     
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 - (void)viewWillAppear:(BOOL)animated 
 {
     NSString *currentValue = [self.managedObject valueForKey:self.keypath];
@@ -33,11 +36,13 @@
     [lastIndexPath release];
     [super dealloc];
 }
+
 #pragma mark -
 #pragma mark Table View Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [list count];
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     int newRow = [indexPath row];
     int oldRow = [lastIndexPath row];
@@ -55,6 +60,7 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *GenericManagedObjectListSelectorCell = 
     @"GenericManagedObjectListSelectorCell";
