@@ -15,7 +15,6 @@
 @implementation AccountDetailViewController
 @synthesize account;
 
-
 #pragma mark -
 #pragma mark View lifecycle
 
@@ -88,7 +87,7 @@
                     // Sentinel
                     nil];
     
-    
+    raceValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Undead", @"5", @"Orc", @"2", nil];
 	
     [super viewDidLoad];
 }
@@ -133,8 +132,11 @@
 	
 	NSUInteger row = [indexPath row];
 	NSUInteger section = [indexPath section];
+    
+    
+    // race
 	if (section == 1 && row == 0){
-		cell.detailTextLabel.text = [Convertor raceText:rowValue];
+		cell.detailTextLabel.text = [raceValueMap objectForKey:[rowValue genericValueDisplay]];
 	} else {
 		cell.detailTextLabel.text = [rowValue genericValueDisplay];
 	}
@@ -201,6 +203,7 @@
     [rowLabels release];
     [rowKeys release];
     [rowControllers release];
+    [raceValueMap release];
     [super dealloc];
 }
 

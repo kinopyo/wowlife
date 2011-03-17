@@ -18,6 +18,7 @@
     NSArray         *rowKeys;
     NSArray         *rowControllers;
     NSArray         *rowArguments;
+    NSDictionary    *raceValueMap;
 }
 @property (nonatomic, retain) NSManagedObject *account;
 
