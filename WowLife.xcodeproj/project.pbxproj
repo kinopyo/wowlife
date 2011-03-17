@@ -502,6 +502,7 @@
 				GCC_PREFIX_HEADER = WowLife_Prefix.pch;
 				INFOPLIST_FILE = "WowLife-Info.plist";
 				PRODUCT_NAME = WowLife;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Debug;
 		};
@@ -514,6 +515,7 @@
 				GCC_PREFIX_HEADER = WowLife_Prefix.pch;
 				INFOPLIST_FILE = "WowLife-Info.plist";
 				PRODUCT_NAME = WowLife;
+				SDKROOT = iphoneos4.3;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
