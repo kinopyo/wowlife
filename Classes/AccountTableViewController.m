@@ -186,7 +186,6 @@
 	
 }
 
-// For moving
 /*
 UITableViewCellEditingStyleNone,
 UITableViewCellEditingStyleDelete,
@@ -197,18 +196,10 @@ UITableViewCellEditingStyleInsert
     return UITableViewCellEditingStyleDelete;
 }
 
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-//	NSUInteger fromRow = [fromIndexPath row];
-//    NSUInteger toRow = [toIndexPath row];
-    
-	// TODO implement
-}
-
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    return NO;
 }
 
 #pragma mark -
@@ -229,6 +220,7 @@ UITableViewCellEditingStyleInsert
 	
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:managedObjectContext];
 
+    // TODO sort by created. First add 'created' column to 'Account'
 	NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor1, nil];
 	[fetchRequest setSortDescriptors:sortDescriptors];
