@@ -12,6 +12,10 @@
 #import "ClassCell.h"
 #import "WowLifeAppDelegate.h"
 
+@interface AccountTableViewController ()
+- (void)configureCell:(ClassCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+@end
+
 @implementation AccountTableViewController
 
 @synthesize accountDetailViewController;
@@ -40,6 +44,20 @@
         [self.navigationItem.rightBarButtonItem setTitle:@"Done"];
     else
         [self.navigationItem.rightBarButtonItem setTitle:@"Edit"];
+}
+
+- (void)configureCell:(ClassCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{	NSManagedObject *oneAccount = [self.fetchedResultsController objectAtIndexPath:indexPath];
+	cell.name.text = [oneAccount valueForKey:@"name"];
+	
+	
+    // Configure the cell...
+	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	//TODO set the image based on player data.
+	cell.classImageView.image = [UIImage imageNamed:@"class-rogue.png"];
+	cell.raceImageView.image = [UIImage imageNamed:@"race_bloodelf_female.jpg"];
+	cell.showsReorderControl = YES;
+
 }
 
 - (void)viewDidLoad {
@@ -115,17 +133,8 @@
 				cell = (ClassCell *)oneObject;
 		
     }
-	
-	NSManagedObject *oneAccount = [self.fetchedResultsController objectAtIndexPath:indexPath];
-	cell.name.text = [oneAccount valueForKey:@"name"];
-	
-	
-    // Configure the cell...
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	//TODO set the image based on player data.
-	cell.classImageView.image = [UIImage imageNamed:@"class-rogue.png"];
-	cell.raceImageView.image = [UIImage imageNamed:@"race_bloodelf_female.jpg"];
-	cell.showsReorderControl = YES;
+    // Configure the cell.
+    [self configureCell:cell atIndexPath:indexPath];
 	
     return cell;
 }
@@ -247,6 +256,9 @@ UITableViewCellEditingStyleInsert
     [self.tableView endUpdates];
 }
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    UITableView *tableView = self.tableView;
+    
 	switch(type) {
 		case NSFetchedResultsChangeInsert:
             [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -255,6 +267,9 @@ UITableViewCellEditingStyleInsert
 			[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 			break;
         case NSFetchedResultsChangeUpdate: {
+            [self configureCell:(ClassCell *)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            break;
+            /*
             NSString *sectionKeyPath = [controller sectionNameKeyPath];
             if (sectionKeyPath == nil)
                 break;
@@ -295,8 +310,12 @@ UITableViewCellEditingStyleInsert
                 NSUInteger indices[2] = {newSectionLocation, 0};
                 newIndexPath = [[[NSIndexPath alloc] initWithIndexes:indices length:2] autorelease];
             }
+            */
         }
 		case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]withRowAnimation:UITableViewRowAnimationFade];
+            /*
             if (newIndexPath != nil) {
                 
                 NSUInteger tableSectionCount = [self.tableView numberOfSections];
@@ -315,6 +334,7 @@ UITableViewCellEditingStyleInsert
             else {
                 [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:[indexPath section]] withRowAnimation:UITableViewRowAnimationFade];
             }
+             */
 			break;
         default:
 			break;
