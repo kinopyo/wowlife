@@ -24,6 +24,14 @@
 }
 
 - (void)viewDidLoad {
+    
+    raceValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Human",@"1", @"Orc", @"2", @"Drawf", @"3", @"Night Elf", @"4",
+                    @"Undead", @"5", @"Tauren", @"6", @"Gnome", @"7", @"Troll", @"8", @"Dijing", @"9", @"Blood Elf", @"10", 
+                    @"Draeni", @"11", @"Worgen", @"22", nil];
+    
+    classValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Warrior", @"1", @"Paladin", @"2", @"Hunter", @"3", @"Rogue", @"4",
+                     @"Priest", @"5", @"Death Knight", @"6", @"Shaman", @"7", @"Mage", @"8", @"Warlock", @"9", @"Druid", @"11", nil];
+    
     sectionNames = [[NSArray alloc] initWithObjects:
                     [NSNull null],
                     NSLocalizedString(@"General", @"General"),
@@ -73,9 +81,10 @@
                     // Section 2,
                     [NSArray arrayWithObjects:
 					 // race lists
-					 [NSDictionary dictionaryWithObject:[NSArray 
-														 arrayWithObjects:@"Undead", @"Orc", @"Troll", @"Blood Elf", @"Tauren", nil]
-												 forKey:@"list"],
+                     [NSDictionary dictionaryWithObject:[raceValueMap allValues] forKey:@"list"],
+                     
+//					 [NSDictionary dictionaryWithObjectsAndKeys:[NSArray 
+//                                                                 arrayWithObjects:@"Undead", @"Orc", @"Troll", @"Blood Elf", @"Tauren", nil], @"key", nil],
 					 // class
 					 [NSDictionary dictionaryWithObject:[NSArray 
 														  arrayWithObjects:@"Death Knight", @"Druid", @"Rogue", @"Mage", @"Warlock", @"Warrior", nil]
@@ -86,8 +95,6 @@
                     
                     // Sentinel
                     nil];
-    
-    raceValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Undead", @"5", @"Orc", @"2", nil];
 	
     [super viewDidLoad];
 }
@@ -128,13 +135,11 @@
     NSString *rowKey = [rowKeys nestedObjectAtIndexPath:indexPath];
     NSString *rowLabel = [rowLabels nestedObjectAtIndexPath:indexPath];
     
-    id <GenericValueDisplay> rowValue = [account valueForKey:rowKey];
+    id<GenericValueDisplay> rowValue = [account valueForKey:rowKey];
 	
 	NSUInteger row = [indexPath row];
 	NSUInteger section = [indexPath section];
     
-    
-    // race
 	if (section == 1 && row == 0){
 		cell.detailTextLabel.text = [raceValueMap objectForKey:[rowValue genericValueDisplay]];
 	} else {
