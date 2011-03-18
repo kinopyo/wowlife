@@ -13,6 +13,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
+		C84CB92313332A47009D2DAF /* class-death knight.png in Resources */ = {isa = PBXBuildFile; fileRef = C84CB92213332A47009D2DAF /* class-death knight.png */; };
 		F3034F6512AA28D3000A5C0D /* NSArray-NestedArrays.m in Sources */ = {isa = PBXBuildFile; fileRef = F3034F6412AA28D3000A5C0D /* NSArray-NestedArrays.m */; };
 		F3034F6812AA28FD000A5C0D /* GenericValueDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = F3034F6712AA28FD000A5C0D /* GenericValueDisplay.m */; };
 		F314A9941277336E00E6C4BA /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F314A9921277336E00E6C4BA /* AccountViewController.xib */; };
@@ -61,7 +62,6 @@
 		F3E4F68212BC9D65003C36C5 /* ManagedObjectSingleSelectionListEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E4F67F12BC9D65003C36C5 /* ManagedObjectSingleSelectionListEditor.m */; };
 		F3EA83F712A80A0E0099329F /* AccountDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EA83F612A80A0E0099329F /* AccountDetailViewController.m */; };
 		F3EC66001297D47000E51AB9 /* AccountTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3EC65FF1297D47000E51AB9 /* AccountTableView.xib */; };
-		F3EC663C1297D9A000E51AB9 /* class-deathknight.png in Resources */ = {isa = PBXBuildFile; fileRef = F3EC66321297D9A000E51AB9 /* class-deathknight.png */; };
 		F3EC663D1297D9A000E51AB9 /* class-druid.png in Resources */ = {isa = PBXBuildFile; fileRef = F3EC66331297D9A000E51AB9 /* class-druid.png */; };
 		F3EC663E1297D9A000E51AB9 /* class-hunter.png in Resources */ = {isa = PBXBuildFile; fileRef = F3EC66341297D9A000E51AB9 /* class-hunter.png */; };
 		F3EC663F1297D9A000E51AB9 /* class-mage.png in Resources */ = {isa = PBXBuildFile; fileRef = F3EC66351297D9A000E51AB9 /* class-mage.png */; };
@@ -84,6 +84,7 @@
 		28AD73870D9D96C1002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* WowLife-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WowLife-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		C84CB92213332A47009D2DAF /* class-death knight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-death knight.png"; sourceTree = "<group>"; };
 		F3034F6312AA28D3000A5C0D /* NSArray-NestedArrays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray-NestedArrays.h"; sourceTree = "<group>"; };
 		F3034F6412AA28D3000A5C0D /* NSArray-NestedArrays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray-NestedArrays.m"; sourceTree = "<group>"; };
 		F3034F6612AA28FD000A5C0D /* GenericValueDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericValueDisplay.h; sourceTree = "<group>"; };
@@ -146,7 +147,6 @@
 		F3EA83F512A80A0E0099329F /* AccountDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDetailViewController.h; sourceTree = "<group>"; };
 		F3EA83F612A80A0E0099329F /* AccountDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDetailViewController.m; sourceTree = "<group>"; };
 		F3EC65FF1297D47000E51AB9 /* AccountTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountTableView.xib; sourceTree = "<group>"; };
-		F3EC66321297D9A000E51AB9 /* class-deathknight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-deathknight.png"; sourceTree = "<group>"; };
 		F3EC66331297D9A000E51AB9 /* class-druid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-druid.png"; sourceTree = "<group>"; };
 		F3EC66341297D9A000E51AB9 /* class-hunter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-hunter.png"; sourceTree = "<group>"; };
 		F3EC66351297D9A000E51AB9 /* class-mage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-mage.png"; sourceTree = "<group>"; };
@@ -352,7 +352,7 @@
 		F3EC66461297D9A300E51AB9 /* ClassIcon */ = {
 			isa = PBXGroup;
 			children = (
-				F3EC66321297D9A000E51AB9 /* class-deathknight.png */,
+				C84CB92213332A47009D2DAF /* class-death knight.png */,
 				F3EC66331297D9A000E51AB9 /* class-druid.png */,
 				F3EC66341297D9A000E51AB9 /* class-hunter.png */,
 				F3EC66351297D9A000E51AB9 /* class-mage.png */,
@@ -421,7 +421,6 @@
 				F314A9B81277345400E6C4BA /* ScheduleViewController.xib in Resources */,
 				F314A9BD1277345F00E6C4BA /* HistoryViewController.xib in Resources */,
 				F3EC66001297D47000E51AB9 /* AccountTableView.xib in Resources */,
-				F3EC663C1297D9A000E51AB9 /* class-deathknight.png in Resources */,
 				F3EC663D1297D9A000E51AB9 /* class-druid.png in Resources */,
 				F3EC663E1297D9A000E51AB9 /* class-hunter.png in Resources */,
 				F3EC663F1297D9A000E51AB9 /* class-mage.png in Resources */,
@@ -458,6 +457,7 @@
 				F37CCEB112A56A86005495E5 /* race_worgen_female.jpg in Resources */,
 				F37CCEB212A56A86005495E5 /* race_worgen_male.jpg in Resources */,
 				F37CCEB312A56A86005495E5 /* wow_url.txt in Resources */,
+				C84CB92313332A47009D2DAF /* class-death knight.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
