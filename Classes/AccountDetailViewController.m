@@ -35,8 +35,11 @@
                     @"Troll", [NSNumber numberWithInt:8], @"Goblin", [NSNumber numberWithInt:9], @"Blood Elf", [NSNumber numberWithInt:10], 
                     @"Draenei", [NSNumber numberWithInt:11], @"Worgen", [NSNumber numberWithInt:22], nil];
     
-    classValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Warrior", @"1", @"Paladin", @"2", @"Hunter", @"3", @"Rogue", @"4",
-                     @"Priest", @"5", @"Death Knight", @"6", @"Shaman", @"7", @"Mage", @"8", @"Warlock", @"9", @"Druid", @"11", nil];
+    classValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Warrior", [NSNumber numberWithInt:1], @"Paladin", [NSNumber numberWithInt:2],
+                     @"Hunter", [NSNumber numberWithInt:3], @"Rogue", [NSNumber numberWithInt:4],
+                     @"Priest", [NSNumber numberWithInt:5], @"Death Knight", [NSNumber numberWithInt:6], 
+                     @"Shaman", [NSNumber numberWithInt:7], @"Mage", [NSNumber numberWithInt:8], @"Warlock", [NSNumber numberWithInt:9], 
+                     @"Druid", [NSNumber numberWithInt:11], nil];
     
     sectionNames = [[NSArray alloc] initWithObjects:
                     [NSNull null],
@@ -89,12 +92,8 @@
 					 // race lists  
                      [NSDictionary dictionaryWithObject:raceValueMap forKey:@"map"],
                      
-//					 [NSDictionary dictionaryWithObjectsAndKeys:[NSArray 
-//                                                                 arrayWithObjects:@"Undead", @"Orc", @"Troll", @"Blood Elf", @"Tauren", nil], @"key", nil],
 					 // class
-					 [NSDictionary dictionaryWithObject:[NSArray 
-														  arrayWithObjects:@"Death Knight", @"Druid", @"Rogue", @"Mage", @"Warlock", @"Warrior", nil]
-												  forKey:@"list"],
+					 [NSDictionary dictionaryWithObject:classValueMap forKey:@"map"],
 					 // level  
                      [NSNull null], 
                      nil],
@@ -147,15 +146,25 @@
 	NSUInteger section = [indexPath section];
     
     // TODO refactor needed.
-    // race
-	if (section == 1 && row == 0){
+	if (section == 1)
+    {
+        
         NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
         [f setNumberStyle:NSNumberFormatterDecimalStyle];
         NSNumber * value = [f numberFromString:[rowValue genericValueDisplay]];
         [f release];
         
-		cell.detailTextLabel.text = [raceValueMap objectForKey:value];
-	} else {
+        // race
+        if (row == 0) {
+            cell.detailTextLabel.text = [raceValueMap objectForKey:value];            
+        // class    
+        } else if (row == 1) {
+            cell.detailTextLabel.text = [classValueMap objectForKey:value];            
+        }
+
+	}
+    else 
+    {
 		cell.detailTextLabel.text = [rowValue genericValueDisplay];
 	}
     
