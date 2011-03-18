@@ -18,16 +18,11 @@
     NSString *newValue = selectedCell.textLabel.text;
 	NSLog(@"new value  %@", newValue);
     
-    NSArray *foo = [map allKeysForObject:newValue];
-    NSNumber *valueInMap = [foo objectAtIndex:0];
+    // Key is unique, so it can be retrived at index 0.
+    NSNumber *keyInMap = [[map allKeysForObject:newValue] objectAtIndex:0];
     
-//    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-//    [f setNumberStyle:NSNumberFormatterDecimalStyle];
-//    NSNumber * myNumber = [f numberFromString:valueInMap];
-//    [f release];
-    
-    NSLog(@"value in map %@", valueInMap);
-    [self.managedObject setValue:valueInMap forKey:self.keypath];
+    NSLog(@"key in map %@", keyInMap);
+    [self.managedObject setValue:keyInMap forKey:self.keypath];
     NSError *error;
     if (![self.managedObject.managedObjectContext save:&error])
         NSLog(@"Error saving: %@", [error localizedDescription]);
@@ -42,10 +37,18 @@
 
 - (void)viewWillAppear:(BOOL)animated 
 {
-    NSString *currentValue = [self.managedObject valueForKey:self.keypath];
+    NSNumber *currentValue = [self.managedObject valueForKey:self.keypath];
+    
+    NSLog(@"current value %@", currentValue);
+    
+    NSString *value = [map objectForKey:currentValue];
+    
     for (NSString *oneItem in list) {
-        if ([oneItem isEqualToString:currentValue]) {
+        if ([oneItem isEqualToString:value]) {
             NSUInteger newIndex[] = {0, [list indexOfObject:oneItem]};
+            
+            NSLog(@"index of indexPath %u", [list indexOfObject:oneItem]);
+            
             NSIndexPath *newPath = [[NSIndexPath alloc] initWithIndexes:
                                     newIndex length:2];
             [lastIndexPath release];
@@ -88,8 +91,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *GenericManagedObjectListSelectorCell = 
-    @"GenericManagedObjectListSelectorCell";
+    static NSString *GenericManagedObjectListSelectorCell = @"GenericManagedObjectListSelectorCell";
 
     UITableViewCell *cell = [tableView 
                              dequeueReusableCellWithIdentifier:GenericManagedObjectListSelectorCell];
@@ -104,9 +106,10 @@
 
 
     cell.textLabel.text = [list objectAtIndex:row];
-
-    cell.accessoryType = (row == oldRow && lastIndexPath != nil) ? 
-    UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    if (row == 0){
+        NSLog(@"last index path row: %u", oldRow);
+    }
+    cell.accessoryType = (row == oldRow && lastIndexPath != nil) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     return cell;
 }
 @end
