@@ -53,9 +53,23 @@
 	
     // Configure the cell...
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	//TODO set the image based on player data.
+    
+    // TODO set to global
+    NSDictionary *raceValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Human",[NSNumber numberWithInt:1], 
+                    @"Orc", [NSNumber numberWithInt:2], @"Drawf", [NSNumber numberWithInt:3], @"Night Elf", [NSNumber numberWithInt:4],
+                    @"Undead", [NSNumber numberWithInt:5], @"Tauren", [NSNumber numberWithInt:6], @"Gnome", [NSNumber numberWithInt:7],
+                    @"Troll", [NSNumber numberWithInt:8], @"Goblin", [NSNumber numberWithInt:9], @"Blood Elf", [NSNumber numberWithInt:10], 
+                    @"Draenei", [NSNumber numberWithInt:11], @"Worgen", [NSNumber numberWithInt:22], nil];
+    
+
+    NSString *race = [raceValueMap objectForKey:[oneAccount valueForKey:@"race"]] ;
+    NSString *lowerCaseRace = [race lowercaseString];
+
+    // TODO add female/male column to Account.
+    NSString *raceFileName = [NSString stringWithFormat:@"race_%@_female.jpg", lowerCaseRace];
+    
 	cell.classImageView.image = [UIImage imageNamed:@"class-rogue.png"];
-	cell.raceImageView.image = [UIImage imageNamed:@"race_bloodelf_female.jpg"];
+	cell.raceImageView.image = [UIImage imageNamed:raceFileName];
 	cell.showsReorderControl = YES;
 
 }

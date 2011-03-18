@@ -32,8 +32,8 @@
     raceValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Human",[NSNumber numberWithInt:1], 
                     @"Orc", [NSNumber numberWithInt:2], @"Drawf", [NSNumber numberWithInt:3], @"Night Elf", [NSNumber numberWithInt:4],
                     @"Undead", [NSNumber numberWithInt:5], @"Tauren", [NSNumber numberWithInt:6], @"Gnome", [NSNumber numberWithInt:7],
-                    @"Troll", [NSNumber numberWithInt:8], @"Dijing", [NSNumber numberWithInt:9], @"Blood Elf", [NSNumber numberWithInt:10], 
-                    @"Draeni", [NSNumber numberWithInt:11], @"Worgen", [NSNumber numberWithInt:22], nil];
+                    @"Troll", [NSNumber numberWithInt:8], @"Goblin", [NSNumber numberWithInt:9], @"Blood Elf", [NSNumber numberWithInt:10], 
+                    @"Draenei", [NSNumber numberWithInt:11], @"Worgen", [NSNumber numberWithInt:22], nil];
     
     classValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Warrior", @"1", @"Paladin", @"2", @"Hunter", @"3", @"Rogue", @"4",
                      @"Priest", @"5", @"Death Knight", @"6", @"Shaman", @"7", @"Mage", @"8", @"Warlock", @"9", @"Druid", @"11", nil];
@@ -146,6 +146,8 @@
 	NSUInteger row = [indexPath row];
 	NSUInteger section = [indexPath section];
     
+    // TODO refactor needed.
+    // race
 	if (section == 1 && row == 0){
         NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
         [f setNumberStyle:NSNumberFormatterDecimalStyle];
