@@ -14,6 +14,7 @@
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
 		C84CB92313332A47009D2DAF /* class-death knight.png in Resources */ = {isa = PBXBuildFile; fileRef = C84CB92213332A47009D2DAF /* class-death knight.png */; };
+		C8B41A0D13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B41A0C13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.m */; };
 		F3034F6512AA28D3000A5C0D /* NSArray-NestedArrays.m in Sources */ = {isa = PBXBuildFile; fileRef = F3034F6412AA28D3000A5C0D /* NSArray-NestedArrays.m */; };
 		F3034F6812AA28FD000A5C0D /* GenericValueDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = F3034F6712AA28FD000A5C0D /* GenericValueDisplay.m */; };
 		F314A9941277336E00E6C4BA /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F314A9921277336E00E6C4BA /* AccountViewController.xib */; };
@@ -28,8 +29,8 @@
 		F3388B8612C8F907008084CE /* Convertor.m in Sources */ = {isa = PBXBuildFile; fileRef = F3388B8512C8F907008084CE /* Convertor.m */; };
 		F37CCE6612A56838005495E5 /* ClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F37CCE6512A56838005495E5 /* ClassCell.m */; };
 		F37CCE6812A56857005495E5 /* ClassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE6712A56857005495E5 /* ClassCell.xib */; };
-		F37CCE9B12A56A86005495E5 /* race_bloodelf_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE7812A56A86005495E5 /* race_bloodelf_female.jpg */; };
-		F37CCE9C12A56A86005495E5 /* race_bloodelf_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE7912A56A86005495E5 /* race_bloodelf_male.jpg */; };
+		F37CCE9B12A56A86005495E5 /* race_blood elf_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE7812A56A86005495E5 /* race_blood elf_female.jpg */; };
+		F37CCE9C12A56A86005495E5 /* race_blood elf_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE7912A56A86005495E5 /* race_blood elf_male.jpg */; };
 		F37CCE9D12A56A86005495E5 /* race_draenei_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE7A12A56A86005495E5 /* race_draenei_female.jpg */; };
 		F37CCE9E12A56A86005495E5 /* race_draenei_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE7B12A56A86005495E5 /* race_draenei_male.jpg */; };
 		F37CCE9F12A56A86005495E5 /* race_dwarf_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE7C12A56A86005495E5 /* race_dwarf_female.jpg */; };
@@ -40,12 +41,12 @@
 		F37CCEA412A56A86005495E5 /* race_goblin_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8112A56A86005495E5 /* race_goblin_male.jpg */; };
 		F37CCEA512A56A86005495E5 /* race_human_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8212A56A86005495E5 /* race_human_female.jpg */; };
 		F37CCEA612A56A86005495E5 /* race_human_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8312A56A86005495E5 /* race_human_male.jpg */; };
-		F37CCEA712A56A86005495E5 /* race_nightelf_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8412A56A86005495E5 /* race_nightelf_female.jpg */; };
-		F37CCEA812A56A86005495E5 /* race_nightelf_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8512A56A86005495E5 /* race_nightelf_male.jpg */; };
+		F37CCEA712A56A86005495E5 /* race_night elf_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8412A56A86005495E5 /* race_night elf_female.jpg */; };
+		F37CCEA812A56A86005495E5 /* race_night elf_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8512A56A86005495E5 /* race_night elf_male.jpg */; };
 		F37CCEA912A56A86005495E5 /* race_orc_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8612A56A86005495E5 /* race_orc_female.jpg */; };
 		F37CCEAA12A56A86005495E5 /* race_orc_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8712A56A86005495E5 /* race_orc_male.jpg */; };
-		F37CCEAB12A56A86005495E5 /* race_scourge_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8812A56A86005495E5 /* race_scourge_female.jpg */; };
-		F37CCEAC12A56A86005495E5 /* race_scourge_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8912A56A86005495E5 /* race_scourge_male.jpg */; };
+		F37CCEAB12A56A86005495E5 /* race_undead_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8812A56A86005495E5 /* race_undead_female.jpg */; };
+		F37CCEAC12A56A86005495E5 /* race_undead_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8912A56A86005495E5 /* race_undead_male.jpg */; };
 		F37CCEAD12A56A86005495E5 /* race_tauren_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8A12A56A86005495E5 /* race_tauren_female.jpg */; };
 		F37CCEAE12A56A86005495E5 /* race_tauren_male.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8B12A56A86005495E5 /* race_tauren_male.jpg */; };
 		F37CCEAF12A56A86005495E5 /* race_troll_female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8C12A56A86005495E5 /* race_troll_female.jpg */; };
@@ -85,6 +86,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* WowLife-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WowLife-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		C84CB92213332A47009D2DAF /* class-death knight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-death knight.png"; sourceTree = "<group>"; };
+		C8B41A0B13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedObjectSingleSelectionDictionaryEditor.h; sourceTree = "<group>"; };
+		C8B41A0C13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedObjectSingleSelectionDictionaryEditor.m; sourceTree = "<group>"; };
 		F3034F6312AA28D3000A5C0D /* NSArray-NestedArrays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray-NestedArrays.h"; sourceTree = "<group>"; };
 		F3034F6412AA28D3000A5C0D /* NSArray-NestedArrays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray-NestedArrays.m"; sourceTree = "<group>"; };
 		F3034F6612AA28FD000A5C0D /* GenericValueDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericValueDisplay.h; sourceTree = "<group>"; };
@@ -108,8 +111,8 @@
 		F37CCE6412A56838005495E5 /* ClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassCell.h; sourceTree = "<group>"; };
 		F37CCE6512A56838005495E5 /* ClassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassCell.m; sourceTree = "<group>"; };
 		F37CCE6712A56857005495E5 /* ClassCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassCell.xib; sourceTree = "<group>"; };
-		F37CCE7812A56A86005495E5 /* race_bloodelf_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_bloodelf_female.jpg; sourceTree = "<group>"; };
-		F37CCE7912A56A86005495E5 /* race_bloodelf_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_bloodelf_male.jpg; sourceTree = "<group>"; };
+		F37CCE7812A56A86005495E5 /* race_blood elf_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "race_blood elf_female.jpg"; sourceTree = "<group>"; };
+		F37CCE7912A56A86005495E5 /* race_blood elf_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "race_blood elf_male.jpg"; sourceTree = "<group>"; };
 		F37CCE7A12A56A86005495E5 /* race_draenei_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_draenei_female.jpg; sourceTree = "<group>"; };
 		F37CCE7B12A56A86005495E5 /* race_draenei_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_draenei_male.jpg; sourceTree = "<group>"; };
 		F37CCE7C12A56A86005495E5 /* race_dwarf_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_dwarf_female.jpg; sourceTree = "<group>"; };
@@ -120,12 +123,12 @@
 		F37CCE8112A56A86005495E5 /* race_goblin_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_goblin_male.jpg; sourceTree = "<group>"; };
 		F37CCE8212A56A86005495E5 /* race_human_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_human_female.jpg; sourceTree = "<group>"; };
 		F37CCE8312A56A86005495E5 /* race_human_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_human_male.jpg; sourceTree = "<group>"; };
-		F37CCE8412A56A86005495E5 /* race_nightelf_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_nightelf_female.jpg; sourceTree = "<group>"; };
-		F37CCE8512A56A86005495E5 /* race_nightelf_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_nightelf_male.jpg; sourceTree = "<group>"; };
+		F37CCE8412A56A86005495E5 /* race_night elf_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "race_night elf_female.jpg"; sourceTree = "<group>"; };
+		F37CCE8512A56A86005495E5 /* race_night elf_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "race_night elf_male.jpg"; sourceTree = "<group>"; };
 		F37CCE8612A56A86005495E5 /* race_orc_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_orc_female.jpg; sourceTree = "<group>"; };
 		F37CCE8712A56A86005495E5 /* race_orc_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_orc_male.jpg; sourceTree = "<group>"; };
-		F37CCE8812A56A86005495E5 /* race_scourge_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_scourge_female.jpg; sourceTree = "<group>"; };
-		F37CCE8912A56A86005495E5 /* race_scourge_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_scourge_male.jpg; sourceTree = "<group>"; };
+		F37CCE8812A56A86005495E5 /* race_undead_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_undead_female.jpg; sourceTree = "<group>"; };
+		F37CCE8912A56A86005495E5 /* race_undead_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_undead_male.jpg; sourceTree = "<group>"; };
 		F37CCE8A12A56A86005495E5 /* race_tauren_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_tauren_female.jpg; sourceTree = "<group>"; };
 		F37CCE8B12A56A86005495E5 /* race_tauren_male.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_tauren_male.jpg; sourceTree = "<group>"; };
 		F37CCE8C12A56A86005495E5 /* race_troll_female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_troll_female.jpg; sourceTree = "<group>"; };
@@ -294,6 +297,8 @@
 			children = (
 				F3E4F67A12BC9D65003C36C5 /* ManagedObjectStringEditor.h */,
 				F3E4F67B12BC9D65003C36C5 /* ManagedObjectStringEditor.m */,
+				C8B41A0B13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.h */,
+				C8B41A0C13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.m */,
 				F3E4F67C12BC9D65003C36C5 /* ManagedObjectDateEditor.h */,
 				F3E4F67D12BC9D65003C36C5 /* ManagedObjectDateEditor.m */,
 				F3E4F67E12BC9D65003C36C5 /* ManagedObjectSingleSelectionListEditor.h */,
@@ -320,8 +325,8 @@
 		F37CCE7712A56A86005495E5 /* 56x56 */ = {
 			isa = PBXGroup;
 			children = (
-				F37CCE7812A56A86005495E5 /* race_bloodelf_female.jpg */,
-				F37CCE7912A56A86005495E5 /* race_bloodelf_male.jpg */,
+				F37CCE7812A56A86005495E5 /* race_blood elf_female.jpg */,
+				F37CCE7912A56A86005495E5 /* race_blood elf_male.jpg */,
 				F37CCE7A12A56A86005495E5 /* race_draenei_female.jpg */,
 				F37CCE7B12A56A86005495E5 /* race_draenei_male.jpg */,
 				F37CCE7C12A56A86005495E5 /* race_dwarf_female.jpg */,
@@ -332,12 +337,12 @@
 				F37CCE8112A56A86005495E5 /* race_goblin_male.jpg */,
 				F37CCE8212A56A86005495E5 /* race_human_female.jpg */,
 				F37CCE8312A56A86005495E5 /* race_human_male.jpg */,
-				F37CCE8412A56A86005495E5 /* race_nightelf_female.jpg */,
-				F37CCE8512A56A86005495E5 /* race_nightelf_male.jpg */,
+				F37CCE8412A56A86005495E5 /* race_night elf_female.jpg */,
+				F37CCE8512A56A86005495E5 /* race_night elf_male.jpg */,
 				F37CCE8612A56A86005495E5 /* race_orc_female.jpg */,
 				F37CCE8712A56A86005495E5 /* race_orc_male.jpg */,
-				F37CCE8812A56A86005495E5 /* race_scourge_female.jpg */,
-				F37CCE8912A56A86005495E5 /* race_scourge_male.jpg */,
+				F37CCE8812A56A86005495E5 /* race_undead_female.jpg */,
+				F37CCE8912A56A86005495E5 /* race_undead_male.jpg */,
 				F37CCE8A12A56A86005495E5 /* race_tauren_female.jpg */,
 				F37CCE8B12A56A86005495E5 /* race_tauren_male.jpg */,
 				F37CCE8C12A56A86005495E5 /* race_troll_female.jpg */,
@@ -432,8 +437,8 @@
 				F3EC66451297D9A000E51AB9 /* class-warrior.png in Resources */,
 				F3C359211297E12D00774E71 /* computers.plist in Resources */,
 				F37CCE6812A56857005495E5 /* ClassCell.xib in Resources */,
-				F37CCE9B12A56A86005495E5 /* race_bloodelf_female.jpg in Resources */,
-				F37CCE9C12A56A86005495E5 /* race_bloodelf_male.jpg in Resources */,
+				F37CCE9B12A56A86005495E5 /* race_blood elf_female.jpg in Resources */,
+				F37CCE9C12A56A86005495E5 /* race_blood elf_male.jpg in Resources */,
 				F37CCE9D12A56A86005495E5 /* race_draenei_female.jpg in Resources */,
 				F37CCE9E12A56A86005495E5 /* race_draenei_male.jpg in Resources */,
 				F37CCE9F12A56A86005495E5 /* race_dwarf_female.jpg in Resources */,
@@ -444,12 +449,12 @@
 				F37CCEA412A56A86005495E5 /* race_goblin_male.jpg in Resources */,
 				F37CCEA512A56A86005495E5 /* race_human_female.jpg in Resources */,
 				F37CCEA612A56A86005495E5 /* race_human_male.jpg in Resources */,
-				F37CCEA712A56A86005495E5 /* race_nightelf_female.jpg in Resources */,
-				F37CCEA812A56A86005495E5 /* race_nightelf_male.jpg in Resources */,
+				F37CCEA712A56A86005495E5 /* race_night elf_female.jpg in Resources */,
+				F37CCEA812A56A86005495E5 /* race_night elf_male.jpg in Resources */,
 				F37CCEA912A56A86005495E5 /* race_orc_female.jpg in Resources */,
 				F37CCEAA12A56A86005495E5 /* race_orc_male.jpg in Resources */,
-				F37CCEAB12A56A86005495E5 /* race_scourge_female.jpg in Resources */,
-				F37CCEAC12A56A86005495E5 /* race_scourge_male.jpg in Resources */,
+				F37CCEAB12A56A86005495E5 /* race_undead_female.jpg in Resources */,
+				F37CCEAC12A56A86005495E5 /* race_undead_male.jpg in Resources */,
 				F37CCEAD12A56A86005495E5 /* race_tauren_female.jpg in Resources */,
 				F37CCEAE12A56A86005495E5 /* race_tauren_male.jpg in Resources */,
 				F37CCEAF12A56A86005495E5 /* race_troll_female.jpg in Resources */,
@@ -485,6 +490,7 @@
 				F3E4F68212BC9D65003C36C5 /* ManagedObjectSingleSelectionListEditor.m in Sources */,
 				F3388B4812C8F271008084CE /* RaceSingleSelectionListEditor.m in Sources */,
 				F3388B8612C8F907008084CE /* Convertor.m in Sources */,
+				C8B41A0D13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
