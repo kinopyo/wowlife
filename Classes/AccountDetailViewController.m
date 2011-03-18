@@ -10,7 +10,8 @@
 #import "NSArray-NestedArrays.h"
 #import "GenericValueDisplay.h"
 #import "ManagedObjectAttributeEditor.h"
-#import "RaceSingleSelectionListEditor.h"
+//#import "RaceSingleSelectionListEditor.h"
+#import "ManagedObjectSingleSelectionDictionaryEditor.h"
 #import "Convertor.h"
 @implementation AccountDetailViewController
 @synthesize account;
@@ -25,9 +26,14 @@
 
 - (void)viewDidLoad {
     
-    raceValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Human",@"1", @"Orc", @"2", @"Drawf", @"3", @"Night Elf", @"4",
-                    @"Undead", @"5", @"Tauren", @"6", @"Gnome", @"7", @"Troll", @"8", @"Dijing", @"9", @"Blood Elf", @"10", 
-                    @"Draeni", @"11", @"Worgen", @"22", nil];
+//    raceValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Human",@"1", @"Orc", @"2", @"Drawf", @"3", @"Night Elf", @"4",
+//                    @"Undead", @"5", @"Tauren", @"6", @"Gnome", @"7", @"Troll", @"8", @"Dijing", @"9", @"Blood Elf", @"10", 
+//                    @"Draeni", @"11", @"Worgen", @"22", nil];
+    raceValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Human",[NSNumber numberWithInt:1], 
+                    @"Orc", [NSNumber numberWithInt:2], @"Drawf", [NSNumber numberWithInt:3], @"Night Elf", [NSNumber numberWithInt:4],
+                    @"Undead", [NSNumber numberWithInt:5], @"Tauren", [NSNumber numberWithInt:6], @"Gnome", [NSNumber numberWithInt:7],
+                    @"Troll", [NSNumber numberWithInt:8], @"Dijing", [NSNumber numberWithInt:9], @"Blood Elf", [NSNumber numberWithInt:10], 
+                    @"Draeni", [NSNumber numberWithInt:11], @"Worgen", [NSNumber numberWithInt:22], nil];
     
     classValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Warrior", @"1", @"Paladin", @"2", @"Hunter", @"3", @"Rogue", @"4",
                      @"Priest", @"5", @"Death Knight", @"6", @"Shaman", @"7", @"Mage", @"8", @"Warlock", @"9", @"Druid", @"11", nil];
@@ -67,8 +73,8 @@
                       [NSArray arrayWithObject:@"ManagedObjectStringEditor"],
 					  
                       // Section 2
-                      [NSArray arrayWithObjects:@"RaceSingleSelectionListEditor", 
-                       @"ManagedObjectSingleSelectionListEditor",
+                      [NSArray arrayWithObjects:@"ManagedObjectSingleSelectionDictionaryEditor", 
+                       @"ManagedObjectSingleSelectionDictionaryEditor",
                        @"ManagedObjectStringEditor", nil],
 					  
                       // Sentinel
@@ -80,8 +86,8 @@
                     
                     // Section 2,
                     [NSArray arrayWithObjects:
-					 // race lists
-                     [NSDictionary dictionaryWithObject:[raceValueMap allValues] forKey:@"list"],
+					 // race lists  
+                     [NSDictionary dictionaryWithObject:raceValueMap forKey:@"map"],
                      
 //					 [NSDictionary dictionaryWithObjectsAndKeys:[NSArray 
 //                                                                 arrayWithObjects:@"Undead", @"Orc", @"Troll", @"Blood Elf", @"Tauren", nil], @"key", nil],
@@ -141,7 +147,12 @@
 	NSUInteger section = [indexPath section];
     
 	if (section == 1 && row == 0){
-		cell.detailTextLabel.text = [raceValueMap objectForKey:[rowValue genericValueDisplay]];
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSNumber * value = [f numberFromString:[rowValue genericValueDisplay]];
+        [f release];
+        
+		cell.detailTextLabel.text = [raceValueMap objectForKey:value];
 	} else {
 		cell.detailTextLabel.text = [rowValue genericValueDisplay];
 	}
