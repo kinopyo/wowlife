@@ -61,15 +61,24 @@
                     @"Troll", [NSNumber numberWithInt:8], @"Goblin", [NSNumber numberWithInt:9], @"Blood Elf", [NSNumber numberWithInt:10], 
                     @"Draenei", [NSNumber numberWithInt:11], @"Worgen", [NSNumber numberWithInt:22], nil];
     
+    NSDictionary *classValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Warrior", [NSNumber numberWithInt:1], @"Paladin", [NSNumber numberWithInt:2],
+                     @"Hunter", [NSNumber numberWithInt:3], @"Rogue", [NSNumber numberWithInt:4],
+                     @"Priest", [NSNumber numberWithInt:5], @"Death Knight", [NSNumber numberWithInt:6], 
+                     @"Shaman", [NSNumber numberWithInt:7], @"Mage", [NSNumber numberWithInt:8], @"Warlock", [NSNumber numberWithInt:9], 
+                     @"Druid", [NSNumber numberWithInt:11], nil];
+    
 
     NSString *race = [raceValueMap objectForKey:[oneAccount valueForKey:@"race"]] ;
     NSString *lowerCaseRace = [race lowercaseString];
 
     // TODO add female/male column to Account.
     NSString *raceFileName = [NSString stringWithFormat:@"race_%@_female.jpg", lowerCaseRace];
-    
-	cell.classImageView.image = [UIImage imageNamed:@"class-rogue.png"];
 	cell.raceImageView.image = [UIImage imageNamed:raceFileName];
+    
+    NSString *klass = [classValueMap objectForKey:[oneAccount valueForKey:@"klass"]];
+    NSString *klassFileName = [NSString stringWithFormat:@"class-%@.png", klass];
+	cell.classImageView.image = [UIImage imageNamed:klassFileName];    
+
 	cell.showsReorderControl = YES;
 
 }
