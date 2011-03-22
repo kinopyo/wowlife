@@ -53,6 +53,7 @@
                  // Section 2
                  [NSArray arrayWithObjects:NSLocalizedString(@"Race", @"Race"),
                   NSLocalizedString(@"Class", @"Class"),
+                  NSLocalizedString(@"Sex", @"Sex"),
                   NSLocalizedString(@"Level", @"Level"),
                   nil],
                  				 
@@ -65,7 +66,7 @@
                [NSArray arrayWithObjects:@"name", nil],
 			   
                // Section 2
-               [NSArray arrayWithObjects:@"race", @"klass", @"level", nil],
+               [NSArray arrayWithObjects:@"race", @"klass", @"Sex", @"level", nil],
                
                // Sentinel
                nil];
@@ -76,9 +77,12 @@
                       [NSArray arrayWithObject:@"ManagedObjectStringEditor"],
 					  
                       // Section 2
-                      [NSArray arrayWithObjects:@"ManagedObjectSingleSelectionDictionaryEditor", 
-                       @"ManagedObjectSingleSelectionDictionaryEditor",
-                       @"ManagedObjectStringEditor", nil],
+                      [NSArray arrayWithObjects:
+                       @"ManagedObjectSingleSelectionDictionaryEditor",     // race
+                       @"ManagedObjectSingleSelectionDictionaryEditor",     // klass
+                       @"ManagedObjectSingleSelectionListEditor",           // sex
+                       @"ManagedObjectStringEditor",                        // level
+                       nil],
 					  
                       // Sentinel
                       nil];
@@ -94,6 +98,12 @@
                      
 					 // class
 					 [NSDictionary dictionaryWithObject:classValueMap forKey:@"map"],
+                     
+                     // sex
+                     [NSDictionary dictionaryWithObject:
+                      [NSArray arrayWithObjects:@"Male", @"Female", nil] 
+                                                 forKey:@"list"], 
+                     
 					 // level  
                      [NSNull null], 
                      nil],

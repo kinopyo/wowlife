@@ -76,11 +76,15 @@
                      @"Druid", [NSNumber numberWithInt:11], nil];
     
 
-    NSString *race = [raceValueMap objectForKey:[oneAccount valueForKey:@"race"]] ;
+    NSString *race = [raceValueMap objectForKey:[oneAccount valueForKey:@"race"]];
     NSString *lowerCaseRace = [race lowercaseString];
 
     // TODO add female/male column to Account.
-    NSString *raceFileName = [NSString stringWithFormat:@"race_%@_female.jpg", lowerCaseRace];
+    NSString *sex = [oneAccount valueForKey:@"sex"];
+    NSString *lowerCaseSex = [sex lowercaseString];
+    
+    NSString *raceFileName = [NSString stringWithFormat:@"race_%@_%@.jpg", lowerCaseRace, lowerCaseSex];
+    NSLog(@"race image file name: %@", raceFileName);
 	cell.raceImageView.image = [UIImage imageNamed:raceFileName];
     
     NSString *klass = [classValueMap objectForKey:[oneAccount valueForKey:@"klass"]];
