@@ -10,9 +10,7 @@
 #import "NSArray-NestedArrays.h"
 #import "GenericValueDisplay.h"
 #import "ManagedObjectAttributeEditor.h"
-//#import "RaceSingleSelectionListEditor.h"
-#import "ManagedObjectSingleSelectionDictionaryEditor.h"
-#import "Convertor.h"
+
 @implementation AccountDetailViewController
 @synthesize account;
 
@@ -26,9 +24,6 @@
 
 - (void)viewDidLoad {
     
-//    raceValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Human",@"1", @"Orc", @"2", @"Drawf", @"3", @"Night Elf", @"4",
-//                    @"Undead", @"5", @"Tauren", @"6", @"Gnome", @"7", @"Troll", @"8", @"Dijing", @"9", @"Blood Elf", @"10", 
-//                    @"Draeni", @"11", @"Worgen", @"22", nil];
     raceValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Human",[NSNumber numberWithInt:1], 
                     @"Orc", [NSNumber numberWithInt:2], @"Drawf", [NSNumber numberWithInt:3], @"Night Elf", [NSNumber numberWithInt:4],
                     @"Undead", [NSNumber numberWithInt:5], @"Tauren", [NSNumber numberWithInt:6], @"Gnome", [NSNumber numberWithInt:7],
@@ -243,6 +238,7 @@
     [rowKeys release];
     [rowControllers release];
     [raceValueMap release];
+    [classValueMap release];
     [super dealloc];
 }
 
