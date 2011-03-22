@@ -160,6 +160,8 @@
         // class    
         } else if (row == 1) {
             cell.detailTextLabel.text = [classValueMap objectForKey:value];            
+        } else {
+            cell.detailTextLabel.text = [rowValue genericValueDisplay];
         }
 
 	}
