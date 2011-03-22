@@ -29,6 +29,9 @@
 	NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
 	NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     
+    // set current timestamp to "created" column
+    [newManagedObject setValue:[NSDate date] forKey:@"created"];
+    
     NSError *error;
     if (![context save:&error])
         NSLog(@"Error saving entity: %@", [error localizedDescription]);
@@ -49,6 +52,11 @@
 - (void)configureCell:(ClassCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {	NSManagedObject *oneAccount = [self.fetchedResultsController objectAtIndexPath:indexPath];
 	cell.name.text = [oneAccount valueForKey:@"name"];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    NSLog(@"created: %@", [formatter stringFromDate:[oneAccount valueForKey:@"created"]]);
 	
 	
     // Configure the cell...
@@ -243,8 +251,7 @@ UITableViewCellEditingStyleInsert
 	
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:managedObjectContext];
 
-    // TODO sort by created. First add 'created' column to 'Account'
-	NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+	NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"created" ascending:YES];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor1, nil];
 	[fetchRequest setSortDescriptors:sortDescriptors];
    	[fetchRequest setEntity:entity];
