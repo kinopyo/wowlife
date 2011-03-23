@@ -52,43 +52,43 @@
 - (void)configureCell:(ClassCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {	NSManagedObject *oneAccount = [self.fetchedResultsController objectAtIndexPath:indexPath];
 	cell.name.text = [oneAccount valueForKey:@"name"];
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    
-    NSLog(@"created: %@", [formatter stringFromDate:[oneAccount valueForKey:@"created"]]);
 	
-	
-    // Configure the cell...
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     // TODO set to global
-    NSDictionary *raceValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Human",[NSNumber numberWithInt:1], 
-                    @"Orc", [NSNumber numberWithInt:2], @"Drawf", [NSNumber numberWithInt:3], @"Night Elf", [NSNumber numberWithInt:4],
-                    @"Undead", [NSNumber numberWithInt:5], @"Tauren", [NSNumber numberWithInt:6], @"Gnome", [NSNumber numberWithInt:7],
-                    @"Troll", [NSNumber numberWithInt:8], @"Goblin", [NSNumber numberWithInt:9], @"Blood Elf", [NSNumber numberWithInt:10], 
-                    @"Draenei", [NSNumber numberWithInt:11], @"Worgen", [NSNumber numberWithInt:22], nil];
+//    NSDictionary *raceValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Human",[NSNumber numberWithInt:1], 
+//                    @"Orc", [NSNumber numberWithInt:2], @"Drawf", [NSNumber numberWithInt:3], @"Night Elf", [NSNumber numberWithInt:4],
+//                    @"Undead", [NSNumber numberWithInt:5], @"Tauren", [NSNumber numberWithInt:6], @"Gnome", [NSNumber numberWithInt:7],
+//                    @"Troll", [NSNumber numberWithInt:8], @"Goblin", [NSNumber numberWithInt:9], @"Blood Elf", [NSNumber numberWithInt:10], 
+//                    @"Draenei", [NSNumber numberWithInt:11], @"Worgen", [NSNumber numberWithInt:22], nil];
     
-    NSDictionary *classValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Warrior", [NSNumber numberWithInt:1], @"Paladin", [NSNumber numberWithInt:2],
-                     @"Hunter", [NSNumber numberWithInt:3], @"Rogue", [NSNumber numberWithInt:4],
-                     @"Priest", [NSNumber numberWithInt:5], @"Death Knight", [NSNumber numberWithInt:6], 
-                     @"Shaman", [NSNumber numberWithInt:7], @"Mage", [NSNumber numberWithInt:8], @"Warlock", [NSNumber numberWithInt:9], 
-                     @"Druid", [NSNumber numberWithInt:11], nil];
-    
+//    NSDictionary *classValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Warrior", [NSNumber numberWithInt:1], @"Paladin", [NSNumber numberWithInt:2],
+//                     @"Hunter", [NSNumber numberWithInt:3], @"Rogue", [NSNumber numberWithInt:4],
+//                     @"Priest", [NSNumber numberWithInt:5], @"Death Knight", [NSNumber numberWithInt:6], 
+//                     @"Shaman", [NSNumber numberWithInt:7], @"Mage", [NSNumber numberWithInt:8], @"Warlock", [NSNumber numberWithInt:9], 
+//                     @"Druid", [NSNumber numberWithInt:11], nil];
 
-    NSString *race = [raceValueMap objectForKey:[oneAccount valueForKey:@"race"]];
-    NSString *lowerCaseRace = [race lowercaseString];
-
-    NSString *sex = [oneAccount valueForKey:@"sex"];
-    NSString *lowerCaseSex = [sex lowercaseString];
+	
+//    NSString *race = [[raceValueMap objectForKey:[oneAccount valueForKey:@"race"]] lowercaseString];
+//    NSString *sex = [[oneAccount valueForKey:@"sex"] lowercaseString];
     
-    NSString *raceFileName = [NSString stringWithFormat:@"race_%@_%@.jpg", lowerCaseRace, lowerCaseSex];
-    NSLog(@"race image file name: %@", raceFileName);
+    NSString *raceFileName = [NSString stringWithFormat:@"race_%@_%@.jpg", [oneAccount valueForKey:@"race"], [oneAccount valueForKey:@"sex"]];
+
+	NSLog(@"race file name:%@", raceFileName);
 	cell.raceImageView.image = [UIImage imageNamed:raceFileName];
     
-    NSString *klass = [classValueMap objectForKey:[oneAccount valueForKey:@"klass"]];
-    NSString *klassFileName = [NSString stringWithFormat:@"class-%@.png", klass];
-	cell.classImageView.image = [UIImage imageNamed:klassFileName];    
+//    NSString *klass = [classValueMap objectForKey:[oneAccount valueForKey:@"klass"]];
+    NSString *klassFileName = [NSString stringWithFormat:@"class-%@.png", [oneAccount valueForKey:@"klass"]];
+	cell.classImageView.image = [UIImage imageNamed:klassFileName];   
+	
+	// TODO release above vars
+//	[race release];
+//	[sex release];
+//	[raceFileName release];
+//	[klass release];
+//	[klassFileName release];
+//	[classValueMap release];
+//	[raceValueMap release];
 
     // TODO figure out what's this
 	cell.showsReorderControl = YES;
@@ -111,6 +111,12 @@
         [alert show];
 		
 	}
+	
+	classValueMap = [[NSDictionary alloc] initWithContentsOfFile:
+								   [[NSBundle mainBundle] pathForResource:@"classList" ofType:@"plist"]];    
+	
+	raceValueMap = [[NSDictionary alloc] initWithContentsOfFile:
+								  [[NSBundle mainBundle] pathForResource:@"raceList" ofType:@"plist"]];  
 	
     [super viewDidLoad];
     
@@ -425,6 +431,9 @@ UITableViewCellEditingStyleInsert
 - (void)dealloc {
 	// release created property
 	[accountDetailViewController release];
+	[raceValueMap release];
+	[classValueMap release];
+
     [super dealloc];
 }
 

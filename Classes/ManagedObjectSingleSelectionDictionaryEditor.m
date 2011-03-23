@@ -19,10 +19,11 @@
 	NSLog(@"new value  %@", newValue);
     
     // Key is unique, so it can be retrived at index 0.
-    NSNumber *keyInMap = [[map allKeysForObject:newValue] objectAtIndex:0];
+    NSString *keyInMap = [[map allKeysForObject:newValue] objectAtIndex:0];
     
     NSLog(@"key in map %@", keyInMap);
     [self.managedObject setValue:keyInMap forKey:self.keypath];
+
     NSError *error;
     if (![self.managedObject.managedObjectContext save:&error])
         NSLog(@"Error saving: %@", [error localizedDescription]);
@@ -105,7 +106,7 @@
     NSUInteger oldRow = [lastIndexPath row];
 
 
-    cell.textLabel.text = [list objectAtIndex:row];
+    cell.textLabel.text = NSLocalizedString([list objectAtIndex:row], @"SingleSelectionDecionary");
     if (row == 0){
         NSLog(@"last index path row: %u", oldRow);
     }

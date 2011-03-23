@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1</key>
+	<string>Human</string>
+	<key>2</key>
+	<string>Orc</string>
+	<key>3</key>
+	<string>Drawf</string>
+	<key>4</key>
+	<string>Night Elf</string>
+	<key>5</key>
+	<string>Undead</string>
+	<key>6</key>
+	<string>Tauren</string>
+	<key>7</key>
+	<string>Gnome</string>
+	<key>8</key>
+	<string>Troll</string>
+	<key>9</key>
+	<string>Goblin</string>
+	<key>10</key>
+	<string>Blood Elf</string>
+	<key>11</key>
+	<string>Draenei</string>
+	<key>22</key>
+	<string>Worgen</string>
+</dict>
+</plist>

@@ -23,18 +23,15 @@
 }
 
 - (void)viewDidLoad {
-    
-    raceValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Human",[NSNumber numberWithInt:1], 
-                    @"Orc", [NSNumber numberWithInt:2], @"Drawf", [NSNumber numberWithInt:3], @"Night Elf", [NSNumber numberWithInt:4],
-                    @"Undead", [NSNumber numberWithInt:5], @"Tauren", [NSNumber numberWithInt:6], @"Gnome", [NSNumber numberWithInt:7],
-                    @"Troll", [NSNumber numberWithInt:8], @"Goblin", [NSNumber numberWithInt:9], @"Blood Elf", [NSNumber numberWithInt:10], 
-                    @"Draenei", [NSNumber numberWithInt:11], @"Worgen", [NSNumber numberWithInt:22], nil];
-    
-    classValueMap = [[NSDictionary alloc] initWithObjectsAndKeys:@"Warrior", [NSNumber numberWithInt:1], @"Paladin", [NSNumber numberWithInt:2],
-                     @"Hunter", [NSNumber numberWithInt:3], @"Rogue", [NSNumber numberWithInt:4],
-                     @"Priest", [NSNumber numberWithInt:5], @"Death Knight", [NSNumber numberWithInt:6], 
-                     @"Shaman", [NSNumber numberWithInt:7], @"Mage", [NSNumber numberWithInt:8], @"Warlock", [NSNumber numberWithInt:9], 
-                     @"Druid", [NSNumber numberWithInt:11], nil];
+	
+	classValueMap = [[NSDictionary alloc] initWithContentsOfFile:
+								   [[NSBundle mainBundle] pathForResource:@"classList" ofType:@"plist"]];
+	
+	raceValueMap = [[NSDictionary alloc] initWithContentsOfFile:
+								  [[NSBundle mainBundle] pathForResource:@"raceList" ofType:@"plist"]];
+	
+	sexValueMap = [[NSDictionary alloc] initWithContentsOfFile:
+					[[NSBundle mainBundle] pathForResource:@"sexList" ofType:@"plist"]];  
     
     sectionNames = [[NSArray alloc] initWithObjects:
                     [NSNull null],
@@ -75,7 +72,7 @@
                       [NSArray arrayWithObjects:
                        @"ManagedObjectSingleSelectionDictionaryEditor",     // race
                        @"ManagedObjectSingleSelectionDictionaryEditor",     // klass
-                       @"ManagedObjectSingleSelectionListEditor",           // sex
+                       @"ManagedObjectSingleSelectionDictionaryEditor",		// sex
                        @"ManagedObjectStringEditor",                        // level
                        nil],
 					  
@@ -95,9 +92,7 @@
 					 [NSDictionary dictionaryWithObject:classValueMap forKey:@"map"],
                      
                      // sex
-                     [NSDictionary dictionaryWithObject:
-                      [NSArray arrayWithObjects:@"Male", @"Female", nil] 
-                                                 forKey:@"list"], 
+                     [NSDictionary dictionaryWithObject:sexValueMap forKey:@"map"],
                      
 					 // level  
                      [NSNull null], 
@@ -154,17 +149,15 @@
 	if (section == 1)
     {
         
-        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-        [f setNumberStyle:NSNumberFormatterDecimalStyle];
-        NSNumber * value = [f numberFromString:[rowValue genericValueDisplay]];
-        [f release];
-        
         // race
         if (row == 0) {
-            cell.detailTextLabel.text = [raceValueMap objectForKey:value];            
+            cell.detailTextLabel.text = [raceValueMap objectForKey:[rowValue genericValueDisplay]];
         // class    
         } else if (row == 1) {
-            cell.detailTextLabel.text = [classValueMap objectForKey:value];            
+            cell.detailTextLabel.text = [classValueMap objectForKey:[rowValue genericValueDisplay]];
+		// sex
+		} else if (row == 2) {
+			cell.detailTextLabel.text = [sexValueMap objectForKey:[rowValue genericValueDisplay]];
         } else {
             cell.detailTextLabel.text = [rowValue genericValueDisplay];
         }
@@ -239,6 +232,7 @@
     [rowControllers release];
     [raceValueMap release];
     [classValueMap release];
+	[sexValueMap release];
     [super dealloc];
 }
 

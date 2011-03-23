@@ -49,6 +49,7 @@
         defaultValue = [ad defaultValue];
 	
 //	NSLog(@"default value: %@, currentValue: %@", defaultValue, currentValue);
+	// TODO level is all number, maybe clone a NSNumber version editor class.
     if (![currentValue isEqualToString:defaultValue])
         textField.text =  currentValue;
     

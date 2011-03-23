@@ -3,6 +3,14 @@
    version = "1.0">
    <StackStates>
       <StackState
+         stackFrameDescription = "-[ManagedObjectSingleSelectionDictionaryEditor viewWillAppear:]:ManagedObjectSingleSelectionDictionaryEditor.m">
+         <expressions>
+            <expression
+               value = "list">
+            </expression>
+         </expressions>
+      </StackState>
+      <StackState
          stackFrameDescription = "-[AccountDetailViewController tableView:cellForRowAtIndexPath:]:AccountDetailViewController.m">
          <expressions>
             <expression

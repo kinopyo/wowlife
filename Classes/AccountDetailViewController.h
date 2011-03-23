@@ -20,6 +20,7 @@
     NSArray         *rowArguments;
     NSDictionary    *raceValueMap;
     NSDictionary    *classValueMap;
+	NSDictionary    *sexValueMap;
 }
 @property (nonatomic, retain) NSManagedObject *account;
 

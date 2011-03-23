@@ -14,6 +14,9 @@
 @private	
 	NSFetchedResultsController *_fetchedResultsController;
     NSUInteger                  sectionInsertCount;	
+	
+	NSDictionary    *raceValueMap;
+    NSDictionary    *classValueMap;
 }
 
 @property (retain, nonatomic) IBOutlet AccountDetailViewController *accountDetailViewController;
