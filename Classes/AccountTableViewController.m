@@ -79,7 +79,6 @@
     NSString *race = [raceValueMap objectForKey:[oneAccount valueForKey:@"race"]];
     NSString *lowerCaseRace = [race lowercaseString];
 
-    // TODO add female/male column to Account.
     NSString *sex = [oneAccount valueForKey:@"sex"];
     NSString *lowerCaseSex = [sex lowercaseString];
     
@@ -91,11 +90,16 @@
     NSString *klassFileName = [NSString stringWithFormat:@"class-%@.png", klass];
 	cell.classImageView.image = [UIImage imageNamed:klassFileName];    
 
+    // TODO figure out what's this
 	cell.showsReorderControl = YES;
 
 }
 
 - (void)viewDidLoad {
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *displayNameString = [locale displayNameForKey:NSLocaleIdentifier
+                                                      value:[locale localeIdentifier]];
+    NSLog(@"local %@", displayNameString);
 	
 	[super viewDidLoad];
 	NSError *error = nil;
