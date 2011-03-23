@@ -9,11 +9,8 @@
     NSString *newValue = selectedCell.textLabel.text;
 	NSLog(@"new value  %@", newValue);	
     [self.managedObject setValue:newValue forKey:self.keypath];
-    NSError *error;
-    if (![self.managedObject.managedObjectContext save:&error])
-        NSLog(@"Error saving: %@", [error localizedDescription]);
-    
-    [self.navigationController popViewControllerAnimated:YES];
+	
+	[self validateAndPop];
 }
 
 - (void)viewWillAppear:(BOOL)animated 

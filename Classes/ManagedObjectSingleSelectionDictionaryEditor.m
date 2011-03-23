@@ -24,11 +24,7 @@
     NSLog(@"key in map %@", keyInMap);
     [self.managedObject setValue:keyInMap forKey:self.keypath];
 
-    NSError *error;
-    if (![self.managedObject.managedObjectContext save:&error])
-        NSLog(@"Error saving: %@", [error localizedDescription]);
-    
-    [self.navigationController popViewControllerAnimated:YES];
+	[self validateAndPop];
 }
 
 - (void)viewDidLoad {

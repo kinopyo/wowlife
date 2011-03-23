@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 #define kNonEditableTextColor    [UIColor colorWithRed:.318 green:0.4 blue:.569 alpha:1.0]
 
-@interface ManagedObjectAttributeEditor : UITableViewController {
+@interface ManagedObjectAttributeEditor : UITableViewController <UIAlertViewDelegate> {
     NSManagedObject         *managedObject;
     NSString                *keypath;
     NSString                *labelString;
@@ -12,4 +12,5 @@
 @property (nonatomic, retain) NSString *labelString;
 -(IBAction)cancel;
 -(IBAction)save;
+-(IBAction)validateAndPop;
 @end

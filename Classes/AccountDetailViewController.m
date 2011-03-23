@@ -170,7 +170,10 @@
     
     
     cell.textLabel.text = rowLabel;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	id rowController = [rowControllers nestedObjectAtIndexPath:indexPath];
+    cell.accessoryType = (rowController == [NSNull null]) ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDisclosureIndicator;
+	
+    
     return cell;
 }
 

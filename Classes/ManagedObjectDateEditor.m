@@ -11,11 +11,7 @@
 -(IBAction)save {
     [self.managedObject setValue:self.datePicker.date forKey:self.keypath];
     
-    NSError *error;
-    if (![managedObject.managedObjectContext save:&error])
-        NSLog(@"Error saving: %@", [error localizedDescription]);
-    
-    [self.navigationController popViewControllerAnimated:YES];
+	[self validateAndPop];
 }
 - (void)loadView
 {

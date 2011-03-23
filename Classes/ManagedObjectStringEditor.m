@@ -70,11 +70,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                                              viewWithTag:kTextFieldTag];
 
     [self.managedObject setValue:textField.text forKey:self.keypath];
-    
-    NSError *error;
-    if (![managedObject.managedObjectContext save:&error])
-        NSLog(@"Error saving: %@", [error localizedDescription]);
-    
-    [self.navigationController popViewControllerAnimated:YES];
+	
+	[self validateAndPop];
+
 }
 @end

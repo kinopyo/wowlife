@@ -38,6 +38,45 @@
                                             userInfo:nil];
     [ex raise];
 }
+
+-(IBAction)validateAndPop {
+    NSError *error;
+    if (![managedObject.managedObjectContext save:&error]) {
+        
+        NSString *message = nil;
+        if ([[error domain] isEqualToString:@"NSCocoaErrorDomain"]) {
+            NSDictionary *userInfo = [error userInfo];
+            message = [NSString stringWithFormat:NSLocalizedString(@"Validation error on %@\rFailed condition: %@", @"Validation error on %@, (failed condition: %@)"), [userInfo valueForKey:@"NSValidationErrorKey"], [userInfo valueForKey:@"NSValidationErrorPredicate"]];
+        } 
+        else   
+            message = [error localizedDescription];
+        
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Validation Error", @"Validation Error") 
+                                                        message:message 
+                                                       delegate:self 
+                                              cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel")  
+                                              otherButtonTitles:NSLocalizedString(@"Fix", @"Fix"), nil];
+        [alert show];
+        [alert release];
+        
+    } 
+    else
+        [self.navigationController popViewControllerAnimated:YES];
+    
+    
+}
+
+#pragma mark -
+#pragma mark Alert View Delegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == [alertView cancelButtonIndex]) {
+        [self.managedObject.managedObjectContext rollback];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+
 -(void)dealloc {
     [managedObject release];
     [keypath release];

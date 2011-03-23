@@ -20,6 +20,7 @@
 		C8B41A0D13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B41A0C13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.m */; };
 		C8CD1C541339B1B100867FA4 /* infoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8CD1C531339B1B100867FA4 /* infoPlist.strings */; };
 		C8CD1C8F1339B40600867FA4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8CD1C8E1339B40600867FA4 /* Localizable.strings */; };
+		C8F64AAC133A1B01005C8616 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F64AAB133A1B01005C8616 /* Account.m */; };
 		F3034F6512AA28D3000A5C0D /* NSArray-NestedArrays.m in Sources */ = {isa = PBXBuildFile; fileRef = F3034F6412AA28D3000A5C0D /* NSArray-NestedArrays.m */; };
 		F3034F6812AA28FD000A5C0D /* GenericValueDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = F3034F6712AA28FD000A5C0D /* GenericValueDisplay.m */; };
 		F314A9941277336E00E6C4BA /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F314A9921277336E00E6C4BA /* AccountViewController.xib */; };
@@ -30,7 +31,6 @@
 		F314A9BC1277345F00E6C4BA /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F314A9BA1277345F00E6C4BA /* HistoryViewController.m */; };
 		F314A9BD1277345F00E6C4BA /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F314A9BB1277345F00E6C4BA /* HistoryViewController.xib */; };
 		F314A9D712774AC200E6C4BA /* AccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F314A9D512774AC200E6C4BA /* AccountTableViewController.m */; };
-		F3388B4812C8F271008084CE /* RaceSingleSelectionListEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = F3388B4712C8F271008084CE /* RaceSingleSelectionListEditor.m */; };
 		F3388B8612C8F907008084CE /* Convertor.m in Sources */ = {isa = PBXBuildFile; fileRef = F3388B8512C8F907008084CE /* Convertor.m */; };
 		F347C8671339030000E4B392 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F347C8661339030000E4B392 /* Settings.bundle */; };
 		F37CCE6612A56838005495E5 /* ClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F37CCE6512A56838005495E5 /* ClassCell.m */; };
@@ -105,6 +105,8 @@
 		C8CD1C8C1339B40300867FA4 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C8CD1C901339B40B00867FA4 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh_CN; path = zh_CN.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C8CD1C911339B40F00867FA4 /* zh_TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh_TW; path = zh_TW.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C8F64AAA133A1B01005C8616 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = ../Account.h; sourceTree = "<group>"; };
+		C8F64AAB133A1B01005C8616 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Account.m; path = ../Account.m; sourceTree = "<group>"; };
 		F3034F6312AA28D3000A5C0D /* NSArray-NestedArrays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray-NestedArrays.h"; sourceTree = "<group>"; };
 		F3034F6412AA28D3000A5C0D /* NSArray-NestedArrays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray-NestedArrays.m"; sourceTree = "<group>"; };
 		F3034F6612AA28FD000A5C0D /* GenericValueDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericValueDisplay.h; sourceTree = "<group>"; };
@@ -121,8 +123,6 @@
 		F314A9BB1277345F00E6C4BA /* HistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HistoryViewController.xib; path = Classes/HistoryViewController.xib; sourceTree = "<group>"; };
 		F314A9D412774AC200E6C4BA /* AccountTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTableViewController.h; sourceTree = "<group>"; };
 		F314A9D512774AC200E6C4BA /* AccountTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTableViewController.m; sourceTree = "<group>"; };
-		F3388B4612C8F271008084CE /* RaceSingleSelectionListEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceSingleSelectionListEditor.h; sourceTree = "<group>"; };
-		F3388B4712C8F271008084CE /* RaceSingleSelectionListEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RaceSingleSelectionListEditor.m; sourceTree = "<group>"; };
 		F3388B8412C8F907008084CE /* Convertor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Convertor.h; sourceTree = "<group>"; };
 		F3388B8512C8F907008084CE /* Convertor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Convertor.m; sourceTree = "<group>"; };
 		F347C8661339030000E4B392 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = WowLife.xcodeproj/Settings.bundle; sourceTree = "<group>"; };
@@ -196,6 +196,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C8F64AAD133A1B0A005C8616 /* Model */,
 				F3388B3912C8F124008084CE /* Util */,
 				F3034F6212AA28C3000A5C0D /* Categories */,
 				F37CCE6312A56632005495E5 /* Custom */,
@@ -223,21 +224,11 @@
 			isa = PBXGroup;
 			children = (
 				080E96DDFE201D6D7F000001 /* Classes */,
-				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
 			name = WowLife;
-			sourceTree = "<group>";
-		};
-		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
-			isa = PBXGroup;
-			children = (
-				28A0AB4B0D9B1048005BE974 /* WowLife_Prefix.pch */,
-				29B97316FDCFA39411CA2CEA /* main.m */,
-			);
-			name = "Other Sources";
 			sourceTree = "<group>";
 		};
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
@@ -259,6 +250,8 @@
 				C8A25D571339C97A00A96EE9 /* classList.plist */,
 				C8A25D7A133A007600A96EE9 /* raceList.plist */,
 				C8A25D96133A0BE900A96EE9 /* sexList.plist */,
+				28A0AB4B0D9B1048005BE974 /* WowLife_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -272,6 +265,15 @@
 				F37CCF5112A5789A005495E5 /* CoreData.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8F64AAD133A1B0A005C8616 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C8F64AAA133A1B01005C8616 /* Account.h */,
+				C8F64AAB133A1B01005C8616 /* Account.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		F3034F6212AA28C3000A5C0D /* Categories */ = {
@@ -330,8 +332,6 @@
 				F37CCE6412A56838005495E5 /* ClassCell.h */,
 				F37CCE6512A56838005495E5 /* ClassCell.m */,
 				F37CCE6712A56857005495E5 /* ClassCell.xib */,
-				F3388B4612C8F271008084CE /* RaceSingleSelectionListEditor.h */,
-				F3388B4712C8F271008084CE /* RaceSingleSelectionListEditor.m */,
 			);
 			name = Custom;
 			sourceTree = "<group>";
@@ -517,9 +517,9 @@
 				F3E4F68012BC9D65003C36C5 /* ManagedObjectStringEditor.m in Sources */,
 				F3E4F68112BC9D65003C36C5 /* ManagedObjectDateEditor.m in Sources */,
 				F3E4F68212BC9D65003C36C5 /* ManagedObjectSingleSelectionListEditor.m in Sources */,
-				F3388B4812C8F271008084CE /* RaceSingleSelectionListEditor.m in Sources */,
 				F3388B8612C8F907008084CE /* Convertor.m in Sources */,
 				C8B41A0D13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.m in Sources */,
+				C8F64AAC133A1B01005C8616 /* Account.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
