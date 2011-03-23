@@ -101,7 +101,6 @@
                                                       value:[locale localeIdentifier]];
     NSLog(@"local %@", displayNameString);
 	
-	[super viewDidLoad];
 	NSError *error = nil;
 	if (![[self fetchedResultsController] performFetch:&error]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error loading data", @"Error loading data") 
@@ -113,9 +112,11 @@
 		
 	}
 	
-
-	
     [super viewDidLoad];
+    
+    // TODO use Settings
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSLog(@"Setting bundle:Language %@",[defaults valueForKey:@"language"]);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
