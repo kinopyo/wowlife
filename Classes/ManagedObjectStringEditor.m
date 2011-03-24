@@ -52,7 +52,9 @@
 	// TODO level is all number, maybe clone a NSNumber version editor class.
     if (![currentValue isEqualToString:defaultValue])
         textField.text =  currentValue;
-    
+	
+    textField.clearButtonMode = UITextFieldViewModeAlways;
+	
     [textField becomeFirstResponder];
     return cell;
 }
