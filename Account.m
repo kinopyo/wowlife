@@ -17,6 +17,7 @@
 @dynamic race;
 @dynamic name;
 @dynamic alt_flg;
+@dynamic accountTasks;
 
 /*
 - (void) awakeFromInsert
@@ -66,5 +67,32 @@
     return YES;
 }
 
+- (void)addAccountTasksObject:(NSManagedObject *)value {    
+    NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
+    [self willChangeValueForKey:@"accountTasks" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
+    [[self primitiveValueForKey:@"accountTasks"] addObject:value];
+    [self didChangeValueForKey:@"accountTasks" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
+    [changedObjects release];
+}
+
+- (void)removeAccountTasksObject:(NSManagedObject *)value {
+    NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
+    [self willChangeValueForKey:@"accountTasks" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
+    [[self primitiveValueForKey:@"accountTasks"] removeObject:value];
+    [self didChangeValueForKey:@"accountTasks" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
+    [changedObjects release];
+}
+
+- (void)addAccountTasks:(NSSet *)value {    
+    [self willChangeValueForKey:@"accountTasks" withSetMutation:NSKeyValueUnionSetMutation usingObjects:value];
+    [[self primitiveValueForKey:@"accountTasks"] unionSet:value];
+    [self didChangeValueForKey:@"accountTasks" withSetMutation:NSKeyValueUnionSetMutation usingObjects:value];
+}
+
+- (void)removeAccountTasks:(NSSet *)value {
+    [self willChangeValueForKey:@"accountTasks" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
+    [[self primitiveValueForKey:@"accountTasks"] minusSet:value];
+    [self didChangeValueForKey:@"accountTasks" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
+}
 
 @end

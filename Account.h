@@ -23,5 +23,6 @@
 @property (nonatomic, retain) NSString * race;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * alt_flg;
+@property (nonatomic, retain) NSSet* accountTasks;
 
 @end

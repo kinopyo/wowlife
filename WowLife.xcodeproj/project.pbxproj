@@ -319,6 +319,8 @@
 		F37CCE6312A56632005495E5 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				F3E4F67712BC9D55003C36C5 /* ManagedObjectAttributeEditor.h */,
+				F3E4F67812BC9D55003C36C5 /* ManagedObjectAttributeEditor.m */,
 				F3E4F67A12BC9D65003C36C5 /* ManagedObjectStringEditor.h */,
 				F3E4F67B12BC9D65003C36C5 /* ManagedObjectStringEditor.m */,
 				C8B41A0B13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.h */,
@@ -327,8 +329,6 @@
 				F3E4F67D12BC9D65003C36C5 /* ManagedObjectDateEditor.m */,
 				F3E4F67E12BC9D65003C36C5 /* ManagedObjectSingleSelectionListEditor.h */,
 				F3E4F67F12BC9D65003C36C5 /* ManagedObjectSingleSelectionListEditor.m */,
-				F3E4F67712BC9D55003C36C5 /* ManagedObjectAttributeEditor.h */,
-				F3E4F67812BC9D55003C36C5 /* ManagedObjectAttributeEditor.m */,
 				F37CCE6412A56838005495E5 /* ClassCell.h */,
 				F37CCE6512A56838005495E5 /* ClassCell.m */,
 				F37CCE6712A56857005495E5 /* ClassCell.xib */,
