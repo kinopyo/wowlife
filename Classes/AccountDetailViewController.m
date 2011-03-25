@@ -36,6 +36,7 @@
     sectionNames = [[NSArray alloc] initWithObjects:
                     [NSNull null],
                     NSLocalizedString(@"General", @"General"),
+					NSLocalizedString(@"Tasks", @"Tasks"),
                     nil];
     rowLabels = [[NSArray alloc] initWithObjects:
 				 
@@ -48,6 +49,9 @@
                   NSLocalizedString(@"Sex", @"Sex"),
                   NSLocalizedString(@"Level", @"Level"),
                   nil],
+				 
+				 // section 3
+				 [NSArray arrayWithObjects:NSLocalizedString(@"Tap to configure your tasks", @"Tap to configure your tasks"), nil],
                  				 
                  // Sentinel
                  nil];
@@ -59,6 +63,9 @@
 			   
                // Section 2
                [NSArray arrayWithObjects:@"race", @"klass", @"Sex", @"level", nil],
+			   
+			   // Section 3
+			   [NSNull null],
                
                // Sentinel
                nil];
@@ -75,6 +82,9 @@
                        @"ManagedObjectSingleSelectionDictionaryEditor",		// sex
                        @"ManagedObjectStringEditor",                        // level
                        nil],
+					  
+					  // Section 3
+					  [NSArray arrayWithObject:@"TaskListViewController"],
 					  
                       // Sentinel
                       nil];
@@ -97,6 +107,9 @@
 					 // level  
                      [NSNull null], 
                      nil],
+					
+					// Section 3,
+					[NSNull null],
                     
                     // Sentinel
                     nil];
@@ -127,50 +140,68 @@
 }
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Account Detail Cell Identifier";
-    
-    UITableViewCell *cell = [theTableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 
-                                       reuseIdentifier:CellIdentifier] autorelease];
-    }
+    static NSString *accountCellIdentifier = @"Account Detail Cell Identifier";
+    static NSString *taskCellIdentifier = @"Account Detail Cell Identifier";	
     
     NSString *rowKey = [rowKeys nestedObjectAtIndexPath:indexPath];
     NSString *rowLabel = [rowLabels nestedObjectAtIndexPath:indexPath];
-    
-    id<GenericValueDisplay> rowValue = [account valueForKey:rowKey];
+    id rowController = [rowControllers nestedObjectAtIndexPath:indexPath];
 	
-	NSUInteger row = [indexPath row];
-	NSUInteger section = [indexPath section];
+	NSString *cellIdentifier = nil;
+    UITableViewCellStyle cellStyle;
+    if ([rowController isEqual:@"TaskListViewController"]) { 
+        cellIdentifier = taskCellIdentifier;
+        cellStyle = UITableViewCellStyleDefault;
+    }
+    else {
+        cellIdentifier = accountCellIdentifier;
+        cellStyle = UITableViewCellStyleValue2;
+    }
     
-    // TODO refactor needed.
-	if (section == 1)
-    {
-        
-        // race
-        if (row == 0) {
-            cell.detailTextLabel.text = [raceValueMap objectForKey:[rowValue genericValueDisplay]];
-        // class    
-        } else if (row == 1) {
-            cell.detailTextLabel.text = [classValueMap objectForKey:[rowValue genericValueDisplay]];
-		// sex
-		} else if (row == 2) {
-			cell.detailTextLabel.text = [sexValueMap objectForKey:[rowValue genericValueDisplay]];
-        } else {
-            cell.detailTextLabel.text = [rowValue genericValueDisplay];
-        }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:cellStyle 
+                                       reuseIdentifier:cellIdentifier] autorelease];
+    }
+	
+	// use rowController(String) to do specified action.
+	if ([rowController isEqual:@"TaskListViewController"]) {
 
+	} else {
+		
+		id<GenericValueDisplay> rowValue = [account valueForKey:rowKey];
+		
+		NSUInteger row = [indexPath row];
+		NSUInteger section = [indexPath section];
+		
+		// TODO refactor needed.
+		if (section == 1)
+		{
+			
+			// race
+			if (row == 0) {
+				cell.detailTextLabel.text = [raceValueMap objectForKey:[rowValue genericValueDisplay]];
+				// class    
+			} else if (row == 1) {
+				cell.detailTextLabel.text = [classValueMap objectForKey:[rowValue genericValueDisplay]];
+				// sex
+			} else if (row == 2) {
+				cell.detailTextLabel.text = [sexValueMap objectForKey:[rowValue genericValueDisplay]];
+			} else {
+				cell.detailTextLabel.text = [rowValue genericValueDisplay];
+			}
+			
+		}
+		else 
+		{
+			cell.detailTextLabel.text = [rowValue genericValueDisplay];
+		}
+		
 	}
-    else 
-    {
-		cell.detailTextLabel.text = [rowValue genericValueDisplay];
-	}
-    
-    
+
     cell.textLabel.text = rowLabel;
-	id rowController = [rowControllers nestedObjectAtIndexPath:indexPath];
     cell.accessoryType = (rowController == [NSNull null]) ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDisclosureIndicator;
 	
     
