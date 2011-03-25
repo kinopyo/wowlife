@@ -127,22 +127,46 @@
 	return managedObjectModel;
 }
 
+/**
+ Returns the persistent store coordinator for the application.
+ If the coordinator doesn't already exist, it is created and the application's store added to it.
+ */
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-	if (persistentStoreCoordinator != nil) {
-		return persistentStoreCoordinator;
-	}
-	NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory]
-											   stringByAppendingPathComponent: @"Wowlife.sqlite"]];
-	NSError *error = nil;
-	persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]
-								  initWithManagedObjectModel:[self managedObjectModel]];
-	if(![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
-												 configuration:nil URL:storeUrl options:nil error:&error]) {
-		/*Error for store creation should be handled in here*/
+	
+    if (persistentStoreCoordinator != nil) {
+        return persistentStoreCoordinator;
+    }
+	
+	
+	NSString *storePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"Wowlife.sqlite"];
+	/*
+	 Set up the store.
+	 For the sake of illustration, provide a pre-populated default store.
+	 */
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	// If the expected store doesn't exist, copy the default store.
+	if (![fileManager fileExistsAtPath:storePath]) {
+		NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"Wowlife" ofType:@"sqlite"];
+		if (defaultStorePath) {
+			[fileManager copyItemAtPath:defaultStorePath toPath:storePath error:NULL];
+		}
 	}
 	
-	return persistentStoreCoordinator;
+	NSURL *storeUrl = [NSURL fileURLWithPath:storePath];
+	
+	NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];	
+    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
+	
+	NSError *error;
+	if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:options error:&error]) {
+		// Update to handle the error appropriately.
+		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+		exit(-1);  // Fail
+    }    
+	
+    return persistentStoreCoordinator;
 }
+
 
 - (NSString *)applicationDocumentsDirectory {
 	return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
