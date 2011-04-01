@@ -11,12 +11,20 @@
 #import "GenericValueDisplay.h"
 #import "ManagedObjectAttributeEditor.h"
 
+#import "TaskListViewController.h"
+
+
+enum TabelSections {
+	TableSectionName = 0,
+	TableSectionGeneral,
+	TableSectionTask,
+};
+
 @implementation AccountDetailViewController
 @synthesize account;
 
 #pragma mark -
 #pragma mark View lifecycle
-
 - (void)viewWillAppear:(BOOL)animated {	
     [self.tableView reloadData];
     [super viewWillAppear:animated];
@@ -51,7 +59,7 @@
                   nil],
 				 
 				 // section 3
-				 [NSArray arrayWithObjects:NSLocalizedString(@"Tap to configure your tasks", @"Tap to configure your tasks"), nil],
+				 [NSArray arrayWithObjects:NSLocalizedString(@"Task List", @"Task List"), nil],
                  				 
                  // Sentinel
                  nil];
@@ -213,19 +221,35 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *controllerClassName = [rowControllers 
+	NSUInteger section = [indexPath section];
+	
+	NSString *controllerClassName = [rowControllers 
                                      nestedObjectAtIndexPath:indexPath];
     NSString *rowLabel = [rowLabels nestedObjectAtIndexPath:indexPath];
     NSString *rowKey = [rowKeys nestedObjectAtIndexPath:indexPath];
     Class controllerClass = NSClassFromString(controllerClassName);
-    ManagedObjectAttributeEditor *controller = 
-    [controllerClass alloc];
+    ManagedObjectAttributeEditor *controller = [controllerClass alloc];
     controller = [controller initWithStyle:UITableViewStyleGrouped];
-    controller.keypath = rowKey;
-    controller.managedObject = account;
-    controller.labelString = rowLabel;
+	
+	switch (section) {
+		case TableSectionName:
+		case TableSectionGeneral:
+			NSLog(@"table section general: %u", TableSectionGeneral);
+			controller.keypath = rowKey;
+			controller.managedObject = account;
+			controller.labelString = rowLabel;
+			break;
+		case TableSectionTask:
+			controller.managedObject = account;
+			break;
+
+	  default:
+		break;
+	}
+
+
     controller.title = rowLabel;
-	NSLog(@"account name %@", [account valueForKey:@"name"]);    
+
     NSDictionary *args = [rowArguments nestedObjectAtIndexPath:indexPath];
     if ([args isKindOfClass:[NSDictionary class]]) {
         if (args != nil) {

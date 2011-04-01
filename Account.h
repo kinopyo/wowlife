@@ -2,7 +2,7 @@
 //  Account.h
 //  WowLife
 //
-//  Created by 朴　起煥 on 11/03/23.
+//  Created by 朴　起煥 on 11/04/01.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -12,17 +12,16 @@
 #define kAccountValidationDomain           @"com.Fantasy.WowLife.AccountValidationDomain"
 #define kAccountValidationNameCode    1000
 
-
 @interface Account : NSManagedObject {
 @private
 }
+@property (nonatomic, retain) NSNumber * alt_flg;
 @property (nonatomic, retain) NSString * klass;
 @property (nonatomic, retain) NSNumber * level;
 @property (nonatomic, retain) NSDate * created;
 @property (nonatomic, retain) NSString * sex;
 @property (nonatomic, retain) NSString * race;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * alt_flg;
-@property (nonatomic, retain) NSSet* accountTasks;
+@property (nonatomic, retain) NSSet* tasks;
 
 @end

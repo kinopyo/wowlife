@@ -13,15 +13,18 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
+		C8180EEF13446A72005E6E49 /* TaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8180EEE13446A72005E6E49 /* TaskListViewController.m */; };
 		C84CB92313332A47009D2DAF /* class-6.png in Resources */ = {isa = PBXBuildFile; fileRef = C84CB92213332A47009D2DAF /* class-6.png */; };
 		C85D0243133C8E4000F385CF /* Wowlife.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C85D0242133C8E4000F385CF /* Wowlife.sqlite */; };
 		C8A25D581339C97A00A96EE9 /* classList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A25D571339C97A00A96EE9 /* classList.plist */; };
 		C8A25D7B133A007600A96EE9 /* raceList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A25D7A133A007600A96EE9 /* raceList.plist */; };
 		C8A25D97133A0BE900A96EE9 /* sexList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A25D96133A0BE900A96EE9 /* sexList.plist */; };
+		C8AB77A413458C9500701942 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AB77A313458C9500701942 /* Account.m */; };
+		C8AB77A713458D1800701942 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AB77A613458D1800701942 /* Task.m */; };
+		C8AB77C51345E52E00701942 /* TaskListViewController_bk.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AB77C41345E52E00701942 /* TaskListViewController_bk.m */; };
 		C8B41A0D13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B41A0C13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.m */; };
 		C8CD1C541339B1B100867FA4 /* infoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8CD1C531339B1B100867FA4 /* infoPlist.strings */; };
 		C8CD1C8F1339B40600867FA4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8CD1C8E1339B40600867FA4 /* Localizable.strings */; };
-		C8F64AAC133A1B01005C8616 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F64AAB133A1B01005C8616 /* Account.m */; };
 		F3034F6512AA28D3000A5C0D /* NSArray-NestedArrays.m in Sources */ = {isa = PBXBuildFile; fileRef = F3034F6412AA28D3000A5C0D /* NSArray-NestedArrays.m */; };
 		F3034F6812AA28FD000A5C0D /* GenericValueDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = F3034F6712AA28FD000A5C0D /* GenericValueDisplay.m */; };
 		F314A9941277336E00E6C4BA /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F314A9921277336E00E6C4BA /* AccountViewController.xib */; };
@@ -91,6 +94,8 @@
 		28AD73870D9D96C1002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* WowLife-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WowLife-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		C8180EED13446A72005E6E49 /* TaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskListViewController.h; sourceTree = "<group>"; };
+		C8180EEE13446A72005E6E49 /* TaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskListViewController.m; sourceTree = "<group>"; };
 		C84CB92213332A47009D2DAF /* class-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-6.png"; sourceTree = "<group>"; };
 		C85D0242133C8E4000F385CF /* Wowlife.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Wowlife.sqlite; sourceTree = "<group>"; };
 		C8A25D551339C97600A96EE9 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = English; path = English.lproj/classList.plist; sourceTree = "<group>"; };
@@ -99,6 +104,11 @@
 		C8A25D7C133A007A00A96EE9 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = zh_CN; path = zh_CN.lproj/raceList.plist; sourceTree = "<group>"; };
 		C8A25D94133A0BE600A96EE9 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = English; path = English.lproj/sexList.plist; sourceTree = "<group>"; };
 		C8A25D9B133A0BED00A96EE9 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = zh_CN; path = zh_CN.lproj/sexList.plist; sourceTree = "<group>"; };
+		C8AB77A213458C9500701942 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = ../Account.h; sourceTree = "<group>"; };
+		C8AB77A313458C9500701942 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Account.m; path = ../Account.m; sourceTree = "<group>"; };
+		C8AB77A513458D1800701942 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = ../Task.h; sourceTree = "<group>"; };
+		C8AB77A613458D1800701942 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = ../Task.m; sourceTree = "<group>"; };
+		C8AB77C41345E52E00701942 /* TaskListViewController_bk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskListViewController_bk.m; sourceTree = "<group>"; };
 		C8B41A0B13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedObjectSingleSelectionDictionaryEditor.h; sourceTree = "<group>"; };
 		C8B41A0C13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedObjectSingleSelectionDictionaryEditor.m; sourceTree = "<group>"; };
 		C8CD1C511339B1AD00867FA4 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/infoPlist.strings; sourceTree = "<group>"; };
@@ -107,8 +117,6 @@
 		C8CD1C8C1339B40300867FA4 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C8CD1C901339B40B00867FA4 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh_CN; path = zh_CN.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C8CD1C911339B40F00867FA4 /* zh_TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh_TW; path = zh_TW.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C8F64AAA133A1B01005C8616 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = ../Account.h; sourceTree = "<group>"; };
-		C8F64AAB133A1B01005C8616 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Account.m; path = ../Account.m; sourceTree = "<group>"; };
 		F3034F6312AA28D3000A5C0D /* NSArray-NestedArrays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray-NestedArrays.h"; sourceTree = "<group>"; };
 		F3034F6412AA28D3000A5C0D /* NSArray-NestedArrays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray-NestedArrays.m"; sourceTree = "<group>"; };
 		F3034F6612AA28FD000A5C0D /* GenericValueDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericValueDisplay.h; sourceTree = "<group>"; };
@@ -203,6 +211,7 @@
 				F3034F6212AA28C3000A5C0D /* Categories */,
 				F37CCE6312A56632005495E5 /* Custom */,
 				F314A9D312774AA100E6C4BA /* Account */,
+				C8180EE413446A0D005E6E49 /* Task */,
 				F314A9C41277495D00E6C4BA /* System */,
 				F314A9B41277345400E6C4BA /* ScheduleViewController.h */,
 				F314A9B51277345400E6C4BA /* ScheduleViewController.m */,
@@ -236,6 +245,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F37CCF5512A578E7005495E5 /* Wowlife.xcdatamodel */,
 				C85D0242133C8E4000F385CF /* Wowlife.sqlite */,
 				F37CCE7612A56A86005495E5 /* race */,
 				F3EC66461297D9A300E51AB9 /* ClassIcon */,
@@ -246,7 +256,6 @@
 				F314A9921277336E00E6C4BA /* AccountViewController.xib */,
 				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* WowLife-Info.plist */,
-				F37CCF5512A578E7005495E5 /* Wowlife.xcdatamodel */,
 				C8CD1C8E1339B40600867FA4 /* Localizable.strings */,
 				C8CD1C531339B1B100867FA4 /* infoPlist.strings */,
 				F347C8661339030000E4B392 /* Settings.bundle */,
@@ -270,11 +279,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C8180EE413446A0D005E6E49 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				C8180EED13446A72005E6E49 /* TaskListViewController.h */,
+				C8180EEE13446A72005E6E49 /* TaskListViewController.m */,
+				C8AB77C41345E52E00701942 /* TaskListViewController_bk.m */,
+			);
+			name = Task;
+			sourceTree = "<group>";
+		};
 		C8F64AAD133A1B0A005C8616 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C8F64AAA133A1B01005C8616 /* Account.h */,
-				C8F64AAB133A1B01005C8616 /* Account.m */,
+				C8AB77A213458C9500701942 /* Account.h */,
+				C8AB77A313458C9500701942 /* Account.m */,
+				C8AB77A513458D1800701942 /* Task.h */,
+				C8AB77A613458D1800701942 /* Task.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -523,7 +544,10 @@
 				F3E4F68212BC9D65003C36C5 /* ManagedObjectSingleSelectionListEditor.m in Sources */,
 				F3388B8612C8F907008084CE /* Convertor.m in Sources */,
 				C8B41A0D13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.m in Sources */,
-				C8F64AAC133A1B01005C8616 /* Account.m in Sources */,
+				C8180EEF13446A72005E6E49 /* TaskListViewController.m in Sources */,
+				C8AB77A413458C9500701942 /* Account.m in Sources */,
+				C8AB77A713458D1800701942 /* Task.m in Sources */,
+				C8AB77C51345E52E00701942 /* TaskListViewController_bk.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

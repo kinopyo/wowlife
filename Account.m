@@ -1,8 +1,8 @@
-//
+	//
 //  Account.m
 //  WowLife
 //
-//  Created by 朴　起煥 on 11/03/23.
+//  Created by 朴　起煥 on 11/04/01.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -10,18 +10,18 @@
 
 
 @implementation Account
+@dynamic alt_flg;
 @dynamic klass;
 @dynamic level;
 @dynamic created;
 @dynamic sex;
 @dynamic race;
 @dynamic name;
-@dynamic alt_flg;
-@dynamic accountTasks;
+@dynamic tasks;
 
 /*
-- (void) awakeFromInsert
-{
+ - (void) awakeFromInsert
+ {
  //TODO set alt_flg default value, based on the count of the Account record
  
  // if is the first record, make false as it may not be alt.
@@ -30,8 +30,8 @@
  
  
  
-}
-*/
+ }
+ */
 
 
 -(BOOL)validateName:(id *)ioValue error:(NSError **)outError{
@@ -47,7 +47,7 @@
 		isError = YES;
 		msg = @"Name is too long";
 	}
-
+	
     if (isError) {
 		
         if (outError != NULL) {
@@ -67,32 +67,33 @@
     return YES;
 }
 
-- (void)addAccountTasksObject:(NSManagedObject *)value {    
+- (void)addTasksObject:(NSManagedObject *)value {    
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
-    [self willChangeValueForKey:@"accountTasks" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
-    [[self primitiveValueForKey:@"accountTasks"] addObject:value];
-    [self didChangeValueForKey:@"accountTasks" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
+    [self willChangeValueForKey:@"tasks" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
+    [[self primitiveValueForKey:@"tasks"] addObject:value];
+    [self didChangeValueForKey:@"tasks" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
     [changedObjects release];
 }
 
-- (void)removeAccountTasksObject:(NSManagedObject *)value {
+- (void)removeTasksObject:(NSManagedObject *)value {
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
-    [self willChangeValueForKey:@"accountTasks" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
-    [[self primitiveValueForKey:@"accountTasks"] removeObject:value];
-    [self didChangeValueForKey:@"accountTasks" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
+    [self willChangeValueForKey:@"tasks" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
+    [[self primitiveValueForKey:@"tasks"] removeObject:value];
+    [self didChangeValueForKey:@"tasks" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
     [changedObjects release];
 }
 
-- (void)addAccountTasks:(NSSet *)value {    
-    [self willChangeValueForKey:@"accountTasks" withSetMutation:NSKeyValueUnionSetMutation usingObjects:value];
-    [[self primitiveValueForKey:@"accountTasks"] unionSet:value];
-    [self didChangeValueForKey:@"accountTasks" withSetMutation:NSKeyValueUnionSetMutation usingObjects:value];
+- (void)addTasks:(NSSet *)value {    
+    [self willChangeValueForKey:@"tasks" withSetMutation:NSKeyValueUnionSetMutation usingObjects:value];
+    [[self primitiveValueForKey:@"tasks"] unionSet:value];
+    [self didChangeValueForKey:@"tasks" withSetMutation:NSKeyValueUnionSetMutation usingObjects:value];
 }
 
-- (void)removeAccountTasks:(NSSet *)value {
-    [self willChangeValueForKey:@"accountTasks" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
-    [[self primitiveValueForKey:@"accountTasks"] minusSet:value];
-    [self didChangeValueForKey:@"accountTasks" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
+- (void)removeTasks:(NSSet *)value {
+    [self willChangeValueForKey:@"tasks" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
+    [[self primitiveValueForKey:@"tasks"] minusSet:value];
+    [self didChangeValueForKey:@"tasks" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
 }
+
 
 @end

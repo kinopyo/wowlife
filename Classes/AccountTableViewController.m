@@ -167,10 +167,6 @@
     return YES;
 }
 
-
-
-#pragma mark -
-#pragma mark Table View Data Source Methods
 // For delete
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle 
 	forRowAtIndexPath:(NSIndexPath *)indexPath {
