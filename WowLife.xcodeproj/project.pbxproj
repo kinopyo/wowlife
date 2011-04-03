@@ -21,7 +21,6 @@
 		C8A25D97133A0BE900A96EE9 /* sexList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A25D96133A0BE900A96EE9 /* sexList.plist */; };
 		C8AB77A413458C9500701942 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AB77A313458C9500701942 /* Account.m */; };
 		C8AB77A713458D1800701942 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AB77A613458D1800701942 /* Task.m */; };
-		C8AB77C51345E52E00701942 /* TaskListViewController_bk.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AB77C41345E52E00701942 /* TaskListViewController_bk.m */; };
 		C8B41A0D13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B41A0C13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.m */; };
 		C8CD1C541339B1B100867FA4 /* infoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8CD1C531339B1B100867FA4 /* infoPlist.strings */; };
 		C8CD1C8F1339B40600867FA4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8CD1C8E1339B40600867FA4 /* Localizable.strings */; };
@@ -81,6 +80,7 @@
 		F3EC66431297D9A000E51AB9 /* class-7.png in Resources */ = {isa = PBXBuildFile; fileRef = F3EC66391297D9A000E51AB9 /* class-7.png */; };
 		F3EC66441297D9A000E51AB9 /* class-9.png in Resources */ = {isa = PBXBuildFile; fileRef = F3EC663A1297D9A000E51AB9 /* class-9.png */; };
 		F3EC66451297D9A000E51AB9 /* class-1.png in Resources */ = {isa = PBXBuildFile; fileRef = F3EC663B1297D9A000E51AB9 /* class-1.png */; };
+		F3F2F28013484E3A005EA70B /* TaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F2F27F13484E3A005EA70B /* TaskDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,7 +108,6 @@
 		C8AB77A313458C9500701942 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Account.m; path = ../Account.m; sourceTree = "<group>"; };
 		C8AB77A513458D1800701942 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = ../Task.h; sourceTree = "<group>"; };
 		C8AB77A613458D1800701942 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = ../Task.m; sourceTree = "<group>"; };
-		C8AB77C41345E52E00701942 /* TaskListViewController_bk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskListViewController_bk.m; sourceTree = "<group>"; };
 		C8B41A0B13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedObjectSingleSelectionDictionaryEditor.h; sourceTree = "<group>"; };
 		C8B41A0C13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedObjectSingleSelectionDictionaryEditor.m; sourceTree = "<group>"; };
 		C8CD1C511339B1AD00867FA4 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/infoPlist.strings; sourceTree = "<group>"; };
@@ -186,6 +185,8 @@
 		F3EC66391297D9A000E51AB9 /* class-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-7.png"; sourceTree = "<group>"; };
 		F3EC663A1297D9A000E51AB9 /* class-9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-9.png"; sourceTree = "<group>"; };
 		F3EC663B1297D9A000E51AB9 /* class-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-1.png"; sourceTree = "<group>"; };
+		F3F2F27E13484E3A005EA70B /* TaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskDetailViewController.h; path = ../../wowlife/Classes/TaskDetailViewController.h; sourceTree = "<group>"; };
+		F3F2F27F13484E3A005EA70B /* TaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskDetailViewController.m; path = ../../wowlife/Classes/TaskDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,7 +285,8 @@
 			children = (
 				C8180EED13446A72005E6E49 /* TaskListViewController.h */,
 				C8180EEE13446A72005E6E49 /* TaskListViewController.m */,
-				C8AB77C41345E52E00701942 /* TaskListViewController_bk.m */,
+				F3F2F27E13484E3A005EA70B /* TaskDetailViewController.h */,
+				F3F2F27F13484E3A005EA70B /* TaskDetailViewController.m */,
 			);
 			name = Task;
 			sourceTree = "<group>";
@@ -547,7 +549,7 @@
 				C8180EEF13446A72005E6E49 /* TaskListViewController.m in Sources */,
 				C8AB77A413458C9500701942 /* Account.m in Sources */,
 				C8AB77A713458D1800701942 /* Task.m in Sources */,
-				C8AB77C51345E52E00701942 /* TaskListViewController_bk.m in Sources */,
+				F3F2F28013484E3A005EA70B /* TaskDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

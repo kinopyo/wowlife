@@ -9,15 +9,20 @@
 #import <UIKit/UIKit.h>
 
 #import <CoreData/CoreData.h>
+@class TaskDetailViewController;
 
-@interface TaskListViewController : UITableViewController {
-	NSMutableArray *selectedTaskList;
-	NSArray *taskList;
-	NSManagedObject *managedObject;
+@interface TaskListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate> {
+//	NSMutableArray *selectedTaskList;
+//	NSArray *taskList;
+//	NSManagedObject *managedObject;
+    TaskDetailViewController *taskDetailViewController;
 }
 
+@property (nonatomic, retain) IBOutlet TaskDetailViewController *taskDetailViewController;
 @property (nonatomic, retain) NSMutableArray *selectedTaskList; 
 @property (nonatomic, retain) NSArray *taskList;
 @property (nonatomic, retain) NSManagedObject *managedObject; 
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
+-(IBAction)addNewTask;
 @end
