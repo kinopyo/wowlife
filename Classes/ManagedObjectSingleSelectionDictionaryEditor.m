@@ -16,7 +16,7 @@
     UITableViewCell *selectedCell = [self.tableView 
                                      cellForRowAtIndexPath:lastIndexPath];
     NSString *newValue = selectedCell.textLabel.text;
-	NSLog(@"new value  %@", newValue);
+	NSLog(@"%@ new value  %@",self.keypath, newValue);
     
     // Key is unique, so it can be retrived at index 0.
     NSString *keyInMap = [[map allKeysForObject:newValue] objectAtIndex:0];

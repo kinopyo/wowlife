@@ -138,7 +138,7 @@
 	} else if ([indexTitle isEqualToString:@"4"]) {
 		return @"Some day";
 	} else {
-		return @"Dummy title";
+		return @"Uncategorized";
 	}
 	
 	NSLog(@"name %@, title%@",[sectionInfo name], [sectionInfo indexTitle]);
@@ -270,9 +270,19 @@
 
 - (IBAction)addNewTask 
 {
+  NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+  NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+  NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+  
+  [newManagedObject setValue:@"New Task" forKey:@"name"];
+  
+  NSError *error;
+  if (![context save:&error])
+    NSLog(@"Error saving entity: %@", [error localizedDescription]);
 
   TaskDetailViewController* controller = [[[TaskDetailViewController alloc] 
-                                           init] autorelease];
+                                           initWithStyle:UITableViewStyleGrouped] autorelease];
+  controller.task = newManagedObject;
   NSLog(@"task detail view: %@", [controller description]);
   [self.navigationController pushViewController:controller animated:YES];
 }
@@ -300,7 +310,7 @@
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"type" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"type" ascending:YES];
 //    NSSortDescriptor *sortDescriptor2 = [[NSSortDescriptor alloc] initWithKey:@"category" ascending:NO];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     

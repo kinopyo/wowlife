@@ -11,6 +11,8 @@
 #import "GenericValueDisplay.h"
 #import "ManagedObjectAttributeEditor.h"
 
+
+
 @implementation TaskDetailViewController
 @synthesize task;
 
@@ -36,6 +38,14 @@
 
 - (void)viewDidLoad
 {
+  
+  taskCategoryMap = [[NSDictionary alloc] initWithContentsOfFile:
+                     [[NSBundle mainBundle] pathForResource:kTaskCategoryList 
+                                                     ofType:@"plist"]];
+  taskTypeMap = [[NSDictionary alloc] initWithContentsOfFile:
+                     [[NSBundle mainBundle] pathForResource:kTaskTypeList 
+                                                     ofType:@"plist"]];
+
     sectionNames = [[NSArray alloc] initWithObjects:
                     NSLocalizedString(@"Task", @"Task"),
                     nil];
@@ -58,15 +68,29 @@
                
                // Sentinel
                nil];
+  
+  rowValueMaps = [[NSArray alloc] initWithObjects:
+                  
+                  // Section 1
+                  [NSArray arrayWithObjects:
+                   [NSNull null],
+                   taskTypeMap,
+                   taskCategoryMap,
+                   [NSNull null],
+                   nil],
+                  // Section 3
+                  [NSNull null],
+                  
+                  nil];
     
 	rowControllers = [[NSArray alloc] initWithObjects:
 					  
                       // Section 1
                       [NSArray arrayWithObjects:
                        @"ManagedObjectStringEditor",    // name
-                       @"ManagedObjectStringEditor",                            // type
-                       @"ManagedObjectStringEditor",                            // category
-                       @"ManagedObjectStringEditor",                            // due_date
+                       @"ManagedObjectSingleSelectionDictionaryEditor", // type
+                       @"ManagedObjectSingleSelectionDictionaryEditor", // category
+                       @"ManagedObjectStringEditor",                    // due_date
                        nil],
 					  
                       // Sentinel
@@ -77,14 +101,16 @@
                     // Section 1
                     [NSArray arrayWithObjects:
                      [NSNull null],
-                     [NSNull null],
-                     [NSNull null],
+                     [NSDictionary dictionaryWithObject:taskTypeMap
+                                                 forKey:@"map"],
+                     [NSDictionary dictionaryWithObject:taskCategoryMap
+                                                 forKey:@"map"],
                      [NSNull null],
                      nil],
                     
                     // Sentinel
                     nil];
-	
+  
     [super viewDidLoad];
 }
 
@@ -117,6 +143,19 @@
     [super viewDidDisappear:animated];
 }
 
+- (void)save
+{
+  
+//  Task *task = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:[managedObject managedObjectContext]];
+//  task.name = @"Daily Heroic";
+//  task.category = @"PVE";
+//  //	task.type = @"1";
+//  
+//  Account *account = (Account *)managedObject;
+//  
+//  [account addTasksObject:task];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -142,25 +181,46 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    static NSString *CellIdentifier = @"Cell";
+  static NSString *CellIdentifier = @"Cell";
+  
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  if (cell == nil) {
+      cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier] autorelease];
+  }
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
+  NSString *rowKey = [rowKeys nestedObjectAtIndexPath:indexPath];
+  NSString *rowLabel = [rowLabels nestedObjectAtIndexPath:indexPath];
+  NSDictionary *rowValueMap = [rowValueMaps nestedObjectAtIndexPath:indexPath];
+  id rowController = [rowControllers nestedObjectAtIndexPath:indexPath];
+  
+  // use rowController(String) to do specified action.
+  if ([rowController isEqual:@"TaskListViewController"]) {
     
-    NSString *rowKey = [rowKeys nestedObjectAtIndexPath:indexPath];
-    NSString *rowLabel = [rowLabels nestedObjectAtIndexPath:indexPath];
-    id rowController = [rowControllers nestedObjectAtIndexPath:indexPath];
+  } else {
     
-    // Configure the cell...
     id<GenericValueDisplay> rowValue = [task valueForKey:rowKey];
     
-    cell.detailTextLabel.text = [rowValue genericValueDisplay];
-    cell.textLabel.text = rowLabel;
-    cell.accessoryType = (rowController == [NSNull null]) ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDisclosureIndicator;
     
-    return cell;
+    // if a ValueMap is assigned, then get value from that map.
+    if ([rowValueMap isKindOfClass:[NSDictionary class]]) {
+      if (rowValueMap != nil) {
+        cell.detailTextLabel.text = [rowValueMap objectForKey:[rowValue genericValueDisplay]];
+      }
+    }    
+    // if not, just show the plain text.
+    else
+    {
+      cell.detailTextLabel.text = [rowValue genericValueDisplay];
+    }
+    
+  }
+  
+  cell.textLabel.text = rowLabel;
+  cell.accessoryType = (rowController == [NSNull null]) ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDisclosureIndicator;
+  
+  
+  return cell;
+
 }
 
 /*
@@ -206,14 +266,50 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+//  NSUInteger section = [indexPath section];
+  
+  NSString *controllerClassName = [rowControllers 
+                                   nestedObjectAtIndexPath:indexPath];
+  NSString *rowLabel = [rowLabels nestedObjectAtIndexPath:indexPath];
+  NSString *rowKey = [rowKeys nestedObjectAtIndexPath:indexPath];
+  Class controllerClass = NSClassFromString(controllerClassName);
+  ManagedObjectAttributeEditor *controller = [controllerClass alloc];
+  controller = [controller initWithStyle:UITableViewStyleGrouped];
+  controller.keypath = rowKey;
+  controller.managedObject = task;
+  controller.labelString = rowLabel;
+  
+//  switch (section) {
+//    case TableSectionName:
+//    case TableSectionGeneral:
+//      NSLog(@"table section general: %u", TableSectionGeneral);
+//      controller.keypath = rowKey;
+//      controller.managedObject = account;
+//      controller.labelString = rowLabel;
+//      break;
+//    case TableSectionTask:
+//      controller.managedObject = account;
+//      break;
+//      
+//    default:
+//      break;
+//  }
+  
+  
+  controller.title = rowLabel;
+  
+  NSDictionary *args = [rowArguments nestedObjectAtIndexPath:indexPath];
+  if ([args isKindOfClass:[NSDictionary class]]) {
+    if (args != nil) {
+      for (NSString *oneKey in args) {
+        id oneArg = [args objectForKey:oneKey];
+        [controller setValue:oneArg forKey:oneKey];
+      }
+    }
+  }    
+  
+  [self.navigationController pushViewController:controller animated:YES];
+  [controller release];
 }
 
 @end

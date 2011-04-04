@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>0</key>
+	<string>Uncategorized</string>
+	<key>1</key>
+	<string>Player vs. Player</string>
+	<key>2</key>
+	<string>Dungeons &amp; Raids</string>
+	<key>3</key>
+	<string>Professions</string>
+	<key>4</key>
+	<string>Quests</string>
+	<key>5</key>
+	<string>Reputation</string>
+	<key>6</key>
+	<string>Achievements</string>
+	<key>7</key>
+	<string>World Events</string>
+</dict>
+</plist>

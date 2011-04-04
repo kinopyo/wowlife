@@ -7,7 +7,9 @@
     UITableViewCell *selectedCell = [self.tableView 
                                      cellForRowAtIndexPath:lastIndexPath];
     NSString *newValue = selectedCell.textLabel.text;
+
 	NSLog(@"new value  %@", newValue);	
+  
     [self.managedObject setValue:newValue forKey:self.keypath];
 	
 	[self validateAndPop];
@@ -70,7 +72,7 @@
     }
     NSUInteger row = [indexPath row];
     NSUInteger oldRow = [lastIndexPath row];
-    cell.textLabel.text = [list objectAtIndex:row];
+    cell.textLabel.text = NSLocalizedString([list objectAtIndex:row], [list objectAtIndex:row]);
     cell.accessoryType = (row == oldRow && lastIndexPath != nil) ? 
     UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     return cell;

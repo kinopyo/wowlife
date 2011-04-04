@@ -16,12 +16,15 @@
 		C8180EEF13446A72005E6E49 /* TaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8180EEE13446A72005E6E49 /* TaskListViewController.m */; };
 		C84CB92313332A47009D2DAF /* class-6.png in Resources */ = {isa = PBXBuildFile; fileRef = C84CB92213332A47009D2DAF /* class-6.png */; };
 		C85D0243133C8E4000F385CF /* Wowlife.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C85D0242133C8E4000F385CF /* Wowlife.sqlite */; };
+		C882F5011349C8AD005C178F /* taskTypeList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C882F5001349C8AD005C178F /* taskTypeList.plist */; };
+		C882F5081349C9B5005C178F /* taskCategoryList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C882F5071349C9B5005C178F /* taskCategoryList.plist */; };
 		C8A25D581339C97A00A96EE9 /* classList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A25D571339C97A00A96EE9 /* classList.plist */; };
 		C8A25D7B133A007600A96EE9 /* raceList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A25D7A133A007600A96EE9 /* raceList.plist */; };
 		C8A25D97133A0BE900A96EE9 /* sexList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8A25D96133A0BE900A96EE9 /* sexList.plist */; };
 		C8AB77A413458C9500701942 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AB77A313458C9500701942 /* Account.m */; };
 		C8AB77A713458D1800701942 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AB77A613458D1800701942 /* Task.m */; };
 		C8B41A0D13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B41A0C13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.m */; };
+		C8C780781349E7E200E4AAAB /* Wowlife.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = C8C780771349E7E200E4AAAB /* Wowlife.xcdatamodel */; };
 		C8CD1C541339B1B100867FA4 /* infoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8CD1C531339B1B100867FA4 /* infoPlist.strings */; };
 		C8CD1C8F1339B40600867FA4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8CD1C8E1339B40600867FA4 /* Localizable.strings */; };
 		F3034F6512AA28D3000A5C0D /* NSArray-NestedArrays.m in Sources */ = {isa = PBXBuildFile; fileRef = F3034F6412AA28D3000A5C0D /* NSArray-NestedArrays.m */; };
@@ -64,7 +67,6 @@
 		F37CCEB212A56A86005495E5 /* race_22_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE8F12A56A86005495E5 /* race_22_1.jpg */; };
 		F37CCEB312A56A86005495E5 /* wow_url.txt in Resources */ = {isa = PBXBuildFile; fileRef = F37CCE9012A56A86005495E5 /* wow_url.txt */; };
 		F37CCF5212A5789A005495E5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37CCF5112A5789A005495E5 /* CoreData.framework */; };
-		F37CCF5612A578E7005495E5 /* Wowlife.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = F37CCF5512A578E7005495E5 /* Wowlife.xcdatamodel */; };
 		F3E4F67912BC9D55003C36C5 /* ManagedObjectAttributeEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E4F67812BC9D55003C36C5 /* ManagedObjectAttributeEditor.m */; };
 		F3E4F68012BC9D65003C36C5 /* ManagedObjectStringEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E4F67B12BC9D65003C36C5 /* ManagedObjectStringEditor.m */; };
 		F3E4F68112BC9D65003C36C5 /* ManagedObjectDateEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E4F67D12BC9D65003C36C5 /* ManagedObjectDateEditor.m */; };
@@ -98,6 +100,10 @@
 		C8180EEE13446A72005E6E49 /* TaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskListViewController.m; sourceTree = "<group>"; };
 		C84CB92213332A47009D2DAF /* class-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "class-6.png"; sourceTree = "<group>"; };
 		C85D0242133C8E4000F385CF /* Wowlife.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Wowlife.sqlite; sourceTree = "<group>"; };
+		C882F4FE1349C89C005C178F /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = English; path = English.lproj/taskTypeList.plist; sourceTree = "<group>"; };
+		C882F5051349C956005C178F /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = English; path = English.lproj/taskCategoryList.plist; sourceTree = "<group>"; };
+		C882F50B1349CA5A005C178F /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = zh_CN; path = zh_CN.lproj/taskTypeList.plist; sourceTree = "<group>"; };
+		C882F50C1349CA69005C178F /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = zh_CN; path = zh_CN.lproj/taskCategoryList.plist; sourceTree = "<group>"; };
 		C8A25D551339C97600A96EE9 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = English; path = English.lproj/classList.plist; sourceTree = "<group>"; };
 		C8A25D5B1339F04400A96EE9 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = zh_CN; path = zh_CN.lproj/classList.plist; sourceTree = "<group>"; };
 		C8A25D78133A005B00A96EE9 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = English; path = English.lproj/raceList.plist; sourceTree = "<group>"; };
@@ -110,6 +116,7 @@
 		C8AB77A613458D1800701942 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = ../Task.m; sourceTree = "<group>"; };
 		C8B41A0B13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedObjectSingleSelectionDictionaryEditor.h; sourceTree = "<group>"; };
 		C8B41A0C13334141004DAAF3 /* ManagedObjectSingleSelectionDictionaryEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedObjectSingleSelectionDictionaryEditor.m; sourceTree = "<group>"; };
+		C8C780771349E7E200E4AAAB /* Wowlife.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wowlife.xcdatamodel; sourceTree = "<group>"; };
 		C8CD1C511339B1AD00867FA4 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/infoPlist.strings; sourceTree = "<group>"; };
 		C8CD1C551339B1C900867FA4 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh_CN; path = zh_CN.lproj/infoPlist.strings; sourceTree = "<group>"; };
 		C8CD1C7A1339B2F400867FA4 /* zh_TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh_TW; path = zh_TW.lproj/infoPlist.strings; sourceTree = "<group>"; };
@@ -164,7 +171,6 @@
 		F37CCE8F12A56A86005495E5 /* race_22_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = race_22_1.jpg; sourceTree = "<group>"; };
 		F37CCE9012A56A86005495E5 /* wow_url.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wow_url.txt; sourceTree = "<group>"; };
 		F37CCF5112A5789A005495E5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		F37CCF5512A578E7005495E5 /* Wowlife.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Wowlife.xcdatamodel; sourceTree = "<group>"; };
 		F3E4F67712BC9D55003C36C5 /* ManagedObjectAttributeEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedObjectAttributeEditor.h; sourceTree = "<group>"; };
 		F3E4F67812BC9D55003C36C5 /* ManagedObjectAttributeEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedObjectAttributeEditor.m; sourceTree = "<group>"; };
 		F3E4F67A12BC9D65003C36C5 /* ManagedObjectStringEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedObjectStringEditor.h; sourceTree = "<group>"; };
@@ -246,7 +252,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F37CCF5512A578E7005495E5 /* Wowlife.xcdatamodel */,
+				C8C780771349E7E200E4AAAB /* Wowlife.xcdatamodel */,
+				C8C2941A1349C7D00057CEE3 /* plist */,
 				C85D0242133C8E4000F385CF /* Wowlife.sqlite */,
 				F37CCE7612A56A86005495E5 /* race */,
 				F3EC66461297D9A300E51AB9 /* ClassIcon */,
@@ -260,9 +267,6 @@
 				C8CD1C8E1339B40600867FA4 /* Localizable.strings */,
 				C8CD1C531339B1B100867FA4 /* infoPlist.strings */,
 				F347C8661339030000E4B392 /* Settings.bundle */,
-				C8A25D571339C97A00A96EE9 /* classList.plist */,
-				C8A25D7A133A007600A96EE9 /* raceList.plist */,
-				C8A25D96133A0BE900A96EE9 /* sexList.plist */,
 				28A0AB4B0D9B1048005BE974 /* WowLife_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -289,6 +293,18 @@
 				F3F2F27F13484E3A005EA70B /* TaskDetailViewController.m */,
 			);
 			name = Task;
+			sourceTree = "<group>";
+		};
+		C8C2941A1349C7D00057CEE3 /* plist */ = {
+			isa = PBXGroup;
+			children = (
+				C8A25D571339C97A00A96EE9 /* classList.plist */,
+				C8A25D7A133A007600A96EE9 /* raceList.plist */,
+				C8A25D96133A0BE900A96EE9 /* sexList.plist */,
+				C882F5001349C8AD005C178F /* taskTypeList.plist */,
+				C882F5071349C9B5005C178F /* taskCategoryList.plist */,
+			);
+			name = plist;
 			sourceTree = "<group>";
 		};
 		C8F64AAD133A1B0A005C8616 /* Model */ = {
@@ -519,6 +535,8 @@
 				C8A25D7B133A007600A96EE9 /* raceList.plist in Resources */,
 				C8A25D97133A0BE900A96EE9 /* sexList.plist in Resources */,
 				C85D0243133C8E4000F385CF /* Wowlife.sqlite in Resources */,
+				C882F5011349C8AD005C178F /* taskTypeList.plist in Resources */,
+				C882F5081349C9B5005C178F /* taskCategoryList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,7 +554,6 @@
 				F314A9BC1277345F00E6C4BA /* HistoryViewController.m in Sources */,
 				F314A9D712774AC200E6C4BA /* AccountTableViewController.m in Sources */,
 				F37CCE6612A56838005495E5 /* ClassCell.m in Sources */,
-				F37CCF5612A578E7005495E5 /* Wowlife.xcdatamodel in Sources */,
 				F3EA83F712A80A0E0099329F /* AccountDetailViewController.m in Sources */,
 				F3034F6512AA28D3000A5C0D /* NSArray-NestedArrays.m in Sources */,
 				F3034F6812AA28FD000A5C0D /* GenericValueDisplay.m in Sources */,
@@ -550,12 +567,31 @@
 				C8AB77A413458C9500701942 /* Account.m in Sources */,
 				C8AB77A713458D1800701942 /* Task.m in Sources */,
 				F3F2F28013484E3A005EA70B /* TaskDetailViewController.m in Sources */,
+				C8C780781349E7E200E4AAAB /* Wowlife.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		C882F5001349C8AD005C178F /* taskTypeList.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C882F4FE1349C89C005C178F /* English */,
+				C882F50B1349CA5A005C178F /* zh_CN */,
+			);
+			name = taskTypeList.plist;
+			sourceTree = "<group>";
+		};
+		C882F5071349C9B5005C178F /* taskCategoryList.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C882F5051349C956005C178F /* English */,
+				C882F50C1349CA69005C178F /* zh_CN */,
+			);
+			name = taskCategoryList.plist;
+			sourceTree = "<group>";
+		};
 		C8A25D571339C97A00A96EE9 /* classList.plist */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -646,6 +682,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
@@ -660,6 +697,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;

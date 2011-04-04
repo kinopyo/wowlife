@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#define kTaskTypeList @"taskTypeList"
+#define kTaskCategoryList @"taskCategoryList"
 
 @interface TaskDetailViewController : UITableViewController {
   NSManagedObject *task;
@@ -16,8 +17,11 @@
   NSArray         *sectionNames;
   NSArray         *rowLabels;
   NSArray         *rowKeys;
+  NSArray         *rowValueMaps;
   NSArray         *rowControllers;
   NSArray         *rowArguments;
+  NSDictionary    *taskTypeMap;
+  NSDictionary    *taskCategoryMap;
 }
 @property (nonatomic, retain) NSManagedObject *task;
 @end
