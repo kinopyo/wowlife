@@ -31,7 +31,7 @@ enum TabelSections {
 }
 
 - (void)viewDidLoad {
-	
+
 	classValueMap = [[NSDictionary alloc] initWithContentsOfFile:
 								   [[NSBundle mainBundle] pathForResource:@"classList" ofType:@"plist"]];
 	

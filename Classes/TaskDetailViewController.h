@@ -10,14 +10,14 @@
 
 
 @interface TaskDetailViewController : UITableViewController {
-    NSManagedObject *task;
+  NSManagedObject *task;
 	
-@private   
-    NSArray         *sectionNames;
-    NSArray         *rowLabels;
-    NSArray         *rowKeys;
-    NSArray         *rowControllers;
-    NSArray         *rowArguments;
+ @private   
+  NSArray         *sectionNames;
+  NSArray         *rowLabels;
+  NSArray         *rowKeys;
+  NSArray         *rowControllers;
+  NSArray         *rowArguments;
 }
 @property (nonatomic, retain) NSManagedObject *task;
 @end

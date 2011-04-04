@@ -36,7 +36,6 @@
 
 - (void)viewDidLoad
 {
-        NSLog(@"%@", __FUNCTION__);
     sectionNames = [[NSArray alloc] initWithObjects:
                     NSLocalizedString(@"Task", @"Task"),
                     nil];
@@ -98,7 +97,6 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"%@", __FUNCTION__);
     
     [self.tableView reloadData];
     [super viewWillAppear:animated];
@@ -123,29 +121,26 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-        NSLog(@"%@", __FUNCTION__);
     // Return the number of sections.
     return [sectionNames count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-        NSLog(@"%@", __FUNCTION__);
     // Return the number of rows in the section.
     return [rowLabels countOfNestedArray:section];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    id theTitle = [sectionNames objectAtIndex:section];
-    if ([theTitle isKindOfClass:[NSNull class]])
-        return nil;
-	
-    return theTitle;
+  id theTitle = [sectionNames objectAtIndex:section];
+  if ([theTitle isKindOfClass:[NSNull class]])
+    return nil;
+  
+  return theTitle;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%@", __FUNCTION__);
     
     static NSString *CellIdentifier = @"Cell";
     

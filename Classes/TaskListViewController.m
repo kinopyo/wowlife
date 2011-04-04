@@ -253,6 +253,7 @@
 	
 }
 
+// TODO dummy
 - (void)save
 {
 
@@ -269,15 +270,11 @@
 
 - (IBAction)addNewTask 
 {
-    Class controllerClass = NSClassFromString(@"TaskDetailViewController");
-    TaskDetailViewController *controller = [controllerClass alloc];
-    controller = [controller initWithStyle:UITableViewStyleGrouped];
-    
-//    taskDetailViewController.task = managedObject;
-//    [taskDetailViewController initWithStyle:UITableViewStyleGrouped];
-    // TODO here
-    NSLog(@"task detail view: %@", [controller description]);
-    [self.navigationController pushViewController:controller animated:YES];
+
+  TaskDetailViewController* controller = [[[TaskDetailViewController alloc] 
+                                           init] autorelease];
+  NSLog(@"task detail view: %@", [controller description]);
+  [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - Fetched results controller
