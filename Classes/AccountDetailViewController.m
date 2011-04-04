@@ -26,103 +26,123 @@ enum TabelSections {
 #pragma mark -
 #pragma mark View lifecycle
 - (void)viewWillAppear:(BOOL)animated {	
-    [self.tableView reloadData];
-    [super viewWillAppear:animated];
+  [self.tableView reloadData];
+  [super viewWillAppear:animated];
 }
 
 - (void)viewDidLoad {
 
-	classValueMap = [[NSDictionary alloc] initWithContentsOfFile:
-								   [[NSBundle mainBundle] pathForResource:@"classList" ofType:@"plist"]];
-	
-	raceValueMap = [[NSDictionary alloc] initWithContentsOfFile:
-								  [[NSBundle mainBundle] pathForResource:@"raceList" ofType:@"plist"]];
-	
-	sexValueMap = [[NSDictionary alloc] initWithContentsOfFile:
-					[[NSBundle mainBundle] pathForResource:@"sexList" ofType:@"plist"]];  
-    
-    sectionNames = [[NSArray alloc] initWithObjects:
-                    [NSNull null],
-                    NSLocalizedString(@"General", @"General"),
-					NSLocalizedString(@"Tasks", @"Tasks"),
-                    nil];
-    rowLabels = [[NSArray alloc] initWithObjects:
-				 
-                 // Section 1
-                 [NSArray arrayWithObjects:NSLocalizedString(@"Name", @"Name"), nil],
-				 
-                 // Section 2
-                 [NSArray arrayWithObjects:NSLocalizedString(@"Race", @"Race"),
-                  NSLocalizedString(@"Class", @"Class"),
-                  NSLocalizedString(@"Sex", @"Sex"),
-                  NSLocalizedString(@"Level", @"Level"),
-                  nil],
-				 
-				 // section 3
-				 [NSArray arrayWithObjects:NSLocalizedString(@"Task List", @"Task List"), nil],
-                 				 
-                 // Sentinel
-                 nil];
-	
-    rowKeys = [[NSArray alloc] initWithObjects:
+  classValueMap = [[NSDictionary alloc] initWithContentsOfFile:
+                                 [[NSBundle mainBundle] pathForResource:@"classList" ofType:@"plist"]];
+  
+  raceValueMap = [[NSDictionary alloc] initWithContentsOfFile:
+                                [[NSBundle mainBundle] pathForResource:@"raceList" ofType:@"plist"]];
+  
+  sexValueMap = [[NSDictionary alloc] initWithContentsOfFile:
+                  [[NSBundle mainBundle] pathForResource:@"sexList" ofType:@"plist"]];  
+  
+  sectionNames = [[NSArray alloc] initWithObjects:
+                  [NSNull null],
+                  NSLocalizedString(@"General", @"General"),
+                  NSLocalizedString(@"Tasks", @"Tasks"),
+                  nil];
+  rowLabels = [[NSArray alloc] initWithObjects:
                
                // Section 1
-               [NSArray arrayWithObjects:@"name", nil],
-			   
-               // Section 2
-               [NSArray arrayWithObjects:@"race", @"klass", @"Sex", @"level", nil],
-			   
-			   // Section 3
-			   [NSNull null],
+               [NSArray arrayWithObjects:NSLocalizedString(@"Name", @"Name"), nil],
                
+               // Section 2
+               [NSArray arrayWithObjects:NSLocalizedString(@"Race", @"Race"),
+                NSLocalizedString(@"Class", @"Class"),
+                NSLocalizedString(@"Sex", @"Sex"),
+                NSLocalizedString(@"Level", @"Level"),
+                nil],
+               
+               // section 3
+               [NSArray arrayWithObjects:NSLocalizedString(@"Task List", @"Task List"), nil],
+                               
                // Sentinel
                nil];
-    
-	rowControllers = [[NSArray alloc] initWithObjects:
-					  
-                      // Section 1
-                      [NSArray arrayWithObject:@"ManagedObjectStringEditor"],
-					  
-                      // Section 2
-                      [NSArray arrayWithObjects:
-                       @"ManagedObjectSingleSelectionDictionaryEditor",     // race
-                       @"ManagedObjectSingleSelectionDictionaryEditor",     // klass
-                       @"ManagedObjectSingleSelectionDictionaryEditor",		// sex
-                       @"ManagedObjectStringEditor",                        // level
-                       nil],
-					  
-					  // Section 3
-					  [NSArray arrayWithObject:@"TaskListViewController"],
-					  
-                      // Sentinel
-                      nil];
-    rowArguments = [[NSArray alloc] initWithObjects:
+  
+  // the actual column name of the table.
+  rowKeys = [[NSArray alloc] initWithObjects:
+             
+             // Section 1
+             [NSArray arrayWithObjects:@"name", nil],
+             
+             // Section 2
+             [NSArray arrayWithObjects:@"race", @"klass", @"Sex", @"level", nil],
+             
+             // Section 3
+             [NSNull null],
+             
+             // Sentinel
+             nil];
+  
+  rowValueMaps = [[NSArray alloc] initWithObjects:
+               
+               // Section 1
+               [NSNull null], 
+               
+               // Section 2
+               [NSArray arrayWithObjects:raceValueMap, 
+                                         classValueMap,
+                                         sexValueMap,
+                                         [NSNull null],
+                                         nil],
+               // Section 3
+               [NSNull null],
+               
+               nil];
+  
+  rowControllers = [[NSArray alloc] initWithObjects:
                     
                     // Section 1
-                    [NSArray arrayWithObject:[NSNull null]],
+                    [NSArray arrayWithObject:@"ManagedObjectStringEditor"],
                     
-                    // Section 2,
+                    // Section 2
                     [NSArray arrayWithObjects:
-					 // race lists  
-                     [NSDictionary dictionaryWithObject:raceValueMap forKey:@"map"],
-                     
-					 // class
-					 [NSDictionary dictionaryWithObject:classValueMap forKey:@"map"],
-                     
-                     // sex
-                     [NSDictionary dictionaryWithObject:sexValueMap forKey:@"map"],
-                     
-					 // level  
-                     [NSNull null], 
+                     @"ManagedObjectSingleSelectionDictionaryEditor",     // race
+                     @"ManagedObjectSingleSelectionDictionaryEditor",     // klass
+                       @"ManagedObjectSingleSelectionDictionaryEditor",		// sex
+                     @"ManagedObjectSingleSelectionListEditor",                        // level
                      nil],
-					
-					// Section 3,
-					[NSNull null],
+                    
+                    // Section 3
+                    [NSArray arrayWithObject:@"TaskListViewController"],
                     
                     // Sentinel
                     nil];
-	
-    [super viewDidLoad];
+  rowArguments = [[NSArray alloc] initWithObjects:
+                  
+                  // Section 1
+                  [NSArray arrayWithObject:[NSNull null]],
+                  
+                  // Section 2,
+                  [NSArray arrayWithObjects:
+                   // race lists  
+                   [NSDictionary dictionaryWithObject:raceValueMap
+                                               forKey:@"map"],
+                   
+                   // class
+                   [NSDictionary dictionaryWithObject:classValueMap 
+                                               forKey:@"map"],
+                   
+                   // sex
+                   [NSDictionary dictionaryWithObject:sexValueMap
+                                               forKey:@"map"],
+                   
+                   // level  
+                   [NSNull null], 
+                   nil],
+                  
+                  // Section 3,
+                  [NSNull null],
+                  
+                  // Sentinel
+                  nil];
+  
+  [super viewDidLoad];
 }
 
 
@@ -134,7 +154,8 @@ enum TabelSections {
     return [sectionNames count];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+- (NSString *)tableView:(UITableView *)tableView 
+titleForHeaderInSection:(NSInteger)section {
     id theTitle = [sectionNames objectAtIndex:section];
     if ([theTitle isKindOfClass:[NSNull class]])
         return nil;
@@ -142,78 +163,68 @@ enum TabelSections {
     return theTitle;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView 
+ numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     return [rowLabels countOfNestedArray:section];
 }
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *accountCellIdentifier = @"Account Detail Cell Identifier";
-    static NSString *taskCellIdentifier = @"Account Detail Cell Identifier";	
-    
-    NSString *rowKey = [rowKeys nestedObjectAtIndexPath:indexPath];
-    NSString *rowLabel = [rowLabels nestedObjectAtIndexPath:indexPath];
-    id rowController = [rowControllers nestedObjectAtIndexPath:indexPath];
-	
-	NSString *cellIdentifier = nil;
-    UITableViewCellStyle cellStyle;
-    if ([rowController isEqual:@"TaskListViewController"]) { 
-        cellIdentifier = taskCellIdentifier;
-        cellStyle = UITableViewCellStyleDefault;
-    }
-    else {
-        cellIdentifier = accountCellIdentifier;
-        cellStyle = UITableViewCellStyleValue2;
-    }
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:cellStyle 
-                                       reuseIdentifier:cellIdentifier] autorelease];
-    }
-	
-	// use rowController(String) to do specified action.
-	if ([rowController isEqual:@"TaskListViewController"]) {
+- (UITableViewCell *)tableView:(UITableView *)tableView 
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  
+  static NSString *accountCellIdentifier = @"Account Detail Cell Identifier";
+  static NSString *taskCellIdentifier = @"Account Detail Cell Identifier";	
+  
+  NSString *rowKey = [rowKeys nestedObjectAtIndexPath:indexPath];
+  NSString *rowLabel = [rowLabels nestedObjectAtIndexPath:indexPath];
+  NSDictionary *rowValueMap = [rowValueMaps nestedObjectAtIndexPath:indexPath];
+  id rowController = [rowControllers nestedObjectAtIndexPath:indexPath];
+  
+  NSString *cellIdentifier = nil;
+  UITableViewCellStyle cellStyle;
+  if ([rowController isEqual:@"TaskListViewController"]) { 
+      cellIdentifier = taskCellIdentifier;
+      cellStyle = UITableViewCellStyleDefault;
+  }
+  else {
+      cellIdentifier = accountCellIdentifier;
+      cellStyle = UITableViewCellStyleValue2;
+  }
+  
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+  if (cell == nil) {
+      cell = [[[UITableViewCell alloc] initWithStyle:cellStyle 
+                                     reuseIdentifier:cellIdentifier] autorelease];
+  }
+  
+  // use rowController(String) to do specified action.
+  if ([rowController isEqual:@"TaskListViewController"]) {
 
-	} else {
-		
-		id<GenericValueDisplay> rowValue = [account valueForKey:rowKey];
-		
-		NSUInteger row = [indexPath row];
-		NSUInteger section = [indexPath section];
-		
-		// TODO refactor needed.
-		if (section == 1)
-		{
-			
-			// race
-			if (row == 0) {
-				cell.detailTextLabel.text = [raceValueMap objectForKey:[rowValue genericValueDisplay]];
-				// class    
-			} else if (row == 1) {
-				cell.detailTextLabel.text = [classValueMap objectForKey:[rowValue genericValueDisplay]];
-				// sex
-			} else if (row == 2) {
-				cell.detailTextLabel.text = [sexValueMap objectForKey:[rowValue genericValueDisplay]];
-			} else {
-				cell.detailTextLabel.text = [rowValue genericValueDisplay];
-			}
-			
-		}
-		else 
-		{
-			cell.detailTextLabel.text = [rowValue genericValueDisplay];
-		}
-		
-	}
-
-    cell.textLabel.text = rowLabel;
-    cell.accessoryType = (rowController == [NSNull null]) ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDisclosureIndicator;
-	
+  } else {
+      
+    id<GenericValueDisplay> rowValue = [account valueForKey:rowKey];
     
-    return cell;
+    
+    // if a ValueMap is assigned, then get value from that map.
+    if ([rowValueMap isKindOfClass:[NSDictionary class]]) {
+      if (rowValueMap != nil) {
+        cell.detailTextLabel.text = [rowValueMap objectForKey:[rowValue genericValueDisplay]];
+      }
+    }    
+    // if not, just show the plain text.
+    else
+    {
+      cell.detailTextLabel.text = [rowValue genericValueDisplay];
+    }
+      
+  }
+
+  cell.textLabel.text = rowLabel;
+  cell.accessoryType = (rowController == [NSNull null]) ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDisclosureIndicator;
+  
+  
+  return cell;
 }
 
 
@@ -279,19 +290,13 @@ enum TabelSections {
 - (void)viewDidUnload {
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
+  self.account = nil;
 }
 
 
 - (void)dealloc {
-	[account release];
-    [sectionNames release];
-    [rowLabels release];
-    [rowKeys release];
-    [rowControllers release];
-    [raceValueMap release];
-    [classValueMap release];
-	[sexValueMap release];
-    [super dealloc];
+  [account release];
+  [super dealloc];
 }
 
 

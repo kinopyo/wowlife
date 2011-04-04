@@ -16,6 +16,7 @@
     NSArray         *sectionNames;
     NSArray         *rowLabels;
     NSArray         *rowKeys;
+    NSArray         *rowValueMaps;
     NSArray         *rowControllers;
     NSArray         *rowArguments;
     NSDictionary    *raceValueMap;
