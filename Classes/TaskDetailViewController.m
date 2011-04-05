@@ -101,10 +101,16 @@
                     // Section 1
                     [NSArray arrayWithObjects:
                      [NSNull null],
-                     [NSDictionary dictionaryWithObject:taskTypeMap
-                                                 forKey:@"map"],
-                     [NSDictionary dictionaryWithObject:taskCategoryMap
-                                                 forKey:@"map"],
+                     [NSDictionary dictionaryWithObjectsAndKeys:
+                      taskTypeMap, kKeyForMap, 
+                      [NSNumber numberWithBool:YES], kSaveImmediateFlag, 
+                      nil],
+                     
+                     [NSDictionary dictionaryWithObjectsAndKeys:
+                      taskCategoryMap, kKeyForMap, 
+                      [NSNumber numberWithBool:YES], kSaveImmediateFlag, 
+                      nil],
+                     
                      [NSNull null],
                      nil],
                     
@@ -116,6 +122,7 @@
 
 - (void)viewDidUnload
 {
+
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

@@ -65,29 +65,38 @@
 
 #pragma mark -
 #pragma mark Table View Methods
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView 
+ numberOfRowsInSection:(NSInteger)section {
     return [list count];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    int newRow = [indexPath row];
-    int oldRow = [lastIndexPath row];
+- (void)tableView:(UITableView *)tableView 
+  didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  
+  int newRow = [indexPath row];
+  int oldRow = [lastIndexPath row];
+  
+  if (newRow != oldRow || newRow == 0) {
+    UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
+    newCell.accessoryType = UITableViewCellAccessoryCheckmark;
     
-    if (newRow != oldRow || newRow == 0) {
-        UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
-        newCell.accessoryType = UITableViewCellAccessoryCheckmark;
-        
-        UITableViewCell *oldCell = [tableView cellForRowAtIndexPath: lastIndexPath]; 
-        oldCell.accessoryType = UITableViewCellAccessoryNone;
-        
-        [lastIndexPath release];
-        lastIndexPath = indexPath;	
-    }
+    UITableViewCell *oldCell = [tableView cellForRowAtIndexPath: lastIndexPath]; 
+    oldCell.accessoryType = UITableViewCellAccessoryNone;
     
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [lastIndexPath release];
+    lastIndexPath = indexPath;
+  }
+  
+  // すぐ保存したい場合
+  if (saveImmediate)
+    [self save];
+    
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView 
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  
     static NSString *GenericManagedObjectListSelectorCell = @"GenericManagedObjectListSelectorCell";
 
     UITableViewCell *cell = [tableView 

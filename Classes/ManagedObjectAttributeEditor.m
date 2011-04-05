@@ -14,6 +14,10 @@
                                      action:@selector(cancel)];
     self.navigationItem.leftBarButtonItem = cancelButton;
     [cancelButton release];
+  
+  // only show |saveButton| if it's not in the 'save right after didSelect mode'
+  if (saveImmediate == NO) 
+  {
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc]
                                    initWithTitle:NSLocalizedString(@"Save", 
                                                                    @"Save - for button to save changes")
@@ -21,8 +25,9 @@
                                    target:self 
                                    action:@selector(save)];
     self.navigationItem.rightBarButtonItem = saveButton;
-    [saveButton release];
-	
+    [saveButton release];  
+  }
+  	
     [super viewWillAppear:animated];
 }
 -(IBAction)cancel {

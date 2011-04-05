@@ -12,6 +12,7 @@
 @interface ManagedObjectSingleSelectionDictionaryEditor : ManagedObjectAttributeEditor {
     NSDictionary            *map;
     
+    
     //@private
     NSIndexPath        *lastIndexPath;
     NSArray            *list;

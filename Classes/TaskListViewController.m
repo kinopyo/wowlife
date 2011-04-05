@@ -38,38 +38,47 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    // Set up the edit and add buttons.
-//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-	
-	UIBarButtonItem *saveButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:NSLocalizedString(@"addNewTask", @"addNewTask")
-                                   style:UIBarButtonItemStyleDone
-                                   target:self 
-                                   action:@selector(addNewTask)];
-    self.navigationItem.rightBarButtonItem = saveButton;
-	
-    [saveButton release];
+  [super viewDidLoad];
+  // Set up the edit and add buttons.
+  UIBarButtonItem *editButton = [[UIBarButtonItem alloc] 
+                                 initWithTitle:@"Edit" 
+                                 style:UIBarButtonItemStyleBordered
+                                 target:self
+                                 action:@selector(toggleEdit)];
+  self.navigationItem.rightBarButtonItem = editButton;
+  [editButton release];
 
-	
-//	NSString *entityName = @"Task";
-//	NSManagedObjectContext *context = [managedObject managedObjectContext];
-//	
-//	NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
-//	[fetchRequest setEntity:[NSEntityDescription entityForName:entityName inManagedObjectContext:context]];
-//	
-//	NSError *error = nil;
-//	taskList = [context executeFetchRequest:fetchRequest error:&error];
-//	// TODO retianがないとダメー
-//	[taskList retain];
-	
-	selectedTaskList = [[NSMutableArray alloc] init];
+  selectedTaskList = [[NSMutableArray alloc] init];
   
   Account *account = (Account *)managedObject;
   NSMutableSet *taskSet = [account valueForKey:@"tasks"];
   NSLog(@"account mutableSetValueForKey tasks: %@", taskSet);
   
+}
+
+-(IBAction)toggleEdit{
+  [self.tableView setEditing:!self.tableView.editing animated:YES];
   
+  // TODO refactor here
+  // section count + 1 is the static one.
+  NSUInteger staticPath[] = {[[self.fetchedResultsController sections] count], 0};
+  NSIndexPath *staticIndexPath = [NSIndexPath indexPathWithIndexes:
+                                  staticPath length:2];
+  UITableViewCell *addTaskCell = [self.tableView cellForRowAtIndexPath:staticIndexPath];
+  // show |addTaskCell| in editing mode, hide when not.
+  addTaskCell.hidden = !self.tableView.editing;
+  
+  // edit mode
+  if (self.tableView.editing)
+  {
+    [self.navigationItem.rightBarButtonItem setTitle:@"Done"];
+    self.tableView.allowsSelectionDuringEditing = YES;
+  }
+  else
+  {
+    [self.navigationItem.rightBarButtonItem setTitle:@"Edit"];
+  }
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -109,68 +118,60 @@
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSLog(@"section: %@", [self.fetchedResultsController sections]);
-    
-    NSLog(@"number of sections %u",[[self.fetchedResultsController sections] count]);
-    return [[self.fetchedResultsController sections] count];
+  // +1 for static section: add task
+  return [[self.fetchedResultsController sections] count] +1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//	NSLog(@"task list count :%@", taskList);
-//	return [taskList count];
+  NSUInteger sectionCount = [[self.fetchedResultsController sections] count];
+  if (section < sectionCount) {
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    
-    NSLog(@"section info: %@", sectionInfo);
     return [sectionInfo numberOfObjects];
+  } else {
+    NSLog(@"section info is nil, section number is %u", section);
+    return 1;
+  }
+
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-	
-	/**********************
-	 The 'indexTitle' and 'name' depends on parameter 'sectionNameKeyPath' of this method.
-	 - (id)initWithFetchRequest:(NSFetchRequest *)fetchRequest managedObjectContext: (NSManagedObjectContext *)context sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)name;
-	 Currently I passed 'type' to sectionNameKeyPath, and the value in Task table is set to string 1,2,3,4...
-	 If change string to "Daily", "Weekly", "Someday", the section number and numberOfRowsInSection would be mess up.
-	 Don't know why.
-	 
-	 And the 'indexTitle' and 'name' seem to have the same value of taks.type.
-	 
-	 ************************/
-	NSString *indexTitle = [sectionInfo indexTitle];
-	
-	// TODO refactor
-	if ([indexTitle isEqualToString:@"1"]) {
-		return @"Daily";
-	} else if ([indexTitle isEqualToString:@"2"]){
-		return @"Weekly";
-	} else if ([indexTitle isEqualToString:@"3"]) {
-		return @"Due Date";
-	} else if ([indexTitle isEqualToString:@"4"]) {
-		return @"Some day";
-	} else {
-		return @"Uncategorized";
-	}
-	
-	NSLog(@"name %@, title%@",[sectionInfo name], [sectionInfo indexTitle]);
-	
-    return @"title";
+  NSUInteger sectionCount = [[self.fetchedResultsController sections] count];
+  // TODO section starts with 0.
+  // refactor this if (section < sectionCount) 
+  NSLog(@"section ________ %u", section);
+  
+  if (section < sectionCount) {
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    // |Task| doesn't conform to |NSFetchedResultsSectionInfo|,
+    // so just get the 0 index that would be the |Task| object.
+    Task *task = [sectionInfo.objects objectAtIndex:0];
+    NSDictionary *taskTypeMap = [[NSDictionary alloc] initWithContentsOfFile:
+                                 [[NSBundle mainBundle] pathForResource:kTaskTypeList 
+                                                                 ofType:@"plist"]];
+    
+    return [taskTypeMap objectForKey:task.type];
+
+  } else {
+    return nil;
+  }
+  
 }
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView 
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
+  static NSString *CellIdentifier = @"Cell";
+  
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  if (cell == nil) {
+    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+  }
 
-    // Configure the cell.
-    [self configureCell:cell atIndexPath:indexPath];
-    return cell;
+  // Configure the cell.
+  [self configureCell:cell atIndexPath:indexPath];
+  return cell;
 }
 
 /*
@@ -182,28 +183,47 @@
  }
  */
 
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if (editingStyle == UITableViewCellEditingStyleDelete)
-//    {
-//        // Delete the managed object for the given index path
-//        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-//        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-//        
-//        // Save the context.
-//        NSError *error = nil;
-//        if (![context save:&error])
-//        {
-//            /*
-//             Replace this implementation with code to handle the error appropriately.
-//             
-//             abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-//             */
-//            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-//            abort();
-//        }
-//    }   
-//}
+- (void)tableView:(UITableView *)tableView 
+  commitEditingStyle:(UITableViewCellEditingStyle)editingStyle 
+  forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  if (editingStyle == UITableViewCellEditingStyleDelete)
+  {
+    // Delete the managed object for the given index path
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    
+    // Save the context.
+    NSError *error = nil;
+    if (![context save:&error])
+    {
+      /*
+       Replace this implementation with code to handle the error appropriately.
+       
+       abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+       */
+      // TODO
+      NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+      abort();
+    }
+  }   
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView 
+           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+  // TODO 綺麗に
+  NSUInteger sectionCount = [[self.fetchedResultsController sections] count];
+  NSUInteger section = [indexPath section];
+  
+  NSLog(@"sectionCount %u,  indexPath section %u", sectionCount, section);
+  
+  if (section < sectionCount) {
+    return UITableViewCellEditingStyleDelete;
+  } else {
+    return UITableViewCellEditingStyleInsert;
+  }
+
+}
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -215,27 +235,38 @@
 {
 
   NSLog(@"%s", __FUNCTION__);
-    Account *account = (Account *)managedObject;
+  Account *account = (Account *)managedObject;
   
   UITableViewCell *cell = [tableView cellForRowAtIndexPath: indexPath];
-  if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+  // editing mode, tap to edit the |task|.
+  if (self.tableView.editing){
+    TaskDetailViewController* controller = [[[TaskDetailViewController alloc] 
+                                             initWithStyle:UITableViewStyleGrouped] autorelease];
+    controller.task = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self.navigationController pushViewController:controller animated:YES];
+  }
+  // if not editing mode, save selected task to account.
+  else
+  {
+    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
       // remove out of list
       if ([selectedTaskList containsObject:indexPath]) {
-          [selectedTaskList removeObject:indexPath];
+        [selectedTaskList removeObject:indexPath];
       }
       
       // remove checkmark
       cell.accessoryType = UITableViewCellAccessoryNone;
-[account removeTasksObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-
-    
-  } else {
+      [account removeTasksObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+      
+      
+    } else {
       // add to list
       [selectedTaskList addObject:indexPath];
-      NSLog(@"added indexPath");
+
       // show checkmark
       cell.accessoryType = UITableViewCellAccessoryCheckmark;
-[account addTasksObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+      [account addTasksObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    }
   }
 
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -258,25 +289,43 @@
     // For example: self.myOutlet = nil;
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)configureCell:(UITableViewCell *)cell 
+          atIndexPath:(NSIndexPath *)indexPath
 {
-//	NSUInteger row = [indexPath row];
-//	Task *task = [taskList objectAtIndex:row];
-//
-//	cell.textLabel.text = task.name;
-    
+  // TODO 綺麗に
+  NSUInteger sectionCount = [[self.fetchedResultsController sections] count];
+  NSUInteger section = [indexPath section];
+  
+  NSLog(@"sectionCount %u,  indexPath section %u", sectionCount, section);
+
+  if (section < sectionCount) {
     Task *task = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = task.name;
-  
-  Account *account = (Account *)managedObject;
-  NSSet *set = account.tasks;
-  if ([set containsObject:task]){
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    NSDictionary *taskCategoryMap = [[NSDictionary alloc] initWithContentsOfFile:
+                                     [[NSBundle mainBundle] 
+                                      pathForResource:kTaskCategoryList 
+                                      ofType:@"plist"]];
+    cell.detailTextLabel.text = [taskCategoryMap objectForKey:task.category];
+    
+    Account *account = (Account *)managedObject;
+    NSSet *set = account.tasks;
+    
+    // editing mode, shows button to indicate that |task| can edit.
+    cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    if ([set containsObject:task]){
+      cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+      cell.accessoryType = UITableViewCellAccessoryNone;    
+    } 
   } else {
-    cell.accessoryType = UITableViewCellAccessoryNone;    
+    cell.textLabel.text = @"Add New Task";
+    cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    // show when editing mode.
+    cell.hidden = !self.tableView.editing;
+    cell.detailTextLabel.text = nil;    
   }
-	
-	
+
 }
 
 - (void)save
@@ -288,31 +337,26 @@
 
   for (NSIndexPath *indexPath in selectedTaskList) {
     //
-    [taskSet addObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    [taskSet addObject:[self.fetchedResultsController 
+                        objectAtIndexPath:indexPath]];
   }
   
   NSLog(@"task set: %@", taskSet);
   [self.navigationController popViewControllerAnimated:YES];
-  
-//  Task *task = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:[managedObject managedObjectContext]];
-//  task.name = @"Daily Heroic";
-//  task.category = @"PVE";
-////	task.type = @"1";
-
-
-  
 
   [account addTasks:taskSet];
   NSError *error = NULL;
   if (![[account managedObjectContext] save:&error]) {
-    NSLog(@"Error saving tasks to account: %@, for tasks: %@, error is: %@", account.name, taskSet, [error localizedDescription]);
+    NSLog(@"Error saving tasks to account: %@, for tasks: %@, error is: %@", 
+          account.name, taskSet, [error localizedDescription]);
   }
     
 }
 
 - (IBAction)addNewTask 
 {
-  NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+  NSManagedObjectContext *context = [self.fetchedResultsController 
+                                     managedObjectContext];
   NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
   NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
   

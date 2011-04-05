@@ -104,7 +104,7 @@ enum TabelSections {
                     [NSArray arrayWithObjects:
                      @"ManagedObjectSingleSelectionDictionaryEditor",     // race
                      @"ManagedObjectSingleSelectionDictionaryEditor",     // klass
-                       @"ManagedObjectSingleSelectionDictionaryEditor",		// sex
+                     @"ManagedObjectSingleSelectionDictionaryEditor",		// sex
                      @"ManagedObjectSingleSelectionListEditor",                        // level
                      nil],
                     
@@ -121,16 +121,22 @@ enum TabelSections {
                   // Section 2,
                   [NSArray arrayWithObjects:
                    // race lists  
-                   [NSDictionary dictionaryWithObject:raceValueMap
-                                               forKey:@"map"],
+                   [NSDictionary dictionaryWithObjectsAndKeys:
+                    raceValueMap, kKeyForMap, 
+                    [NSNumber numberWithBool:YES], kSaveImmediateFlag, 
+                    nil],
                    
                    // class
-                   [NSDictionary dictionaryWithObject:classValueMap 
-                                               forKey:@"map"],
+                   [NSDictionary dictionaryWithObjectsAndKeys:
+                    classValueMap, kKeyForMap, 
+                    [NSNumber numberWithBool:YES], kSaveImmediateFlag, 
+                    nil],
                    
                    // sex
-                   [NSDictionary dictionaryWithObject:sexValueMap
-                                               forKey:@"map"],
+                   [NSDictionary dictionaryWithObjectsAndKeys:
+                    sexValueMap, kKeyForMap, 
+                    [NSNumber numberWithBool:YES], kSaveImmediateFlag, 
+                    nil],
                    
                    // level  
                    [NSNull null], 
@@ -201,8 +207,6 @@ titleForHeaderInSection:(NSInteger)section {
   // use rowController(String) to do specified action.
   if ([rowController isEqual:@"TaskListViewController"]) {
     
-     NSSet *rowSet = account.tasks;
-    NSLog(@"rowSet::: %@", rowSet);
   } else {
       
     id<GenericValueDisplay> rowValue = [account valueForKey:rowKey];
