@@ -322,6 +322,8 @@
     cell.textLabel.text = @"Add New Task";
     cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
     // show when editing mode.
+    // DON'T set YES, because if turn on the editing mode and scroll down,
+    // it may not show.
     cell.hidden = !self.tableView.editing;
     cell.detailTextLabel.text = nil;    
   }
