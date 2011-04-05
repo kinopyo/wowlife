@@ -216,6 +216,8 @@
   }
   
   cell.textLabel.text = rowLabel;
+  
+  
   cell.accessoryType = (rowController == [NSNull null]) ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDisclosureIndicator;
   
   
@@ -278,24 +280,6 @@
   controller.keypath = rowKey;
   controller.managedObject = task;
   controller.labelString = rowLabel;
-  
-//  switch (section) {
-//    case TableSectionName:
-//    case TableSectionGeneral:
-//      NSLog(@"table section general: %u", TableSectionGeneral);
-//      controller.keypath = rowKey;
-//      controller.managedObject = account;
-//      controller.labelString = rowLabel;
-//      break;
-//    case TableSectionTask:
-//      controller.managedObject = account;
-//      break;
-//      
-//    default:
-//      break;
-//  }
-  
-  
   controller.title = rowLabel;
   
   NSDictionary *args = [rowArguments nestedObjectAtIndexPath:indexPath];

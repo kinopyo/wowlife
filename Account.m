@@ -84,6 +84,7 @@
 }
 
 - (void)addTasks:(NSSet *)value {    
+  NSLog(@"add tasks");
     [self willChangeValueForKey:@"tasks" withSetMutation:NSKeyValueUnionSetMutation usingObjects:value];
     [[self primitiveValueForKey:@"tasks"] unionSet:value];
     [self didChangeValueForKey:@"tasks" withSetMutation:NSKeyValueUnionSetMutation usingObjects:value];

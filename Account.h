@@ -25,3 +25,11 @@
 @property (nonatomic, retain) NSSet* tasks;
 
 @end
+
+@interface Account (CoreDataGeneratedAcessors)
+- (void)addTasksObject:(NSManagedObject *)value;
+- (void)removeTasksObject:(NSManagedObject *)value;
+- (void)addTasks:(NSSet *)value;
+- (void)removeTasks:(NSSet *)value;
+
+@end

@@ -37,7 +37,7 @@
     if (![context save:&error])
         NSLog(@"Error saving entity: %@", [error localizedDescription]);
     
-    accountDetailViewController.account = newManagedObject;
+    accountDetailViewController.account = (Account *)newManagedObject;
     [self.navigationController pushViewController:accountDetailViewController animated:YES];
 }
 
@@ -66,6 +66,9 @@
 
     // TODO figure out what's this
 	cell.showsReorderControl = YES;
+  
+  NSMutableSet *taskSet = [oneAccount valueForKey:@"tasks"];
+  NSLog(@"account mutableSetValueForKey tasks: %@", taskSet);
 
 }
 
@@ -241,7 +244,9 @@ UITableViewCellEditingStyleInsert
 	[fetchRequest setSortDescriptors:sortDescriptors];
    	[fetchRequest setEntity:entity];
 	[fetchRequest setFetchBatchSize:20];
-    
+//  [fetchRequest setRelationshipKeyPathsForPrefetching:[NSArray arrayWithObject:@"tasks"]];    
+//  NSArray *results = [managedObjectContext executeFetchRequest:fetchRequest error:nil];
+//  NSLog(@"results %@", results);
 	
 	NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest    
                                                                           managedObjectContext:managedObjectContext 

@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Account;
 
 @interface AccountDetailViewController : UITableViewController {
-    NSManagedObject *account;
+    Account *account;
 	
 @private   
     NSArray         *sectionNames;
@@ -23,6 +24,6 @@
     NSDictionary    *classValueMap;
 	NSDictionary    *sexValueMap;
 }
-@property (nonatomic, retain) NSManagedObject *account;
+@property (nonatomic, retain) Account *account;
 
 @end

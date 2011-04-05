@@ -10,7 +10,7 @@
 #import "NSArray-NestedArrays.h"
 #import "GenericValueDisplay.h"
 #import "ManagedObjectAttributeEditor.h"
-
+#import "Account.h"
 #import "TaskListViewController.h"
 
 
@@ -200,7 +200,9 @@ titleForHeaderInSection:(NSInteger)section {
   
   // use rowController(String) to do specified action.
   if ([rowController isEqual:@"TaskListViewController"]) {
-
+    
+     NSSet *rowSet = account.tasks;
+    NSLog(@"rowSet::: %@", rowSet);
   } else {
       
     id<GenericValueDisplay> rowValue = [account valueForKey:rowKey];

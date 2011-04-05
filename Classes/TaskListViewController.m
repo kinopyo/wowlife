@@ -64,6 +64,12 @@
 //	[taskList retain];
 	
 	selectedTaskList = [[NSMutableArray alloc] init];
+  
+  Account *account = (Account *)managedObject;
+  NSMutableSet *taskSet = [account valueForKey:@"tasks"];
+  NSLog(@"account mutableSetValueForKey tasks: %@", taskSet);
+  
+  
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -78,6 +84,12 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+  NSLog(@"%s", __FUNCTION__);
+  Account *account = (Account *)managedObject;
+  NSError *error = nil;
+  if (![[account managedObjectContext] save:&error]) {
+    NSLog(@"Error saving tasks to account: %@, error is: %@", account.name, [error localizedDescription]);
+  }
 	[super viewWillDisappear:animated];
 }
 
@@ -202,25 +214,31 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-	
-	UITableViewCell *cell = [tableView cellForRowAtIndexPath: indexPath];
-	if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-		// remove out of list
-		if ([selectedTaskList containsObject:indexPath]) {
-			[selectedTaskList removeObject:indexPath];
-		}
-		
-		// remove checkmark
-		cell.accessoryType = UITableViewCellAccessoryNone;
-	} else {
-		// add to list
-		[selectedTaskList addObject:indexPath];
-		NSLog(@"added indexPath");
-		// show checkmark
-		cell.accessoryType = UITableViewCellAccessoryCheckmark;
-	}
+  NSLog(@"%s", __FUNCTION__);
+    Account *account = (Account *)managedObject;
+  
+  UITableViewCell *cell = [tableView cellForRowAtIndexPath: indexPath];
+  if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+      // remove out of list
+      if ([selectedTaskList containsObject:indexPath]) {
+          [selectedTaskList removeObject:indexPath];
+      }
+      
+      // remove checkmark
+      cell.accessoryType = UITableViewCellAccessoryNone;
+[account removeTasksObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
 
-	NSLog(@"%s", __FUNCTION__);
+    
+  } else {
+      // add to list
+      [selectedTaskList addObject:indexPath];
+      NSLog(@"added indexPath");
+      // show checkmark
+      cell.accessoryType = UITableViewCellAccessoryCheckmark;
+[account addTasksObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+  }
+
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
 }
 
@@ -249,22 +267,46 @@
     
     Task *task = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = task.name;
+  
+  Account *account = (Account *)managedObject;
+  NSSet *set = account.tasks;
+  if ([set containsObject:task]){
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+  } else {
+    cell.accessoryType = UITableViewCellAccessoryNone;    
+  }
 	
 	
 }
 
-// TODO dummy
 - (void)save
 {
+  Account *account = (Account *)managedObject;
+//  NSMutableSet *taskSet = [account mutableSetValueForKey:@"tasks"];
+//  NSLog(@"account mutableSetValueForKey tasks: %@", taskSet);
+  NSMutableSet *taskSet = [[NSMutableSet alloc] init];
 
-	Task *task = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:[managedObject managedObjectContext]];
-	task.name = @"Daily Heroic";
-	task.category = @"PVE";
-//	task.type = @"1";
+  for (NSIndexPath *indexPath in selectedTaskList) {
+    //
+    [taskSet addObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+  }
+  
+  NSLog(@"task set: %@", taskSet);
+  [self.navigationController popViewControllerAnimated:YES];
+  
+//  Task *task = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:[managedObject managedObjectContext]];
+//  task.name = @"Daily Heroic";
+//  task.category = @"PVE";
+////	task.type = @"1";
 
-	Account *account = (Account *)managedObject;
-	
-	[account addTasksObject:task];
+
+  
+
+  [account addTasks:taskSet];
+  NSError *error = NULL;
+  if (![[account managedObjectContext] save:&error]) {
+    NSLog(@"Error saving tasks to account: %@, for tasks: %@, error is: %@", account.name, taskSet, [error localizedDescription]);
+  }
     
 }
 
