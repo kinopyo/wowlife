@@ -3,7 +3,7 @@
 //  WowLife
 //
 //  Created by 朴　起煥 on 11/03/18.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 FantasyDay. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

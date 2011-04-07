@@ -3,7 +3,7 @@
 //  WowLife
 //
 //  Created by Wowzolo on 11-4-3.
-//  Copyright 2011年 __MyCompanyName__. All rights reserved.
+//  Copyright 2011年 FantasyDay. All rights reserved.
 //
 
 #import "TaskDetailViewController.h"

@@ -3,7 +3,7 @@
 //  WowLife
 //
 //  Created by 朴　起煥 on 11/04/01.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 FantasyDay. All rights reserved.
 //
 
 #import "Account.h"
