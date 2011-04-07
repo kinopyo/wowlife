@@ -15,25 +15,35 @@
 
 @interface TaskListViewController (Private)
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)isFecthRequestSectionForIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)isFecthRequestSectionForSection:(NSUInteger)section;
 @end
 
 @implementation TaskListViewController
 
-@synthesize taskDetailViewController;
-@synthesize selectedTaskList;
-@synthesize managedObject;
 @synthesize taskList;
+@synthesize managedObject;
 @synthesize fetchedResultsController=__fetchedResultsController;
 
-
+#pragma mark - View Lifecycle
 - (void)dealloc
 {
-	[taskList release];
-	[managedObject release];
-	[selectedTaskList release];
-    [__fetchedResultsController release];
-    [taskDetailViewController release];
-    [super dealloc];
+  [taskList release];
+  [managedObject release];
+  [__fetchedResultsController release];
+  [super dealloc];
+}
+
+- (void)viewDidUnload
+{
+  [super viewDidUnload];
+  
+  // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
+  // For example: self.myOutlet = nil;
+  self.taskList = nil;
+  self.managedObject = nil;
+  self.fetchedResultsController = nil;
+  
 }
 
 - (void)viewDidLoad
@@ -41,44 +51,17 @@
   [super viewDidLoad];
   // Set up the edit and add buttons.
   UIBarButtonItem *editButton = [[UIBarButtonItem alloc] 
-                                 initWithTitle:@"Edit" 
+                                 initWithTitle:NSLocalizedString(kEditButtonText, kEditButtonText) 
                                  style:UIBarButtonItemStyleBordered
                                  target:self
                                  action:@selector(toggleEdit)];
   self.navigationItem.rightBarButtonItem = editButton;
   [editButton release];
 
-  selectedTaskList = [[NSMutableArray alloc] init];
-  
   Account *account = (Account *)managedObject;
   NSMutableSet *taskSet = [account valueForKey:@"tasks"];
   NSLog(@"account mutableSetValueForKey tasks: %@", taskSet);
   
-}
-
--(IBAction)toggleEdit{
-  [self.tableView setEditing:!self.tableView.editing animated:YES];
-  
-  // TODO refactor here
-  // section count + 1 is the static one.
-  NSUInteger staticPath[] = {[[self.fetchedResultsController sections] count], 0};
-  NSIndexPath *staticIndexPath = [NSIndexPath indexPathWithIndexes:
-                                  staticPath length:2];
-  UITableViewCell *addTaskCell = [self.tableView cellForRowAtIndexPath:staticIndexPath];
-  // show |addTaskCell| in editing mode, hide when not.
-  addTaskCell.hidden = !self.tableView.editing;
-  
-  // edit mode
-  if (self.tableView.editing)
-  {
-    [self.navigationItem.rightBarButtonItem setTitle:@"Done"];
-    self.tableView.allowsSelectionDuringEditing = YES;
-  }
-  else
-  {
-    [self.navigationItem.rightBarButtonItem setTitle:@"Edit"];
-  }
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -99,12 +82,20 @@
   if (![[account managedObjectContext] save:&error]) {
     NSLog(@"Error saving tasks to account: %@, error is: %@", account.name, [error localizedDescription]);
   }
-	[super viewWillDisappear:animated];
+  [super viewWillDisappear:animated];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
 	[super viewDidDisappear:animated];
+}
+
+- (void)didReceiveMemoryWarning
+{
+  // Releases the view if it doesn't have a superview.
+  [super didReceiveMemoryWarning];
+  
+  // Relinquish ownership any cached data, images, etc that aren't in use.
 }
 
 /*
@@ -115,6 +106,7 @@
  }
  */
 
+#pragma mark - TableView Delegate
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -124,24 +116,20 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  NSUInteger sectionCount = [[self.fetchedResultsController sections] count];
-  if (section < sectionCount) {
+
+  if ([self isFecthRequestSectionForSection:section]) {
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
     return [sectionInfo numberOfObjects];
   } else {
-    NSLog(@"section info is nil, section number is %u", section);
     return 1;
   }
 
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-  NSUInteger sectionCount = [[self.fetchedResultsController sections] count];
-  // TODO section starts with 0.
-  // refactor this if (section < sectionCount) 
-  NSLog(@"section ________ %u", section);
+- (NSString *)tableView:(UITableView *)tableView 
+  titleForHeaderInSection:(NSInteger)section {
   
-  if (section < sectionCount) {
+  if ([self isFecthRequestSectionForSection:section]) {
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
     // |Task| doesn't conform to |NSFetchedResultsSectionInfo|,
     // so just get the 0 index that would be the |Task| object.
@@ -166,7 +154,8 @@
   
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   if (cell == nil) {
-    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 
+                                   reuseIdentifier:CellIdentifier] autorelease];
   }
 
   // Configure the cell.
@@ -211,13 +200,8 @@
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView 
            editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-  // TODO 綺麗に
-  NSUInteger sectionCount = [[self.fetchedResultsController sections] count];
-  NSUInteger section = [indexPath section];
   
-  NSLog(@"sectionCount %u,  indexPath section %u", sectionCount, section);
-  
-  if (section < sectionCount) {
+  if ([self isFecthRequestSectionForIndexPath:indexPath]) {
     return UITableViewCellEditingStyleDelete;
   } else {
     return UITableViewCellEditingStyleInsert;
@@ -234,35 +218,35 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-  NSLog(@"%s", __FUNCTION__);
   Account *account = (Account *)managedObject;
   
   UITableViewCell *cell = [tableView cellForRowAtIndexPath: indexPath];
-  // editing mode, tap to edit the |task|.
+  // editing mode
   if (self.tableView.editing){
-    TaskDetailViewController* controller = [[[TaskDetailViewController alloc] 
-                                             initWithStyle:UITableViewStyleGrouped] autorelease];
-    controller.task = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [self.navigationController pushViewController:controller animated:YES];
+    
+    // if is fetchRequestSection, tap to edit the |task|.
+    if ([self isFecthRequestSectionForIndexPath:indexPath]) {
+      TaskDetailViewController* controller = [[[TaskDetailViewController alloc] 
+                                               initWithStyle:UITableViewStyleGrouped] autorelease];
+      controller.task = [self.fetchedResultsController objectAtIndexPath:indexPath];
+      [self.navigationController pushViewController:controller animated:YES];
+    } else {
+      // if static section, add new task.
+      [self addNewTask];
+    }
+
   }
   // if not editing mode, save selected task to account.
   else
   {
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-      // remove out of list
-      if ([selectedTaskList containsObject:indexPath]) {
-        [selectedTaskList removeObject:indexPath];
-      }
-      
+
       // remove checkmark
       cell.accessoryType = UITableViewCellAccessoryNone;
       [account removeTasksObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
       
       
     } else {
-      // add to list
-      [selectedTaskList addObject:indexPath];
-
       // show checkmark
       cell.accessoryType = UITableViewCellAccessoryCheckmark;
       [account addTasksObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
@@ -273,32 +257,11 @@
 
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-	
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
-}
-
 - (void)configureCell:(UITableViewCell *)cell 
           atIndexPath:(NSIndexPath *)indexPath
 {
-  // TODO 綺麗に
-  NSUInteger sectionCount = [[self.fetchedResultsController sections] count];
-  NSUInteger section = [indexPath section];
-  
-  NSLog(@"sectionCount %u,  indexPath section %u", sectionCount, section);
 
-  if (section < sectionCount) {
+  if ([self isFecthRequestSectionForIndexPath:indexPath]) {
     Task *task = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = task.name;
     NSDictionary *taskCategoryMap = [[NSDictionary alloc] initWithContentsOfFile:
@@ -319,7 +282,8 @@
       cell.accessoryType = UITableViewCellAccessoryNone;    
     } 
   } else {
-    cell.textLabel.text = @"Add New Task";
+    cell.textLabel.text = NSLocalizedString(kAddNewTaskLabelText, 
+                                            @"Add new task label text");
     cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
     // show when editing mode.
     // DON'T set YES, because if turn on the editing mode and scroll down,
@@ -330,49 +294,76 @@
 
 }
 
-- (void)save
+#pragma mark - Private Methods
+-(IBAction)toggleEdit
 {
-  Account *account = (Account *)managedObject;
-//  NSMutableSet *taskSet = [account mutableSetValueForKey:@"tasks"];
-//  NSLog(@"account mutableSetValueForKey tasks: %@", taskSet);
-  NSMutableSet *taskSet = [[NSMutableSet alloc] init];
+  [self.tableView setEditing:!self.tableView.editing animated:YES];
+  
+  // section count + 1 is the static one,
+  // since |section| starts with 0, so no need to +1 here actually.
+  NSUInteger staticPath[] = {[[self.fetchedResultsController sections] count], 0};
+  NSIndexPath *staticIndexPath = [NSIndexPath indexPathWithIndexes:
+                                  staticPath length:2];
 
-  for (NSIndexPath *indexPath in selectedTaskList) {
-    //
-    [taskSet addObject:[self.fetchedResultsController 
-                        objectAtIndexPath:indexPath]];
+  UITableViewCell *addTaskCell = [self.tableView cellForRowAtIndexPath:staticIndexPath];
+  // show |addTaskCell| in editing mode, hide when not.
+  addTaskCell.hidden = !self.tableView.editing;
+  
+  // edit mode
+  if (self.tableView.editing)
+  {
+    [self.navigationItem.rightBarButtonItem setTitle:@"Done"];
+    self.tableView.allowsSelectionDuringEditing = YES;
+  }
+  else
+  {
+    [self.navigationItem.rightBarButtonItem setTitle:@"Edit"];
   }
   
-  NSLog(@"task set: %@", taskSet);
-  [self.navigationController popViewControllerAnimated:YES];
-
-  [account addTasks:taskSet];
-  NSError *error = NULL;
-  if (![[account managedObjectContext] save:&error]) {
-    NSLog(@"Error saving tasks to account: %@, for tasks: %@, error is: %@", 
-          account.name, taskSet, [error localizedDescription]);
-  }
-    
 }
 
+// Create new |Task| and push to navigationController.
 - (IBAction)addNewTask 
 {
   NSManagedObjectContext *context = [self.fetchedResultsController 
                                      managedObjectContext];
   NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-  NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+  NSManagedObject *newTask = [NSEntityDescription 
+                              insertNewObjectForEntityForName:[entity name] 
+                              inManagedObjectContext:context];
   
-  [newManagedObject setValue:@"New Task" forKey:@"name"];
+  // TODO should delegate this behavior
+  [newTask setValue:@"New Task" forKey:@"name"];
   
   NSError *error;
   if (![context save:&error])
-    NSLog(@"Error saving entity: %@", [error localizedDescription]);
+    NSLog(@"Error saving task entity: %@", [error localizedDescription]);
 
   TaskDetailViewController* controller = [[[TaskDetailViewController alloc] 
                                            initWithStyle:UITableViewStyleGrouped] autorelease];
-  controller.task = newManagedObject;
-  NSLog(@"task detail view: %@", [controller description]);
+  controller.task = newTask;
   [self.navigationController pushViewController:controller animated:YES];
+}
+
+// return YES if current indexPath is a fetchRequestController section
+// return NO if it is not( means the section is added staticlly )
+- (BOOL)isFecthRequestSectionForIndexPath:(NSIndexPath *)indexPath
+{
+  NSUInteger sectionCount = [[self.fetchedResultsController sections] count];
+  NSUInteger section = [indexPath section];
+  
+  NSLog(@"sectionCount %u,  indexPath section %u", sectionCount, section);
+  
+  return section < sectionCount;
+}
+
+// return YES if current section is a fetchRequestController section
+// return NO if it is not( means the section is added staticlly )
+- (BOOL)isFecthRequestSectionForSection:(NSUInteger)section
+{
+  NSUInteger sectionCount = [[self.fetchedResultsController sections] count];
+  
+  return section < sectionCount;
 }
 
 #pragma mark - Fetched results controller
